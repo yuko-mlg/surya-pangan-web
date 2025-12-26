@@ -38,12 +38,15 @@ document.getElementById('lang-toggle').addEventListener('click', () => {
     updateContent(newLang);
     generateMathCaptcha();
 
-    // Set redirect to current page
-    const redirectInput = document.getElementById('next-redirect');
-    if (redirectInput) {
-        redirectInput.value = window.location.href;
-    }
+    updateContent(newLang);
+    generateMathCaptcha();
 });
+
+// Set redirect to current page on load
+const redirectInput = document.getElementById('next-redirect');
+if (redirectInput) {
+    redirectInput.value = window.location.href;
+}
 
 // Math CAPTCHA Logic
 let captchaSum = 0;
