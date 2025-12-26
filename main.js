@@ -81,7 +81,11 @@ function validateEmail(email) {
         'yahooo.com': 'yahoo.com',
         'hotmal.com': 'hotmail.com',
         'outlok.com': 'outlook.com',
-        'gmai.com': 'gmail.com'
+        'gmai.com': 'gmail.com',
+        'yahot.com': 'yahoo.com',
+        'yhoo.com': 'yahoo.com',
+        'yaho.co': 'yahoo.com',
+        'hotmai.com': 'hotmail.com'
     };
 
     if (typoMap[domain]) {
