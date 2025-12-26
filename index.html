@@ -262,30 +262,75 @@
         </div>
     </section>
 
-    <!-- CTA / Footer -->
-    <footer id="contact">
+    <!-- Contact Section -->
+    <section id="contact" class="section dark-section">
         <div class="container">
-            <div class="cta-box reveal">
-                <h2 data-i18n="footer.cta.title">Siap Mengembangkan Bisnis Anda?</h2>
-                <p data-i18n="footer.cta.desc">Hubungi tim marketing kami untuk mendapatkan penawaran harga terbaik.</p>
-                <div class="cta-buttons">
-                    <a href="#" class="btn-primary large icon-btn">
-                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor"
-                            stroke-width="2">
-                            <path
-                                d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z">
-                            </path>
-                        </svg>
-                        <span data-i18n="footer.cta.btn">Hubungi via WhatsApp</span>
-                    </a>
-                </div>
+            <div class="text-center reveal">
+                <h2 class="section-title text-light" data-i18n="contact.title">Hubungi Kami</h2>
+                <p class="text-light-dim" data-i18n="contact.desc">Punya pertanyaan atau ingin bermitra? Kirimkan pesan
+                    Anda.</p>
+                <div class="line-accent center"></div>
             </div>
 
-            <div class="footer-links">
-                <div class="footer-brand">
-                    <h3>Surya<span class="text-accent">Pangan</span></h3>
-                    <p data-i18n="footer.rights">&copy; 2025 Surya Pangan Bali. All rights reserved.</p>
+            <div class="contact-grid reveal">
+                <!-- Contact Info -->
+                <div class="contact-info">
+                    <div class="info-item">
+                        <div class="info-icon">📍</div>
+                        <div class="info-text">
+                            <h4 data-i18n="contact.info.address">Alamat Kantor</h4>
+                            <p>Jl. Contoh No. 123, Denpasar, Bali</p>
+                        </div>
+                    </div>
+                    <div class="info-item">
+                        <div class="info-icon">📱</div>
+                        <div class="info-text">
+                            <h4 data-i18n="contact.info.phone">WhatsApp</h4>
+                            <p>+62 812 3456 7890</p>
+                        </div>
+                    </div>
+                    <div class="info-item">
+                        <div class="info-icon">✉️</div>
+                        <div class="info-text">
+                            <h4 data-i18n="contact.info.email">Email</h4>
+                            <p>yuko.malang@gmail.com</p>
+                        </div>
+                    </div>
                 </div>
+
+                <!-- Contact Form -->
+                <div class="contact-form-wrapper">
+                    <!-- Formspree Integration -->
+                    <form action="https://formspree.io/f/mzdbzrdq" method="POST" class="contact-form">
+                        <div class="form-group">
+                            <label for="name" data-i18n="contact.form.name">Nama Lengkap</label>
+                            <input type="text" id="name" name="name" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="email" data-i18n="contact.form.email">Alamat Email</label>
+                            <input type="email" id="email" name="email" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="subject" data-i18n="contact.form.subject">Subjek</label>
+                            <input type="text" id="subject" name="subject" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="message" data-i18n="contact.form.message">Pesan Anda</label>
+                            <textarea id="message" name="message" rows="5" required></textarea>
+                        </div>
+                        <button type="submit" class="btn-primary" data-i18n="contact.form.btn">Kirim Pesan</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Simple Footer -->
+    <footer class="site-footer">
+        <div class="container">
+            <div class="footer-brand text-center">
+                <h3>Surya<span class="text-accent">Pangan</span></h3>
+                <p data-i18n="footer.rights">&copy; 2025 Surya Pangan Bali. All rights reserved.</p>
             </div>
         </div>
     </footer>
