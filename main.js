@@ -63,23 +63,66 @@ function generateMathCaptcha() {
 }
 
 // Form Validation
+// Form Validation & AJAX Submission
 const contactForm = document.querySelector('.contact-form');
 if (contactForm) {
     contactForm.addEventListener('submit', function (e) {
+        e.preventDefault(); // Stop standard redirect submission
+
         const userAnswer = parseInt(document.getElementById('captcha-input').value, 10);
+        const btn = contactForm.querySelector('button[type="submit"]');
+        const originalBtnText = btn.innerText;
 
+        // Security Check
         if (userAnswer !== captchaSum) {
-            e.preventDefault(); // Stop submission
-
             // Get error message based on language
             const errorMsg = currentLang === 'id'
                 ? "Jawaban matematika salah. Silakan coba lagi."
                 : "Incorrect math answer. Please try again.";
-
             alert(errorMsg);
-            generateMathCaptcha(); // Reset captcha to prevent brute force
+            generateMathCaptcha();
+            return;
         }
-        // If correct, let the form submit naturally to Formspree
+
+        // Show Loading State
+        btn.innerText = currentLang === 'id' ? "Mengirim..." : "Sending...";
+        btn.disabled = true;
+
+        // Send to Formspree via AJAX
+        const data = new FormData(contactForm);
+
+        fetch(contactForm.action, {
+            method: contactForm.method,
+            body: data,
+            headers: {
+                'Accept': 'application/json'
+            }
+        }).then(response => {
+            if (response.ok) {
+                // Success
+                const successMsg = currentLang === 'id'
+                    ? "Pesan berhasil terkirim! Terima kasih telah menghubungi kami."
+                    : "Message sent successfully! Thank you for contacting us.";
+                alert(successMsg);
+                contactForm.reset(); // Clear form
+                generateMathCaptcha(); // Reset captcha
+            } else {
+                // Error from server
+                response.json().then(data => {
+                    if (Object.hasOwn(data, 'errors')) {
+                        alert(data["errors"].map(error => error["message"]).join(", "));
+                    } else {
+                        alert("Oops! There was a problem submitting your form");
+                    }
+                });
+            }
+        }).catch(error => {
+            alert("Oops! There was a problem submitting your form");
+        }).finally(() => {
+            // Restore Button
+            btn.innerText = originalBtnText;
+            btn.disabled = false;
+        });
     });
 }
 
