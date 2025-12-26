@@ -99,7 +99,7 @@ function validateEmail(email) {
 // Form Validation & AJAX Submission
 const contactForm = document.querySelector('.contact-form');
 if (contactForm) {
-    contactForm.addEventListener('submit', function (e) {
+    contactForm.addEventListener('submit', async function (e) {
         e.preventDefault(); // Stop standard redirect submission
 
         const userAnswer = parseInt(document.getElementById('captcha-input').value, 10);
@@ -107,7 +107,7 @@ if (contactForm) {
         const btn = contactForm.querySelector('button[type="submit"]');
         const originalBtnText = btn.innerText;
 
-        // Email Validation Check
+        // 1. Client-Side Validation (Regex + Typo)
         const emailValidation = validateEmail(email);
         if (!emailValidation.isValid) {
             let msg = translations[currentLang][emailValidation.errorKey];
@@ -118,7 +118,37 @@ if (contactForm) {
             return;
         }
 
-        // Security Check
+        // Show Loading State
+        btn.innerText = currentLang === 'id' ? "Memeriksa..." : "Checking...";
+        btn.disabled = true;
+
+        // 2. Server-Side Validation (Vercel Function)
+        try {
+            // Only run if on Vercel or if configured locally
+            // We use a timeout to prevent hanging
+            const controller = new AbortController();
+            const timeoutId = setTimeout(() => controller.abort(), 5000);
+
+            const res = await fetch(`/api/validate-email?email=${encodeURIComponent(email)}`, {
+                signal: controller.signal
+            });
+            clearTimeout(timeoutId);
+
+            if (res.ok) {
+                const result = await res.json();
+                if (!result.isValid) {
+                    alert(translations[currentLang].emailDomainError);
+                    btn.innerText = originalBtnText;
+                    btn.disabled = false;
+                    return;
+                }
+            }
+        } catch (err) {
+            console.warn("Domain check skipped:", err);
+            // Fail open: If API is down or local, allow submission
+        }
+
+        // Security Check (Math CAPTCHA)
         if (userAnswer !== captchaSum) {
             // Get error message based on language
             const errorMsg = currentLang === 'id'
@@ -126,12 +156,12 @@ if (contactForm) {
                 : "Incorrect math answer. Please try again.";
             alert(errorMsg);
             generateMathCaptcha();
+            btn.innerText = originalBtnText;
+            btn.disabled = false;
             return;
         }
 
-        // Show Loading State
         btn.innerText = currentLang === 'id' ? "Mengirim..." : "Sending...";
-        btn.disabled = true;
 
         // Send to Formspree via AJAX
         const data = new FormData(contactForm);
