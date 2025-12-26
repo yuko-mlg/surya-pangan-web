@@ -62,6 +62,35 @@ function generateMathCaptcha() {
     document.getElementById('captcha-input').value = '';
 }
 
+// Email Validation Logic
+function validateEmail(email) {
+    // 1. Strict Regex for valid format
+    const re = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    if (!re.test(email)) {
+        return { isValid: false, errorKey: 'emailInvalid' };
+    }
+
+    // 2. Typo Guard for common domains
+    const domain = email.split('@')[1].toLowerCase();
+    const typoMap = {
+        'gmil.com': 'gmail.com',
+        'gmial.com': 'gmail.com',
+        'gmsil.com': 'gmail.com',
+        'gmal.com': 'gmail.com',
+        'yaho.com': 'yahoo.com',
+        'yahooo.com': 'yahoo.com',
+        'hotmal.com': 'hotmail.com',
+        'outlok.com': 'outlook.com',
+        'gmai.com': 'gmail.com'
+    };
+
+    if (typoMap[domain]) {
+        return { isValid: false, errorKey: 'emailTypo', suggestion: typoMap[domain] };
+    }
+
+    return { isValid: true };
+}
+
 // Form Validation
 // Form Validation & AJAX Submission
 const contactForm = document.querySelector('.contact-form');
@@ -70,8 +99,20 @@ if (contactForm) {
         e.preventDefault(); // Stop standard redirect submission
 
         const userAnswer = parseInt(document.getElementById('captcha-input').value, 10);
+        const email = document.getElementById('email').value;
         const btn = contactForm.querySelector('button[type="submit"]');
         const originalBtnText = btn.innerText;
+
+        // Email Validation Check
+        const emailValidation = validateEmail(email);
+        if (!emailValidation.isValid) {
+            let msg = translations[currentLang][emailValidation.errorKey];
+            if (emailValidation.suggestion) {
+                msg += ` ${emailValidation.suggestion}?`;
+            }
+            alert(msg);
+            return;
+        }
 
         // Security Check
         if (userAnswer !== captchaSum) {
