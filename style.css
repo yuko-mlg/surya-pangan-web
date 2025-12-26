@@ -619,67 +619,23 @@ ul {
 /* Footer & CTA */
 /* Contact Section */
 .contact-grid {
-    display: grid;
-    grid-template-columns: 1fr 1.5fr;
-    gap: 4rem;
-    align-items: flex-start;
-}
-
-.contact-info {
     display: flex;
-    flex-direction: column;
-    gap: 2rem;
-}
-
-.info-item {
-    display: flex;
-    align-items: center;
-    gap: 1.5rem;
-    padding: 1.5rem;
-    background: rgba(255, 255, 255, 0.05);
-    border-radius: 16px;
-    border: 1px solid rgba(255, 255, 255, 0.1);
-    transition: all 0.3s;
-}
-
-.info-item:hover {
-    background: rgba(255, 255, 255, 0.08);
-    transform: translateX(5px);
-    border-color: var(--color-accent);
-}
-
-.info-icon {
-    font-size: 1.5rem;
-    width: 50px;
-    height: 50px;
-    background: rgba(212, 175, 55, 0.2);
-    color: var(--color-accent);
-    border-radius: 50%;
-    display: flex;
-    align-items: center;
     justify-content: center;
+    width: 100%;
 }
 
-.info-text h4 {
-    font-size: 0.9rem;
-    color: var(--color-accent);
-    text-transform: uppercase;
-    letter-spacing: 1px;
-    margin-bottom: 0.2rem;
-}
-
-.info-text p {
-    color: #e2e8f0;
-    font-size: 1.1rem;
-}
-
-/* Contact Form */
 .contact-form-wrapper {
     background: rgba(255, 255, 255, 0.05);
-    padding: 2.5rem;
+    padding: 3rem;
     border-radius: 24px;
     border: 1px solid rgba(255, 255, 255, 0.1);
+    width: 100%;
+    max-width: 700px;
+    /* Limit width for aesthetics */
+    box-shadow: 0 20px 40px -10px rgba(0, 0, 0, 0.3);
 }
+
+/* Removed Contact Info Styles */
 
 .contact-form {
     display: flex;

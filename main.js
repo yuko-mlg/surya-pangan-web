@@ -36,7 +36,49 @@ const updateContent = (lang) => {
 document.getElementById('lang-toggle').addEventListener('click', () => {
     const newLang = currentLang === 'id' ? 'en' : 'id';
     updateContent(newLang);
+    generateMathCaptcha();
+
+    // Set redirect to current page
+    const redirectInput = document.getElementById('next-redirect');
+    if (redirectInput) {
+        redirectInput.value = window.location.href;
+    }
 });
+
+// Math CAPTCHA Logic
+let captchaSum = 0;
+
+function generateMathCaptcha() {
+    const num1 = Math.floor(Math.random() * 10) + 1; // 1-10
+    const num2 = Math.floor(Math.random() * 10) + 1; // 1-10
+    captchaSum = num1 + num2;
+
+    // Update label text based on language logic is handled by translating content, 
+    // but here we just update the numbers which are universal.
+    document.getElementById('math-problem').textContent = `${num1} + ${num2} = ?`;
+    document.getElementById('captcha-input').value = '';
+}
+
+// Form Validation
+const contactForm = document.querySelector('.contact-form');
+if (contactForm) {
+    contactForm.addEventListener('submit', function (e) {
+        const userAnswer = parseInt(document.getElementById('captcha-input').value, 10);
+
+        if (userAnswer !== captchaSum) {
+            e.preventDefault(); // Stop submission
+
+            // Get error message based on language
+            const errorMsg = currentLang === 'id'
+                ? "Jawaban matematika salah. Silakan coba lagi."
+                : "Incorrect math answer. Please try again.";
+
+            alert(errorMsg);
+            generateMathCaptcha(); // Reset captcha to prevent brute force
+        }
+        // If correct, let the form submit naturally to Formspree
+    });
+}
 
 window.addEventListener('scroll', () => {
     if (window.scrollY > 50) {

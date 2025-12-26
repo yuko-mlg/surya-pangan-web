@@ -273,30 +273,8 @@
             </div>
 
             <div class="contact-grid reveal">
-                <!-- Contact Info -->
-                <div class="contact-info">
-                    <div class="info-item">
-                        <div class="info-icon">📍</div>
-                        <div class="info-text">
-                            <h4 data-i18n="contact.info.address">Alamat Kantor</h4>
-                            <p>Jl. Contoh No. 123, Denpasar, Bali</p>
-                        </div>
-                    </div>
-                    <div class="info-item">
-                        <div class="info-icon">📱</div>
-                        <div class="info-text">
-                            <h4 data-i18n="contact.info.phone">WhatsApp</h4>
-                            <p>+62 812 3456 7890</p>
-                        </div>
-                    </div>
-                    <div class="info-item">
-                        <div class="info-icon">✉️</div>
-                        <div class="info-text">
-                            <h4 data-i18n="contact.info.email">Email</h4>
-                            <p>yuko.malang@gmail.com</p>
-                        </div>
-                    </div>
-                </div>
+                <!-- Contact Info Removed as per request -->
+
 
                 <!-- Contact Form -->
                 <div class="contact-form-wrapper">
@@ -318,6 +296,26 @@
                             <label for="message" data-i18n="contact.form.message">Pesan Anda</label>
                             <textarea id="message" name="message" rows="5" required></textarea>
                         </div>
+
+                        <!-- Security Question (Math CAPTCHA) -->
+                        <div class="form-group">
+                            <label for="captcha" id="captcha-label" data-i18n="contact.form.security">Pertanyaan
+                                Keamanan</label>
+                            <div style="display: flex; align-items: center; gap: 10px;">
+                                <span id="math-problem"
+                                    style="color: #fff; font-weight: bold; font-size: 1.1rem; min-width: 80px;">3 + 4 =
+                                    ?</span>
+                                <input type="number" id="captcha-input" name="captcha" required style="width: 100px;"
+                                    placeholder="?">
+                            </div>
+                        </div>
+
+                        <!-- Honeypot for bots (Hidden) -->
+                        <input type="text" name="_gotcha" style="display:none">
+
+                        <!-- Redirect after submission -->
+                        <input type="hidden" name="_next" id="next-redirect">
+
                         <button type="submit" class="btn-primary" data-i18n="contact.form.btn">Kirim Pesan</button>
                     </form>
                 </div>
