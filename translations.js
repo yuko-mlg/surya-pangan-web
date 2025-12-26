@@ -1,0 +1,112 @@
+export const translations = {
+    id: {
+        "nav.home": "Beranda",
+        "nav.about": "Tentang Kami",
+        "nav.suppliers": "Supplier",
+        "nav.coverage": "Area Distribusi",
+        "nav.csr": "CSR",
+        "nav.contact": "Hubungi Kami",
+
+        "hero.title": "Distributor Bahan Kuliner Terpercaya",
+        "hero.desc": "Menyediakan bahan baking berkualitas terbaik untuk kesuksesan outlet dan industri pangan di seluruh Bali.",
+        "hero.cta_primary": "Mulai Bermitra",
+        "hero.cta_secondary": "Lihat Produk",
+        "hero.stat.years": "Melayani Sejak",
+        "hero.stat.customers": "Customer Aktif",
+        "hero.stat.area": "Seluruh Area",
+
+        "about.vision.title": "Visi Kami",
+        "about.vision.desc": "Menjadi distributor utama yang mendukung pertumbuhan UMKM & industri pangan Bali.",
+        "about.title": "Mengapa Memilih <span class='text-accent'>Surya Pangan</span>?",
+        "about.lead": "Kami bukan sekadar distributor, kami adalah mitra pertumbuhan bisnis Anda.",
+        "about.desc": "Surya Pangan bergerak di bidang distribusi bahan roti dan kue beserta seluruh perlengkapannya. Selama lebih dari 8 tahun, kami berkomitmen penuh melayani para pegiat ekonomi sektor pangan di Pulau Dewata.",
+        "about.feat1.title": "Terpercaya",
+        "about.feat1.desc": "Dipercaya oleh lebih dari 2000 customer mulai dari outlet kecil hingga industri besar.",
+        "about.feat2.title": "Produk Berkualitas",
+        "about.feat2.desc": "Bekerja sama langsung dengan prinsipal ternama untuk menjamin keaslian dan kualitas.",
+        "about.feat3.title": "Pengiriman Cepat",
+        "about.feat3.desc": "Armada logistik yang siap menjangkau seluruh pelosok Bali.",
+
+        "suppliers.title": "Supplier Resmi Kami",
+        "suppliers.desc": "Kami bekerja sama dengan brand-brand terbaik di industri pangan",
+
+        "coverage.title": "Jangkauan Distribusi",
+        "coverage.desc": "Kami melayani pengiriman ke seluruh area Bali.",
+
+        "gallery.title": "Kualitas yang Kami Tawarkan",
+        "gallery.desc": "Dari bahan mentah premium hingga pengiriman yang terorganisir.",
+        "gallery.item1": "Bahan Premium",
+        "gallery.item2": "Stok Lengkap",
+        "gallery.item3": "Distribusi Profesional",
+
+        "csr.title": "Kepedulian Sosial (CSR)",
+        "csr.desc": "Berbagi kasih untuk sesama melalui aksi nyata.",
+        "csr.card.badge": "Kegiatan Rutin",
+        "csr.card.title": "Aksi Donor Darah Peduli Sesama",
+        "csr.card.time": "Setiap 3 Bulan",
+        "csr.card.loc": "Kantor Pusat Surya Pangan",
+        "csr.card.desc1": "Sebagai bentuk rasa syukur dan kepedulian terhadap sesama, Surya Pangan secara rutin menyelenggarakan kegiatan donor darah. Bekerja sama dengan PMI Bali, kami mengajak seluruh staf, mitra, dan masyarakat sekitar untuk mendonorkan darah demi menyelamatkan nyawa mereka yang membutuhkan.",
+        "csr.card.desc2": "Setetes darah kita sangat berarti bagi mereka.",
+        "csr.card.cta": "Lihat Dokumentasi Lengkap",
+
+        "footer.cta.title": "Siap Mengembangkan Bisnis Anda?",
+        "footer.cta.desc": "Hubungi tim marketing kami untuk mendapatkan penawaran harga terbaik.",
+        "footer.cta.btn": "Hubungi via WhatsApp",
+        "footer.rights": "&copy; 2025 Surya Pangan Bali. All rights reserved."
+    },
+    en: {
+        "nav.home": "Home",
+        "nav.about": "About Us",
+        "nav.suppliers": "Suppliers",
+        "nav.coverage": "Coverage Area",
+        "nav.csr": "CSR",
+        "nav.contact": "Contact Us",
+
+        "hero.title": "Trusted Culinary Ingredients Distributor",
+        "hero.desc": "Providing the best quality baking ingredients to support the success of outlets and food industries across Bali.",
+        "hero.cta_primary": "Partner With Us",
+        "hero.cta_secondary": "View Products",
+        "hero.stat.years": "Serving Since",
+        "hero.stat.customers": "Active Customers",
+        "hero.stat.area": "All Areas",
+
+        "about.vision.title": "Our Vision",
+        "about.vision.desc": "To be the premier distributor supporting the growth of SMEs & the food industry in Bali.",
+        "about.title": "Why Choose <span class='text-accent'>Surya Pangan</span>?",
+        "about.lead": "We are not just a distributor, we are your business growth partner.",
+        "about.desc": "Surya Pangan specializes in the distribution of bakery and pastry ingredients and equipment. For over 8 years, we have been fully committed to serving the food sector economy in the Island of the Gods.",
+        "about.feat1.title": "Trusted",
+        "about.feat1.desc": "Trusted by over 2000 customers ranging from small outlets to large industries.",
+        "about.feat2.title": "Quality Products",
+        "about.feat2.desc": "Working directly with renowned principals to guarantee authenticity and quality.",
+        "about.feat3.title": "Fast Delivery",
+        "about.feat3.desc": "Logistics fleet ready to reach every corner of Bali.",
+
+        "suppliers.title": "Our Official Suppliers",
+        "suppliers.desc": "We work with the best brands in the food industry",
+
+        "coverage.title": "Distribution Coverage",
+        "coverage.desc": "We serve deliveries to all areas of Bali.",
+
+        "gallery.title": "Quality We Offer",
+        "gallery.desc": "From premium raw materials to organized delivery.",
+        "gallery.item1": "Premium Ingredients",
+        "gallery.item2": "Complete Stock",
+        "gallery.item3": "Professional Distribution",
+
+        "csr.title": "Social Responsibility (CSR)",
+        "csr.desc": "Sharing love for others through real action.",
+        "csr.card.badge": "Routine Event",
+        "csr.card.title": "Blood Donation Action for Others",
+        "csr.card.time": "Every 3 Months",
+        "csr.card.loc": "Surya Pangan HQ",
+        "csr.card.desc1": "As a form of gratitude and care for others, Surya Pangan regularly organizes blood donation events. Working with PMI Bali, we invite all staff, partners, and the surrounding community to donate blood to save lives in need.",
+        "csr.card.desc2": "A drop of our blood means a lot to them.",
+        "csr.card.cta": "View Full Documentation",
+
+        "footer.cta.title": "Ready to Grow Your Business?",
+        "footer.cta.desc": "Contact our marketing team to get the best price offer.",
+        "footer.cta.btn": "Contact via WhatsApp",
+        "footer.rights": "&copy; 2025 Surya Pangan Bali. All rights reserved."
+    }
+};
