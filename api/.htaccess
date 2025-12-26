@@ -1,0 +1,7 @@
+RewriteEngine On
+RewriteBase /api/
+
+# Redirect extensionless 'validate-email' to 'validate-email.php'
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteRule ^validate-email$ validate-email.php [L,QSA]
