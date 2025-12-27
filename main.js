@@ -130,36 +130,6 @@ if (contactForm) {
 
         formStatus.style.display = 'none'; // Hide if previous error
 
-        // Show Loading State
-        btn.innerText = currentLang === 'id' ? "Memeriksa..." : "Checking...";
-        btn.disabled = true;
-
-        // 2. Server-Side Validation (Vercel Function)
-        try {
-            // Only run if on Vercel or if configured locally
-            // We use a timeout to prevent hanging
-            const controller = new AbortController();
-            const timeoutId = setTimeout(() => controller.abort(), 5000);
-
-            const res = await fetch(`/api/validate-email?email=${encodeURIComponent(email)}`, {
-                signal: controller.signal
-            });
-            clearTimeout(timeoutId);
-
-            if (res.ok) {
-                const result = await res.json();
-                if (!result.isValid) {
-                    showStatus(translations[currentLang].emailDomainError, 'error');
-                    btn.innerText = originalBtnText;
-                    btn.disabled = false;
-                    return;
-                }
-            }
-        } catch (err) {
-            console.warn("Domain check skipped:", err);
-            // Fail open: If API is down or local, allow submission
-        }
-
         // Security Check (Math CAPTCHA)
         if (userAnswer !== captchaSum) {
             // Get error message based on language
