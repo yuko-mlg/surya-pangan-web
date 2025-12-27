@@ -604,13 +604,12 @@ ul {
     justify-content: center;
 }
 
-.bali-shape {
-    /* Abstract shape for Bali */
-    width: 300px;
-    height: 150px;
-    background: #334155;
-    border-radius: 40% 60% 70% 30% / 40% 50% 60% 50%;
-    position: relative;
+.bali-map-img {
+    width: 90%;
+    height: auto;
+    max-height: 350px;
+    object-fit: contain;
+    filter: drop-shadow(0 0 20px rgba(0, 0, 0, 0.5));
 }
 
 .pin {
@@ -624,32 +623,32 @@ ul {
 }
 
 .pin-dps {
-    top: 60%;
-    right: 25%;
-}
-
-/* Denpasar rough loc */
-.pin-sing {
-    top: 20%;
-    left: 40%;
+    top: 75%;
+    left: 48%;
 }
 
 /* Singaraja */
-.pin-tab {
-    top: 55%;
-    left: 35%;
+.pin-sing {
+    top: 15%;
+    left: 45%;
 }
 
 /* Tabanan */
-.pin-kar {
-    top: 35%;
-    right: 15%;
+.pin-tab {
+    top: 60%;
+    left: 40%;
 }
 
 /* Karangasem */
-.pin-neg {
+.pin-kar {
     top: 50%;
-    left: 10%;
+    right: 18%;
+}
+
+/* Negara */
+.pin-neg {
+    top: 45%;
+    left: 12%;
 }
 
 /* Negara */
