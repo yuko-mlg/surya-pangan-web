@@ -108,15 +108,27 @@ if (contactForm) {
         const originalBtnText = btn.innerText;
 
         // 1. Client-Side Validation (Regex + Typo)
+        const formStatus = document.getElementById('form-status');
+        const showStatus = (msg, type = 'error') => {
+            formStatus.innerText = msg;
+            formStatus.className = `form-status ${type}`;
+            formStatus.style.display = 'block';
+            if (type === 'error') {
+                formStatus.scrollIntoView({ behavior: 'smooth', block: 'center' });
+            }
+        };
+
         const emailValidation = validateEmail(email);
         if (!emailValidation.isValid) {
             let msg = translations[currentLang][emailValidation.errorKey];
             if (emailValidation.suggestion) {
                 msg += ` ${emailValidation.suggestion}?`;
             }
-            alert(msg);
+            showStatus(msg, 'error');
             return;
         }
+
+        formStatus.style.display = 'none'; // Hide if previous error
 
         // Show Loading State
         btn.innerText = currentLang === 'id' ? "Memeriksa..." : "Checking...";
@@ -137,7 +149,7 @@ if (contactForm) {
             if (res.ok) {
                 const result = await res.json();
                 if (!result.isValid) {
-                    alert(translations[currentLang].emailDomainError);
+                    showStatus(translations[currentLang].emailDomainError, 'error');
                     btn.innerText = originalBtnText;
                     btn.disabled = false;
                     return;
@@ -151,10 +163,10 @@ if (contactForm) {
         // Security Check (Math CAPTCHA)
         if (userAnswer !== captchaSum) {
             // Get error message based on language
-            const errorMsg = currentLang === 'id'
+            const errorMsg = translations[currentLang].mathError || (currentLang === 'id'
                 ? "Jawaban matematika salah. Silakan coba lagi."
-                : "Incorrect math answer. Please try again.";
-            alert(errorMsg);
+                : "Incorrect math answer. Please try again.");
+            showStatus(errorMsg, 'error');
             generateMathCaptcha();
             btn.innerText = originalBtnText;
             btn.disabled = false;
@@ -175,24 +187,24 @@ if (contactForm) {
         }).then(response => {
             if (response.ok) {
                 // Success
-                const successMsg = currentLang === 'id'
+                const successMsg = translations[currentLang].formSuccess || (currentLang === 'id'
                     ? "Pesan berhasil terkirim! Terima kasih telah menghubungi kami."
-                    : "Message sent successfully! Thank you for contacting us.";
-                alert(successMsg);
+                    : "Message sent successfully! Thank you for contacting us.");
+                showStatus(successMsg, 'success');
                 contactForm.reset(); // Clear form
                 generateMathCaptcha(); // Reset captcha
             } else {
                 // Error from server
                 response.json().then(data => {
                     if (Object.hasOwn(data, 'errors')) {
-                        alert(data["errors"].map(error => error["message"]).join(", "));
+                        showStatus(data["errors"].map(error => error["message"]).join(", "), 'error');
                     } else {
-                        alert("Oops! There was a problem submitting your form");
+                        showStatus(translations[currentLang].formError, 'error');
                     }
                 });
             }
         }).catch(error => {
-            alert("Oops! There was a problem submitting your form");
+            showStatus(translations[currentLang].formError, 'error');
         }).finally(() => {
             // Restore Button
             btn.innerText = originalBtnText;

@@ -134,11 +134,15 @@ ul {
     color: #0f172a;
     /* Dark text on gold is better */
     padding: 0.75rem 1.5rem;
+    border: none;
     border-radius: 8px;
-    font-weight: 600;
+    font-weight: 700;
     display: inline-flex;
     align-items: center;
+    justify-content: center;
     gap: 0.5rem;
+    cursor: pointer;
+    transition: all 0.3s ease;
 }
 
 .btn-primary:hover {
@@ -232,11 +236,39 @@ ul {
     align-items: center;
 }
 
+@media (min-width: 992px) {
+    .nav-container {
+        flex-direction: column;
+        gap: 1rem;
+    }
+}
+
 .brand {
     font-family: var(--font-heading);
     font-size: 1.75rem;
     font-weight: 800;
     color: var(--color-bg-white);
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+}
+
+@media (min-width: 992px) {
+    .brand {
+        justify-content: center;
+        width: 100%;
+    }
+}
+
+.logo-img {
+    height: 45px;
+    width: auto;
+}
+
+/* Optional: hide text if logo is sufficient, or keep both */
+.brand-text {
+    display: inline-block;
+    /* Ensuring it has a property if kept, or remove if truly empty */
 }
 
 .navbar.scrolled .brand {
@@ -245,8 +277,10 @@ ul {
 
 .nav-links {
     display: flex;
-    gap: 2rem;
+    gap: 1.5rem;
     align-items: center;
+    flex-wrap: wrap;
+    justify-content: center;
 }
 
 .nav-links a {
@@ -349,6 +383,16 @@ ul {
     letter-spacing: -1px;
 }
 
+@media (max-width: 768px) {
+    .hero h1 {
+        font-size: 2.5rem;
+    }
+
+    .hero h1 span {
+        font-size: 1.5rem;
+    }
+}
+
 .hero h1 span {
     color: var(--color-accent);
     display: block;
@@ -367,6 +411,17 @@ ul {
     margin-left: auto;
     margin-right: auto;
     font-weight: 300;
+}
+
+@media (max-width: 768px) {
+    .hero p {
+        font-size: 1.1rem;
+        margin-bottom: 2rem;
+    }
+
+    .hero-content {
+        padding: 2rem 1.5rem;
+    }
 }
 
 .hero-actions {
@@ -674,11 +729,131 @@ ul {
     background: rgba(0, 0, 0, 0.4);
 }
 
+.form-status {
+    padding: 1rem;
+    border-radius: 8px;
+    margin-bottom: 1rem;
+    display: none;
+    font-size: 0.95rem;
+    font-weight: 500;
+    text-align: center;
+}
+
+.form-status.success {
+    display: block;
+    background: rgba(34, 197, 94, 0.15);
+    color: #4ade80;
+    border: 1px solid rgba(34, 197, 94, 0.2);
+}
+
+.form-status.error {
+    display: block;
+    background: rgba(239, 68, 68, 0.15);
+    color: #f87171;
+    border: 1px solid rgba(239, 68, 68, 0.2);
+}
+
+/* Footer CTA Section */
+.footer-cta-section {
+    padding: 4rem 1rem;
+    background-color: var(--color-bg-dark);
+}
+
+.footer-cta-card {
+    background: linear-gradient(135deg, rgba(255, 255, 255, 0.05) 0%, rgba(255, 255, 255, 0.02) 100%);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 24px;
+    padding: 4rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 2rem;
+    box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
+}
+
+.footer-cta-card h2 {
+    color: #fff;
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
+}
+
+.footer-cta-card p {
+    color: #cbd5e1;
+    font-size: 1.2rem;
+    max-width: 600px;
+}
+
+@media (max-width: 992px) {
+    .footer-cta-card {
+        flex-direction: column;
+        text-align: center;
+        padding: 3rem 2rem;
+    }
+
+    .footer-cta-card h2 {
+        font-size: 2rem;
+    }
+}
+
 /* Footer */
 .site-footer {
     background: #0b1120;
-    padding: 2rem 0;
+    padding: 3rem 0;
     border-top: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.footer-logo {
+    height: 60px;
+    width: auto;
+    margin-bottom: 1rem;
+}
+
+.footer-brand h3 {
+    color: var(--color-bg-white);
+    font-size: 1.5rem;
+    margin-top: 0.5rem;
+    margin-bottom: 0.5rem;
+}
+
+.footer-brand .text-accent {
+    color: var(--color-accent);
+}
+
+.footer-contact-info {
+    margin: 1.5rem 0;
+    color: #94a3b8;
+    font-size: 0.95rem;
+}
+
+.footer-contact-info p {
+    margin-bottom: 0.5rem;
+}
+
+.footer-link {
+    color: inherit;
+    transition: color 0.3s;
+}
+
+.footer-link:hover {
+    color: var(--color-accent);
+}
+
+.footer-socials {
+    display: flex;
+    justify-content: center;
+    gap: 1.5rem;
+    margin-bottom: 2rem;
+}
+
+.social-link {
+    color: #94a3b8;
+    transition: all 0.3s;
+}
+
+.social-link:hover {
+    color: var(--color-accent);
+    transform: translateY(-3px);
 }
 
 /* Animations using Classes */
@@ -762,6 +937,10 @@ ul {
 }
 
 @media (max-width: 600px) {
+    .section {
+        padding: 3rem 1rem;
+    }
+
     .hero h1 {
         font-size: 2.2rem;
     }
