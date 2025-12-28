@@ -76,7 +76,7 @@ export const translations = {
         "footer.cta.title": "Siap Mengembangkan Bisnis Anda?",
         "footer.cta.desc": "Hubungi tim marketing kami untuk mendapatkan penawaran harga terbaik.",
         "footer.cta.btn": "Hubungi via WhatsApp",
-        "footer.rights": "&copy; 2025 Surya Pangan Bali. All rights reserved."
+        "footer.rights": "&copy; 2025 IT Division Surya Pangan Bali. All rights reserved."
     },
     en: {
         "nav.home": "Home",
@@ -155,6 +155,6 @@ export const translations = {
         "footer.cta.title": "Ready to Grow Your Business?",
         "footer.cta.desc": "Contact our marketing team to get the best price offer.",
         "footer.cta.btn": "Contact via WhatsApp",
-        "footer.rights": "&copy; 2025 Surya Pangan Bali. All rights reserved."
+        "footer.rights": "&copy; 2025 IT Division Surya Pangan Bali. All rights reserved."
     }
 };
