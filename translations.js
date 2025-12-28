@@ -34,6 +34,9 @@ export const translations = {
         "suppliers.title": "Supplier",
         "suppliers.desc": "Kami bekerja sama dengan brand-brand terbaik di industri pangan",
 
+        "products.title": "Produk",
+        "products.desc": "Brand-brand terbaik yang kami distribusikan untuk bisnis Anda",
+
         "coverage.title": "Distribusi",
         "coverage.desc": "Kami melayani pengiriman ke seluruh area Bali.",
 
@@ -113,6 +116,9 @@ export const translations = {
 
         "suppliers.title": "Suppliers",
         "suppliers.desc": "We work with the best brands in the food industry",
+
+        "products.title": "Products",
+        "products.desc": "The best brands we distribute for your business",
 
         "coverage.title": "Distribution",
         "coverage.desc": "We serve deliveries to all areas of Bali.",
