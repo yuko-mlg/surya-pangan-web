@@ -1,4 +1,3 @@
-```javascript
 import { translations } from './translations.js';
 
 // Scroll to top on page load/refresh
@@ -70,7 +69,7 @@ function generateMathCaptcha() {
 
     // Update label text based on language logic is handled by translating content, 
     // but here we just update the numbers which are universal.
-    document.getElementById('math-problem').textContent = `${ num1 } + ${ num2 } = ?`;
+    document.getElementById('math-problem').textContent = `${num1} + ${num2} = ?`;
     document.getElementById('captcha-input').value = '';
 }
 
@@ -123,7 +122,7 @@ if (contactForm) {
         const formStatus = document.getElementById('form-status');
         const showStatus = (msg, type = 'error') => {
             formStatus.innerText = msg;
-            formStatus.className = `form - status ${ type } `;
+            formStatus.className = `form - status ${type} `;
             formStatus.style.display = 'block';
             if (type === 'error') {
                 formStatus.scrollIntoView({ behavior: 'smooth', block: 'center' });
@@ -134,7 +133,7 @@ if (contactForm) {
         if (!emailValidation.isValid) {
             let msg = translations[currentLang][emailValidation.errorKey];
             if (emailValidation.suggestion) {
-                msg += ` ${ emailValidation.suggestion }?`;
+                msg += ` ${emailValidation.suggestion}?`;
             }
             showStatus(msg, 'error');
             return;
@@ -252,7 +251,7 @@ const revealCallback = (entries, observer) => {
                         };
 
                         img.onerror = () => {
-                            console.warn(`Failed to load logo for ${ img.alt }`);
+                            console.warn(`Failed to load logo for ${img.alt}`);
                             // Keep text as fallback - no action needed
                         };
                     }
