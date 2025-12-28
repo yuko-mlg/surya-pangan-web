@@ -565,31 +565,52 @@ ul {
 
 .logo-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
-    gap: 2rem;
+    grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+    gap: 1.5rem;
     margin-top: 3rem;
 }
 
 .brand-card {
     background: #fff;
-    height: 100px;
+    height: 120px;
     display: flex;
+    flex-direction: column;
     align-items: center;
     justify-content: center;
-    border-radius: 12px;
-    box-shadow: var(--shadow-md);
-    font-weight: 600;
-    color: var(--color-text-muted);
-    font-size: 1.1rem;
-    transition: all 0.3s ease;
+    border-radius: 16px;
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05), 0 2px 4px -1px rgba(0, 0, 0, 0.03);
+    transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
     border: 1px solid #f1f5f9;
+    padding: 1rem;
+    cursor: default;
+}
+
+.brand-logo {
+    font-family: var(--font-heading);
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    font-size: 0.95rem;
+    color: var(--color-primary);
+    opacity: 0.7;
+    text-align: center;
+    transition: all 0.3s ease;
 }
 
 .brand-card:hover {
-    transform: translateY(-5px);
-    box-shadow: var(--shadow-lg);
+    transform: translateY(-8px) scale(1.02);
+    box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
     border-color: var(--color-accent);
-    color: var(--color-primary);
+}
+
+.brand-card:hover .brand-logo {
+    opacity: 1;
+    color: var(--color-secondary);
+}
+
+.more-card .brand-logo {
+    font-size: 1.5rem;
+    opacity: 0.4;
 }
 
 /* Coverage Section */
