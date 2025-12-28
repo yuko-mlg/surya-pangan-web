@@ -12,7 +12,7 @@ export const translations = {
         "nav.news": "Berita",
 
         "hero.title": "Distributor Bahan Kuliner Terpercaya",
-        "hero.desc": "Menyediakan bahan baking berkualitas terbaik untuk kesuksesan outlet dan industri pangan di seluruh Bali.",
+        "hero.desc": "Menyediakan bahan makanan kualitas terbaik untuk kesuksesan outlet dan industri makanan.",
         "hero.cta_primary": "Mulai Bermitra",
         "hero.cta_secondary": "Lihat Produk",
         "hero.stat.years": "Melayani Sejak",
@@ -95,7 +95,7 @@ export const translations = {
         "nav.news": "News",
 
         "hero.title": "Trusted Culinary Ingredients Distributor",
-        "hero.desc": "Providing the best quality baking ingredients to support the success of outlets and food industries across Bali.",
+        "hero.desc": "Providing the best quality food ingredients to support the success of outlets and food industries.",
         "hero.cta_primary": "Partner With Us",
         "hero.cta_secondary": "View Products",
         "hero.stat.years": "Serving Since",
