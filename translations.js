@@ -3,7 +3,7 @@ export const translations = {
         "nav.home": "Beranda",
         "nav.about": "Tentang Kami",
         "nav.suppliers": "Supplier",
-        "nav.coverage": "Area Distribusi",
+        "nav.coverage": "Distribusi",
         "nav.csr": "CSR",
         "nav.contact": "Hubungi Kami",
         "nav.history": "Sejarah",
@@ -30,10 +30,10 @@ export const translations = {
         "about.feat3.title": "Pengiriman Cepat",
         "about.feat3.desc": "Armada logistik yang siap menjangkau seluruh pelosok Bali.",
 
-        "suppliers.title": "Supplier Resmi Kami",
+        "suppliers.title": "Supplier",
         "suppliers.desc": "Kami bekerja sama dengan brand-brand terbaik di industri pangan",
 
-        "coverage.title": "Jangkauan Distribusi",
+        "coverage.title": "Distribusi",
         "coverage.desc": "Kami melayani pengiriman ke seluruh area Bali.",
 
         "gallery.title": "Kualitas yang Kami Tawarkan",
@@ -82,7 +82,7 @@ export const translations = {
         "nav.home": "Home",
         "nav.about": "About Us",
         "nav.suppliers": "Suppliers",
-        "nav.coverage": "Coverage Area",
+        "nav.coverage": "Distribution",
         "nav.csr": "CSR",
         "nav.contact": "Contact Us",
         "nav.history": "History",
@@ -109,10 +109,10 @@ export const translations = {
         "about.feat3.title": "Fast Delivery",
         "about.feat3.desc": "Logistics fleet ready to reach every corner of Bali.",
 
-        "suppliers.title": "Our Official Suppliers",
+        "suppliers.title": "Suppliers",
         "suppliers.desc": "We work with the best brands in the food industry",
 
-        "coverage.title": "Distribution Coverage",
+        "coverage.title": "Distribution",
         "coverage.desc": "We serve deliveries to all areas of Bali.",
 
         "gallery.title": "Quality We Offer",
