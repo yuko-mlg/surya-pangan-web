@@ -829,6 +829,27 @@ ul {
     margin-bottom: 0.5rem;
 }
 
+.footer-map-container {
+    width: 100%;
+    max-width: 600px;
+    margin: 1.5rem auto;
+    border-radius: 16px;
+    overflow: hidden;
+    height: 250px;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+}
+
+.footer-map {
+    width: 100%;
+    height: 100%;
+    border: none;
+}
+
+.mt-4 {
+    margin-top: 1.5rem;
+}
+
 .footer-link {
     color: inherit;
     transition: color 0.3s;
