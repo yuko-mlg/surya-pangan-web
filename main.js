@@ -213,6 +213,34 @@ const revealCallback = (entries, observer) => {
     entries.forEach(entry => {
         if (entry.isIntersecting) {
             entry.target.classList.add('active');
+
+            // Special Scenario: Transform Supplier Text to Logos
+            if (entry.target.classList.contains('logo-grid')) {
+                const cards = entry.target.querySelectorAll('.brand-card');
+                cards.forEach((card, index) => {
+                    const logoSrc = card.getAttribute('data-logo-src');
+                    if (logoSrc) {
+                        setTimeout(() => {
+                            const img = new Image();
+                            img.src = logoSrc;
+                            img.className = 'supplier-logo';
+                            img.alt = card.querySelector('.brand-name').innerText;
+
+                            // Smooth transition
+                            img.onload = () => {
+                                card.classList.add('transforming');
+                                setTimeout(() => {
+                                    card.innerHTML = '';
+                                    card.appendChild(img);
+                                    card.classList.remove('transforming');
+                                    card.classList.add('logo-loaded');
+                                }, 300);
+                            };
+                        }, index * 100); // Staggered entry
+                    }
+                });
+            }
+
             observer.unobserve(entry.target); // Only animate once
         }
     });
