@@ -199,18 +199,29 @@ ul {
 }
 
 .lang-text {
-    opacity: 0.5;
+    opacity: 0.6;
     font-size: 0.85rem;
+    display: flex;
+    align-items: center;
+    transition: all 0.3s ease;
 }
 
 .lang-text.active {
     opacity: 1;
-    color: var(--color-accent);
+}
+
+.flag-icon {
+    width: 24px;
+    height: auto;
+    border-radius: 2px;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+    border: 1px solid rgba(0, 0, 0, 0.05);
 }
 
 .lang-divider {
     font-size: 0.8rem;
     opacity: 0.3;
+    margin: 0 2px;
 }
 
 /* Navbar */
@@ -585,32 +596,31 @@ ul {
     cursor: default;
 }
 
-.brand-logo {
-    font-family: var(--font-heading);
-    font-weight: 700;
-    text-transform: uppercase;
-    letter-spacing: 1px;
-    font-size: 0.95rem;
-    color: var(--color-primary);
-    opacity: 0.7;
-    text-align: center;
-    transition: all 0.3s ease;
+.supplier-logo {
+    max-width: 85%;
+    max-height: 70px;
+    height: auto;
+    width: auto;
+    object-fit: contain;
+    filter: grayscale(100%) opacity(0.6);
+    transition: all 0.4s ease;
 }
 
 .brand-card:hover {
-    transform: translateY(-8px) scale(1.02);
+    transform: translateY(-8px);
     box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
     border-color: var(--color-accent);
 }
 
-.brand-card:hover .brand-logo {
-    opacity: 1;
-    color: var(--color-secondary);
+.brand-card:hover .supplier-logo {
+    filter: grayscale(0%) opacity(1);
+    transform: scale(1.05);
 }
 
 .more-card .brand-logo {
     font-size: 1.5rem;
     opacity: 0.4;
+    color: var(--color-primary);
 }
 
 /* Coverage Section */
