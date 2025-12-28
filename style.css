@@ -199,7 +199,6 @@ ul {
 }
 
 .lang-text {
-    opacity: 0.6;
     font-size: 0.85rem;
     display: flex;
     align-items: center;
@@ -211,17 +210,11 @@ ul {
 }
 
 .flag-icon {
-    width: 24px;
+    width: 25px;
     height: auto;
-    border-radius: 2px;
-    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+    border-radius: 4px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
     border: 1px solid rgba(0, 0, 0, 0.05);
-}
-
-.lang-divider {
-    font-size: 0.8rem;
-    opacity: 0.3;
-    margin: 0 2px;
 }
 
 /* Navbar */

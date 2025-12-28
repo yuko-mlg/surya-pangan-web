@@ -13,7 +13,6 @@ const updateContent = (lang) => {
     elements.forEach(el => {
         const key = el.getAttribute('data-i18n');
         if (translations[lang] && translations[lang][key]) {
-            // Handle HTML content if the translation contains tags, otherwise text
             if (translations[lang][key].includes('<')) {
                 el.innerHTML = translations[lang][key];
             } else {
@@ -22,13 +21,18 @@ const updateContent = (lang) => {
         }
     });
 
-    // Update Toggle UI
-    document.querySelectorAll('.lang-text').forEach(span => {
-        span.classList.remove('active');
-        if (span.getAttribute('data-lang') === lang) {
-            span.classList.add('active');
-        }
-    });
+    // Smart Flag Toggle: Show ONLY the target language flag
+    // (If current is ID, show EN flag. If current is EN, show ID flag.)
+    const idFlag = document.querySelector('.lang-text[data-lang="id"]');
+    const enFlag = document.querySelector('.lang-text[data-lang="en"]');
+
+    if (lang === 'id') {
+        idFlag.style.display = 'none';
+        enFlag.style.display = 'flex';
+    } else {
+        idFlag.style.display = 'flex';
+        enFlag.style.display = 'none';
+    }
 
     currentLang = lang;
 };
