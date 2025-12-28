@@ -220,14 +220,15 @@ const revealCallback = (entries, observer) => {
                 cards.forEach((card, index) => {
                     const logoSrc = card.getAttribute('data-logo-src');
                     if (logoSrc) {
-                        setTimeout(() => {
-                            const img = new Image();
-                            img.src = logoSrc;
-                            img.className = 'supplier-logo';
-                            img.alt = card.querySelector('.brand-name').innerText;
+                        // Preload the image
+                        const img = new Image();
+                        img.src = logoSrc;
+                        img.className = 'supplier-logo';
+                        img.alt = card.querySelector('.brand-name').innerText;
 
-                            // Smooth transition
-                            img.onload = () => {
+                        img.onload = () => {
+                            // Only transform if image is valid and loaded
+                            setTimeout(() => {
                                 card.classList.add('transforming');
                                 setTimeout(() => {
                                     card.innerHTML = '';
@@ -235,8 +236,13 @@ const revealCallback = (entries, observer) => {
                                     card.classList.remove('transforming');
                                     card.classList.add('logo-loaded');
                                 }, 300);
-                            };
-                        }, index * 100); // Staggered entry
+                            }, index * 100 + 400); // 400ms delay after scroll to show text first
+                        };
+
+                        img.onerror = () => {
+                            console.warn(`Failed to load logo for ${img.alt}`);
+                            // Keep text as fallback - no action needed
+                        };
                     }
                 });
             }
