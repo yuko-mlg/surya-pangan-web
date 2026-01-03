@@ -11,6 +11,8 @@ export const translations = {
         "nav.contact": "Hubungi Kami",
         "nav.history": "Sejarah",
         "nav.management": "Managemen",
+        "nav.profile": "Profil",
+        "nav.info": "Informasi",
         "nav.news": "Berita",
 
         "hero.title": "Distributor Bahan Kuliner Terpercaya",
@@ -108,6 +110,8 @@ export const translations = {
         "nav.contact": "Contact Us",
         "nav.history": "History",
         "nav.management": "Management",
+        "nav.profile": "Profile",
+        "nav.info": "Information",
         "nav.news": "News",
 
         "hero.title": "Trusted Culinary Ingredients Distributor",
