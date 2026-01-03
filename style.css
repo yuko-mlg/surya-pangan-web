@@ -8,25 +8,27 @@
 }
 
 :root {
-    /* Color Palette - Dark Luxury */
-    --color-bg-dark: #0b1121;
-    --color-bg-light: #0f172a;
-    --color-bg-white: #ffffff;
-    --color-bg-pearl: #111827;
+    /* Color Palette - Bright & Elegant Ivory */
+    --color-bg-dark: #fbf8ef;
+    /* Soft Cream */
+    --color-bg-light: #fffdfa;
+    --color-bg-white: #fffdfa;
+    --color-bg-pearl: #fcf9f0;
 
-    --color-primary: #f8fafc;
-    /* Light text for dark bg */
-    --color-primary-light: #cbd5e1;
+    --color-primary: #1e293b;
+    /* Deep Navy for text contrast */
+    --color-primary-light: #334155;
 
     --color-accent: #c5a028;
     /* Slightly deeper Gold for visibility on white */
     --color-accent-hover: #a3841e;
     --color-accent-light: #fef9c3;
 
-    --color-text-main: #f1f5f9;
-    --color-text-muted: #94a3b8;
-    --color-text-light: #ffffff;
-    /* Flipped: dark text on light sections is no longer needed, using light text */
+    --color-text-main: #1e293b;
+    --color-text-muted: #475569;
+    /* Darker muted text for reachability */
+    --color-text-light: #1e293b;
+    /* Flipped: dark text on light sections */
     --color-text-white: #ffffff;
 
     /* Typography */
@@ -93,11 +95,11 @@ ul {
 }
 
 .text-light {
-    color: #ffffff;
+    color: var(--color-primary);
 }
 
 .text-light-dim {
-    color: #94a3b8;
+    color: var(--color-text-muted);
 }
 
 .text-center {
@@ -710,14 +712,14 @@ ul {
 }
 
 .contact-form-wrapper {
-    background: rgba(15, 23, 42, 0.8);
+    background: #ffffff;
     padding: 3rem;
     border-radius: 24px;
-    border: 1px solid rgba(255, 255, 255, 0.1);
+    border: 1px solid #e2e8f0;
     width: 100%;
     max-width: 700px;
     /* Limit width for aesthetics */
-    box-shadow: 0 40px 100px -20px rgba(0, 0, 0, 0.5);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
 }
 
 /* Removed Contact Info Styles */
@@ -735,19 +737,19 @@ ul {
 }
 
 .form-group label {
-    color: #94a3b8;
+    color: var(--color-primary);
     font-size: 0.95rem;
-    font-weight: 500;
+    font-weight: 600;
     margin-left: 0.5rem;
 }
 
 .contact-form input,
 .contact-form textarea {
-    background: rgba(0, 0, 0, 0.2);
-    border: 1px solid rgba(255, 255, 255, 0.1);
+    background: #f8fafc;
+    border: 1px solid #cbd5e1;
     padding: 1rem;
     border-radius: 12px;
-    color: #ffffff;
+    color: var(--color-primary);
     font-family: var(--font-body);
     font-size: 1rem;
     transition: all 0.3s;
@@ -757,7 +759,8 @@ ul {
 .contact-form textarea:focus {
     outline: none;
     border-color: var(--color-accent);
-    background: rgba(0, 0, 0, 0.3);
+    background: #ffffff;
+    box-shadow: 0 0 0 4px var(--color-accent-light);
 }
 
 .form-status {
@@ -829,9 +832,9 @@ ul {
 
 /* Footer */
 .site-footer {
-    background: #0b1121;
+    background: #f8fafc;
     padding: 3rem 0;
-    border-top: 1px solid rgba(255, 255, 255, 0.05);
+    border-top: 1px solid #e2e8f0;
 }
 
 .footer-logo {
