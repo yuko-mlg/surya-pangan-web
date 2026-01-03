@@ -27,8 +27,8 @@
     --color-text-main: #1e293b;
     --color-text-muted: #475569;
     /* Darker muted text for reachability */
-    --color-text-light: #1e293b;
-    /* Flipped: dark text on light sections */
+    --color-text-light: #ffffff;
+    /* White text for dark sections/hero */
     --color-text-white: #ffffff;
 
     /* Typography */
@@ -306,7 +306,8 @@ ul {
 }
 
 .nav-links a:hover {
-    color: var(--color-accent);
+    color: #000000;
+    transform: translateY(-2px);
 }
 
 .nav-links .btn-primary {
