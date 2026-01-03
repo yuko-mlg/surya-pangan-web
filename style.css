@@ -416,7 +416,7 @@ ul {
 .hero p {
     font-size: 1.4rem;
     margin-bottom: 3rem;
-    color: var(--color-text-muted);
+    color: #334155;
     max-width: 700px;
     margin-left: auto;
     margin-right: auto;
@@ -465,7 +465,7 @@ ul {
 
 .stat-label {
     font-size: 0.85rem;
-    color: var(--color-text-muted);
+    color: #475569;
     text-transform: uppercase;
     letter-spacing: 1px;
 }
@@ -794,26 +794,24 @@ ul {
 }
 
 .footer-cta-card {
-    background: linear-gradient(135deg, rgba(255, 255, 255, 0.05) 0%, rgba(255, 255, 255, 0.02) 100%);
-    backdrop-filter: blur(10px);
-    border: 1px solid rgba(255, 255, 255, 0.1);
+    background: #ffffff;
     border-radius: 24px;
     padding: 4rem;
     display: flex;
     justify-content: space-between;
     align-items: center;
     gap: 2rem;
-    box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
 }
 
 .footer-cta-card h2 {
-    color: #fff;
+    color: var(--color-primary);
     font-size: 2.5rem;
     margin-bottom: 1rem;
 }
 
 .footer-cta-card p {
-    color: #cbd5e1;
+    color: #475569;
     font-size: 1.2rem;
     max-width: 600px;
 }
