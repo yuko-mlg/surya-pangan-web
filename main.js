@@ -215,8 +215,16 @@ mobileToggle.addEventListener('click', () => {
 
 // Close mobile menu when link clicked
 document.querySelectorAll('.nav-links a').forEach(link => {
-    link.addEventListener('click', () => {
-        navLinks.classList.remove('mobile-active');
+    link.addEventListener('click', (e) => {
+        // If it's a dropdown trigger on mobile, toggle instead of closing
+        if (window.innerWidth < 992 && link.classList.contains('dropdown-trigger')) {
+            e.preventDefault();
+            const parent = link.closest('.nav-dropdown');
+            parent.classList.toggle('active');
+        } else {
+            // Close menu for normal links
+            navLinks.classList.remove('mobile-active');
+        }
     });
 });
 
