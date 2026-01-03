@@ -22,6 +22,10 @@ export const translations = {
 
         "about.vision.title": "Visi Kami",
         "about.vision.desc": "Menjadi distributor utama yang mendukung pertumbuhan UMKM & industri pangan Bali.",
+        "history.title": "Sejarah Kami",
+        "history.desc": "Perjalanan panjang Surya Pangan dalam melayani industri kuliner di Bali.",
+        "management.title": "Managemen",
+        "management.desc": "Tim di balik kesuksesan operasional Surya Pangan.",
         "about.title": "Mengapa Memilih <span class='text-accent'>Surya Pangan</span>?",
         "about.lead": "Kami bukan sekadar distributor, kami adalah mitra pertumbuhan bisnis Anda.",
         "about.desc": "Surya Pangan bergerak di bidang distribusi bahan roti dan kue beserta seluruh perlengkapannya. Selama lebih dari 8 tahun, kami berkomitmen penuh melayani para pegiat ekonomi sektor pangan di Pulau Dewata.",
@@ -110,6 +114,10 @@ export const translations = {
 
         "about.vision.title": "Our Vision",
         "about.vision.desc": "To be the premier distributor supporting the growth of SMEs & the food industry in Bali.",
+        "history.title": "Our History",
+        "history.desc": "The journey of Surya Pangan in serving the culinary industry in Bali.",
+        "management.title": "Management",
+        "management.desc": "The team behind the operational success of Surya Pangan.",
         "about.title": "Why Choose <span class='text-accent'>Surya Pangan</span>?",
         "about.lead": "We are not just a distributor, we are your business growth partner.",
         "about.desc": "Surya Pangan specializes in the distribution of bakery and pastry ingredients and equipment. For over 8 years, we have been fully committed to serving the food sector economy in the Island of the Gods.",
