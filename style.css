@@ -680,30 +680,36 @@ ul {
     margin-top: 2rem;
 }
 
-.area-tag {
-    background: var(--color-accent);
-    padding: 0.5rem 1rem;
-    border-radius: 50px;
-    font-size: 0.9rem;
-    color: #fff;
-    border: 1px solid var(--color-accent);
-    transition: all 0.3s;
+/* Bali Map Integration */
+.coverage-map-wrap {
+    max-width: 900px;
+    margin: 3rem auto 0;
+    padding: 2rem;
+    background: rgba(255, 255, 255, 0.03);
+    border-radius: 30px;
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2);
+    transition: all 0.5s ease;
 }
 
-.area-tag:hover {
-    background: transparent;
-    color: var(--color-accent);
-    transform: translateY(-3px);
+.coverage-map-wrap:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 30px 60px rgba(0, 0, 0, 0.3);
     border-color: var(--color-accent);
 }
 
+.coverage-map-img {
+    width: 100%;
+    height: auto;
+    display: block;
+    filter: drop-shadow(0 10px 20px rgba(0, 0, 0, 0.2));
+}
 
-
-/* Coverage Centered Layout */
-.area-list.centered {
-    justify-content: center;
-    max-width: 800px;
-    margin: 2rem auto 0;
+@media (max-width: 768px) {
+    .coverage-map-wrap {
+        padding: 1rem;
+        margin-top: 2rem;
+    }
 }
 
 
