@@ -924,6 +924,11 @@ ul {
     transform: translateY(-3px);
 }
 
+.social-link svg {
+    width: 28px;
+    height: 28px;
+}
+
 /* Animations using Classes */
 .fade-in-up {
     opacity: 0;
