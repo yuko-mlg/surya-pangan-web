@@ -58,7 +58,7 @@ export const translations = {
         "gallery.item2": "Stok Lengkap",
         "gallery.item3": "Distribusi Profesional",
 
-        "csr.title": "Kepedulian Sosial (CSR)",
+        "csr.title": "Kepedulian Sosial",
         "csr.desc": "Berbagi kasih untuk sesama melalui aksi nyata.",
         "csr.card.badge": "Kegiatan Rutin",
         "csr.card.title": "Aksi Donor Darah Peduli Sesama",
