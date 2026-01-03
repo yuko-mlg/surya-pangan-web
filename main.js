@@ -1,4 +1,5 @@
 import { translations } from './translations.js';
+import { newsData } from './news-data.js';
 
 // Scroll to top on page load/refresh
 window.addEventListener('load', () => {
@@ -42,6 +43,7 @@ const updateContent = (lang) => {
     }
 
     currentLang = lang;
+    renderNews(lang);
 };
 
 document.getElementById('lang-toggle').addEventListener('click', () => {
@@ -50,6 +52,7 @@ document.getElementById('lang-toggle').addEventListener('click', () => {
     generateMathCaptcha();
 
     updateContent(newLang);
+    renderNews(newLang);
     generateMathCaptcha();
 });
 
@@ -273,5 +276,38 @@ const revealObserver = new IntersectionObserver(revealCallback, revealOptions);
 revealElements.forEach(el => {
     revealObserver.observe(el);
 });
+
+// Render News Function
+function renderNews(lang) {
+    const newsGrid = document.getElementById('news-grid');
+    if (!newsGrid) {
+        console.warn('News grid element not found');
+        return;
+    }
+
+    const newsDataToRender = typeof newsData !== 'undefined' ? newsData : [];
+
+    newsGrid.innerHTML = newsDataToRender.map(item => `
+        <article class="news-card">
+            <div class="news-image-wrapper">
+                <img src="${item.image}" alt="${item.title[lang]}" class="news-img" loading="lazy" onerror="this.src='https://via.placeholder.com/400x250?text=Surya+Pangan'">
+            </div>
+            <div class="news-content">
+                <div class="news-date">${new Date(item.date).toLocaleDateString(lang === 'id' ? 'id-ID' : 'en-US', { day: 'numeric', month: 'long', year: 'numeric' })}</div>
+                <h3 class="news-title">${item.title[lang]}</h3>
+                <p class="news-excerpt">${item.summary[lang]}</p>
+                <a href="${item.link}" class="news-link">
+                    ${translations[lang]['news.read_more']}
+                    <span class="arrow">→</span>
+                </a>
+            </div>
+        </article>
+    `).join('');
+}
+
+// Initial render
+updateContent(currentLang);
+renderNews(currentLang);
+generateMathCaptcha();
 
 console.log('Surya Pangan website loaded successfully');

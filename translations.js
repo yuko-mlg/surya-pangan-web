@@ -4,6 +4,7 @@ export const translations = {
         "nav.about": "Tentang Kami",
         "nav.suppliers": "Supplier",
         "nav.products": "Produk",
+        "nav.news": "Berita",
         "nav.coverage": "Distribusi",
         "nav.csr": "CSR",
         "nav.contact": "Hubungi Kami",
@@ -56,6 +57,10 @@ export const translations = {
         "csr.card.desc2": "Setetes darah kita sangat berarti bagi mereka.",
         "csr.card.cta": "Lihat Dokumentasi Lengkap",
 
+        "news.title": "Berita & Inspirasi",
+        "news.desc": "Ikuti perkembangan terbaru dan tips menarik seputar dunia kuliner Bali",
+        "news.read_more": "Baca Selengkapnya",
+
         "contact.title": "Hubungi Kami",
         "contact.desc": "Punya pertanyaan atau ingin bermitra? Kirimkan pesan Anda.",
         "contact.form.name": "Nama Lengkap",
@@ -87,6 +92,7 @@ export const translations = {
         "nav.about": "About Us",
         "nav.suppliers": "Suppliers",
         "nav.products": "Products",
+        "nav.news": "News",
         "nav.coverage": "Distribution",
         "nav.csr": "CSR",
         "nav.contact": "Contact Us",
@@ -138,6 +144,10 @@ export const translations = {
         "csr.card.desc1": "As a form of gratitude and care for others, Surya Pangan regularly organizes blood donation events. Working with PMI Bali, we invite all staff, partners, and the surrounding community to donate blood to save lives in need.",
         "csr.card.desc2": "A drop of our blood means a lot to them.",
         "csr.card.cta": "View Full Documentation",
+
+        "news.title": "News & Insights",
+        "news.desc": "Follow the latest developments and interesting tips about the Bali culinary world",
+        "news.read_more": "Read More",
 
         "contact.title": "Contact Us",
         "contact.desc": "Have questions or want to partner? Send us a message.",

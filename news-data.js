@@ -1,0 +1,44 @@
+export const newsData = [
+    {
+        id: 1,
+        date: "2026-01-05",
+        image: "assets/images/news-1.png",
+        title: {
+            id: "Tren Bahan Kuliner Bali 2026: Ke arah Mana Bisnis Anda?",
+            en: "Bali Culinary Trends 2026: Where is Your Business Heading?"
+        },
+        summary: {
+            id: "Temukan tren terbaru dalam industri bakery dan pastry di Bali tahun ini. Dari bahan organik hingga inovasi tekstur.",
+            en: "Discover the latest trends in the Bali bakery and pastry industry this year. From organic ingredients to texture innovations."
+        },
+        link: "#"
+    },
+    {
+        id: 2,
+        date: "2026-01-02",
+        image: "assets/images/news-2.png",
+        title: {
+            id: "Kolaborasi Surya Pangan & Anchor: Jaminan Kualitas Premium",
+            en: "Surya Pangan & Anchor Collaboration: Premium Quality Guarantee"
+        },
+        summary: {
+            id: "Bagaimana kerjasama kami dengan Anchor memastikan stok mentega dan keju premium selalu tersedia untuk outlet Anda.",
+            en: "How our partnership with Anchor ensures premium butter and cheese stocks are always available for your outlet."
+        },
+        link: "#"
+    },
+    {
+        id: 3,
+        date: "2025-12-28",
+        image: "assets/images/news-3.png",
+        title: {
+            id: "CSR: Aksi Donor Darah Rutin Akhir Tahun Surya Pangan",
+            en: "CSR: Surya Pangan End-of-Year Routine Blood Donation"
+        },
+        summary: {
+            id: "Menutup tahun dengan berbagi. Kebahagiaan tim Surya Pangan dalam mendukung stok darah PMI Bali.",
+            en: "Closing the year by sharing. The Surya Pangan team's joy in supporting the Bali PMI blood stock."
+        },
+        link: "#"
+    }
+];
