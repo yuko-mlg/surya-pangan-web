@@ -8,22 +8,28 @@
 }
 
 :root {
-    /* Color Palette - Premium & Professional */
-    --color-bg-dark: #0f172a;
-    --color-bg-light: #f8fafc;
+    /* Color Palette - Bright & Elegant Pearl */
+    --color-bg-dark: #f1f5f9;
+    /* Light Slate / Pearl Gray */
+    --color-bg-light: #ffffff;
     --color-bg-white: #ffffff;
+    --color-bg-pearl: #fdfdfd;
 
     --color-primary: #1e293b;
+    /* Deep Navy for text contrast */
     --color-primary-light: #334155;
 
-    --color-accent: #d4af37;
-    /* Metallic Gold */
-    --color-accent-hover: #bfa15f;
-    --color-accent-light: #f3e9cc;
+    --color-accent: #c5a028;
+    /* Slightly deeper Gold for visibility on white */
+    --color-accent-hover: #a3841e;
+    --color-accent-light: #fef9c3;
 
     --color-text-main: #1e293b;
-    --color-text-muted: #64748b;
-    --color-text-light: #f1f5f9;
+    --color-text-muted: #475569;
+    /* Darker muted text for reachability */
+    --color-text-light: #1e293b;
+    /* Flipped: dark text on light sections */
+    --color-text-white: #ffffff;
 
     /* Typography */
     --font-heading: 'Outfit', sans-serif;
@@ -89,11 +95,11 @@ ul {
 }
 
 .text-light {
-    color: var(--color-text-light);
+    color: var(--color-primary);
 }
 
 .text-light-dim {
-    color: #94a3b8;
+    color: var(--color-text-muted);
 }
 
 .text-center {
@@ -131,10 +137,7 @@ ul {
 /* Buttons */
 .btn-primary {
     background-color: var(--color-accent);
-    color: #fff;
-    /* Gold usually needs better contrast, but with dark gold/white text is ok, verify contrast */
-    color: #0f172a;
-    /* Dark text on gold is better */
+    color: #ffffff;
     padding: 0.75rem 1.5rem;
     border: none;
     border-radius: 8px;
@@ -163,7 +166,7 @@ ul {
 
 .btn-outline:hover {
     background-color: var(--color-accent);
-    color: #0f172a;
+    color: #ffffff;
 }
 
 .btn-primary.large,
@@ -357,8 +360,8 @@ ul {
     left: 0;
     right: 0;
     bottom: 0;
-    /* Gradient overlay for readability */
-    background: linear-gradient(135deg, rgba(15, 23, 42, 0.8) 0%, rgba(30, 41, 59, 0.6) 100%);
+    /* Light Gradient overlay for readability */
+    background: linear-gradient(135deg, rgba(255, 255, 255, 0.4) 0%, rgba(255, 255, 255, 0.6) 100%);
     z-index: 1;
 }
 
@@ -374,20 +377,19 @@ ul {
     max-width: 900px;
     margin: 0 auto;
     text-align: center;
-    /* Glassmorphism Card */
-    background: rgba(255, 255, 255, 0.05);
+    /* Modern Light Card */
+    background: rgba(255, 255, 255, 0.8);
     backdrop-filter: blur(8px);
-    border: 1px solid rgba(255, 255, 255, 0.1);
+    border: 1px solid rgba(255, 255, 255, 0.3);
     border-radius: 24px;
-    box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.05);
 }
 
 .hero h1 {
     font-size: 4.5rem;
     margin-bottom: 1.5rem;
-    color: #fff;
+    color: var(--color-primary);
     line-height: 1.1;
-    text-shadow: 0 2px 20px rgba(0, 0, 0, 0.5);
     letter-spacing: -1px;
 }
 
@@ -414,7 +416,7 @@ ul {
 .hero p {
     font-size: 1.4rem;
     margin-bottom: 3rem;
-    color: #cbd5e1;
+    color: var(--color-text-muted);
     max-width: 700px;
     margin-left: auto;
     margin-right: auto;
@@ -463,14 +465,14 @@ ul {
 
 .stat-label {
     font-size: 0.85rem;
-    color: #e2e8f0;
+    color: var(--color-text-muted);
     text-transform: uppercase;
     letter-spacing: 1px;
 }
 
 .stat-separator {
     width: 1px;
-    background: rgba(255, 255, 255, 0.2);
+    background: rgba(0, 0, 0, 0.1);
 }
 
 /* About Section */
@@ -828,9 +830,9 @@ ul {
 
 /* Footer */
 .site-footer {
-    background: #0b1120;
+    background: #f8fafc;
     padding: 3rem 0;
-    border-top: 1px solid rgba(255, 255, 255, 0.05);
+    border-top: 1px solid #e2e8f0;
 }
 
 .footer-logo {
@@ -840,7 +842,7 @@ ul {
 }
 
 .footer-brand h3 {
-    color: var(--color-bg-white);
+    color: var(--color-primary);
     font-size: 1.5rem;
     margin-top: 0.5rem;
     margin-bottom: 0.5rem;
@@ -851,20 +853,18 @@ ul {
 }
 
 .site-footer p[data-i18n="footer.rights"] {
-    color: #94a3b8;
+    color: var(--color-text-muted);
     margin-top: 1rem;
     font-size: 0.85rem;
-    opacity: 0.8;
 }
 
 .site-footer p[data-i18n="footer.rights"]:hover {
-    color: var(--color-bg-white);
-    opacity: 1;
+    color: var(--color-primary);
 }
 
 .footer-contact-info {
     margin: 1.5rem 0;
-    color: #94a3b8;
+    color: var(--color-text-muted);
     font-size: 0.95rem;
 }
 
@@ -989,13 +989,14 @@ ul {
         top: 100%;
         left: 0;
         width: 100%;
-        background: var(--color-bg-dark);
+        background: #ffffff;
         padding: 2rem;
         gap: 1.5rem;
+        box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
     }
 
     .nav-links.mobile-active a {
-        color: #fff;
+        color: var(--color-primary);
     }
 }
 
@@ -1055,9 +1056,9 @@ ul {
     left: 50%;
     transform: translateX(-50%);
     width: 90%;
-    background: rgba(15, 23, 42, 0.85);
-    /* Dark background for better text contrast */
-    color: #fff;
+    background: rgba(255, 255, 255, 0.95);
+    /* Light background for elegance */
+    color: var(--color-primary);
     border: 1px solid rgba(212, 175, 55, 0.3);
 }
 
@@ -1068,7 +1069,7 @@ ul {
 }
 
 .overlay-card p {
-    color: #f8fafc !important;
+    color: var(--color-text-muted) !important;
     font-weight: 500;
 }
 
