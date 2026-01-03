@@ -1,0 +1,64 @@
+/* Shop Section Styles */
+.shop-buttons {
+    display: flex;
+    justify-content: center;
+    gap: 2rem;
+    flex-wrap: wrap;
+    margin-top: 3rem;
+}
+
+.btn-shop {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    padding: 1rem 2rem;
+    border-radius: 50px;
+    font-weight: 700;
+    text-decoration: none;
+    transition: all 0.3s ease;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    min-width: 250px;
+    justify-content: center;
+    font-size: 1.1rem;
+    background: #fff;
+    /* Default background */
+}
+
+.shop-icon {
+    height: 30px;
+    width: auto;
+}
+
+/* Shopee Button */
+.btn-shop.shopee {
+    color: #ee4d2d;
+    border: 2px solid #ee4d2d;
+}
+
+.btn-shop.shopee:hover {
+    background: #ee4d2d;
+    color: #fff;
+    transform: translateY(-5px);
+    box-shadow: 0 10px 20px rgba(238, 77, 45, 0.3);
+}
+
+.btn-shop.shopee:hover .shop-icon {
+    filter: brightness(0) invert(1);
+}
+
+/* Tokopedia Button */
+.btn-shop.tokopedia {
+    color: #42b549;
+    border: 2px solid #42b549;
+}
+
+.btn-shop.tokopedia:hover {
+    background: #42b549;
+    color: #fff;
+    transform: translateY(-5px);
+    box-shadow: 0 10px 20px rgba(66, 181, 73, 0.3);
+}
+
+.btn-shop.tokopedia:hover .shop-icon {
+    filter: brightness(0) invert(1);
+}
