@@ -809,9 +809,11 @@ ul {
 }
 
 .contact-icon {
-    width: 24px;
-    height: 24px;
-    color: var(--color-accent);
+    width: 32px;
+    /* Increased size as requested */
+    height: 32px;
+    object-fit: contain;
+    border-radius: 4px;
 }
 
 .wa-icon {
@@ -822,9 +824,10 @@ ul {
 .footer-contact-link {
     color: var(--color-primary);
     font-weight: 700;
-    font-size: 1.25rem;
+    font-size: 1.35rem;
+    /* Slightly larger text */
     text-decoration: none;
-    transition: color 0.3s;
+    transition: all 0.3s ease;
 }
 
 .footer-contact-link:hover {
