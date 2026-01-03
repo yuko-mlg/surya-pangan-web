@@ -6,6 +6,7 @@ export const translations = {
         "nav.products": "Produk",
         "nav.news": "Berita",
         "nav.coverage": "Distribusi",
+        "nav.shop": "Belanja",
         "nav.csr": "CSR",
         "nav.contact": "Hubungi Kami",
         "nav.history": "Sejarah",
@@ -44,6 +45,10 @@ export const translations = {
 
         "coverage.title": "Distribusi",
         "coverage.desc": "Kami melayani pengiriman ke seluruh area Bali.",
+        "shop.title": "Belanja Online",
+        "shop.desc": "Dapatkan produk kami dengan mudah melalui marketplace kesayangan Anda.",
+        "shop.shopee": "Kunjungi Shopee",
+        "shop.tokopedia": "Kunjungi Tokopedia",
 
         "gallery.title": "Kualitas yang Kami Tawarkan",
         "gallery.desc": "Dari bahan mentah premium hingga pengiriman yang terorganisir.",
@@ -98,6 +103,7 @@ export const translations = {
         "nav.products": "Products",
         "nav.news": "News",
         "nav.coverage": "Distribution",
+        "nav.shop": "Shop",
         "nav.csr": "CSR",
         "nav.contact": "Contact Us",
         "nav.history": "History",
@@ -136,6 +142,10 @@ export const translations = {
 
         "coverage.title": "Distribution",
         "coverage.desc": "We serve deliveries to all areas of Bali.",
+        "shop.title": "Shop Online",
+        "shop.desc": "Get our products easily through your favorite marketplace.",
+        "shop.shopee": "Visit Shopee",
+        "shop.tokopedia": "Visit Tokopedia",
 
         "gallery.title": "Quality We Offer",
         "gallery.desc": "From premium raw materials to organized delivery.",
