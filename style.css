@@ -792,44 +792,59 @@ ul {
     border: 1px solid rgba(239, 68, 68, 0.2);
 }
 
-/* Footer CTA Section */
-.footer-cta-section {
-    padding: 4rem 1rem;
-    background-color: var(--color-bg-dark);
-}
-
-.footer-cta-card {
-    background: #ffffff;
-    border-radius: 24px;
-    padding: 4rem;
+/* Footer Contact Info Refinement */
+.footer-contact-row {
     display: flex;
-    justify-content: space-between;
+    justify-content: center;
     align-items: center;
-    gap: 2rem;
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+    gap: 1.5rem;
+    margin-top: 1rem;
+    flex-wrap: wrap;
 }
 
-.footer-cta-card h2 {
+.contact-item {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+}
+
+.contact-icon {
+    width: 24px;
+    height: 24px;
+    color: var(--color-accent);
+}
+
+.wa-icon {
+    color: #25D366;
+    /* WhatsApp Green */
+}
+
+.footer-contact-link {
     color: var(--color-primary);
-    font-size: 2.5rem;
-    margin-bottom: 1rem;
+    font-weight: 700;
+    font-size: 1.25rem;
+    text-decoration: none;
+    transition: color 0.3s;
 }
 
-.footer-cta-card p {
-    color: #475569;
-    font-size: 1.2rem;
-    max-width: 600px;
+.footer-contact-link:hover {
+    color: var(--color-accent);
 }
 
-@media (max-width: 992px) {
-    .footer-cta-card {
+.contact-divider {
+    color: var(--color-text-muted);
+    font-size: 1.25rem;
+    opacity: 0.5;
+}
+
+@media (max-width: 576px) {
+    .footer-contact-row {
         flex-direction: column;
-        text-align: center;
-        padding: 3rem 2rem;
+        gap: 1rem;
     }
 
-    .footer-cta-card h2 {
-        font-size: 2rem;
+    .contact-divider {
+        display: none;
     }
 }
 
