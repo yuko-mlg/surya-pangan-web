@@ -8,16 +8,15 @@
 }
 
 :root {
-    /* Color Palette - Bright & Elegant Ivory */
-    --color-bg-dark: #fbf8ef;
-    /* Soft Cream */
-    --color-bg-light: #fffdfa;
-    --color-bg-white: #fffdfa;
-    --color-bg-pearl: #fcf9f0;
+    /* Color Palette - Dark Luxury */
+    --color-bg-dark: #0b1121;
+    --color-bg-light: #0f172a;
+    --color-bg-white: #ffffff;
+    --color-bg-pearl: #111827;
 
-    --color-primary: #1e293b;
-    /* Deep Navy for text contrast */
-    --color-primary-light: #334155;
+    --color-primary: #f8fafc;
+    /* Light text for dark bg */
+    --color-primary-light: #cbd5e1;
 
     --color-accent: #c5a028;
     /* Slightly deeper Gold for visibility on white */
@@ -27,7 +26,7 @@
     --color-text-main: #f1f5f9;
     --color-text-muted: #94a3b8;
     --color-text-light: #ffffff;
-    /* Flipped: dark text on light sections */
+    /* Flipped: dark text on light sections is no longer needed, using light text */
     --color-text-white: #ffffff;
 
     /* Typography */
