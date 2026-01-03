@@ -305,7 +305,8 @@ ul {
     color: var(--color-text-main);
 }
 
-.nav-links a:hover {
+.nav-links a:hover,
+.navbar.scrolled .nav-links a:hover {
     color: #000000;
     transform: translateY(-2px);
 }
