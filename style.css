@@ -15,17 +15,17 @@
     --color-bg-white: #fffdfa;
     --color-bg-pearl: #fcf9f0;
 
-    --color-primary: #1e293b;
-    /* Deep Navy for text contrast */
-    --color-primary-light: #334155;
+    --color-primary: #000000;
+    /* Solid Black for text contrast */
+    --color-primary-light: #1e293b;
 
     --color-accent: #c5a028;
     /* Slightly deeper Gold for visibility on white */
     --color-accent-hover: #a3841e;
     --color-accent-light: #fef9c3;
 
-    --color-text-main: #1e293b;
-    --color-text-muted: #475569;
+    --color-text-main: #000000;
+    --color-text-muted: #1e293b;
     /* Darker muted text for reachability */
     --color-text-light: #ffffff;
     /* White text for dark sections/hero */

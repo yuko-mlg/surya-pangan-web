@@ -85,7 +85,7 @@ export const translations = {
         "footer.cta.title": "Siap Mengembangkan Bisnis Anda?",
         "footer.cta.desc": "Hubungi tim marketing kami untuk mendapatkan penawaran harga terbaik.",
         "footer.cta.btn": "Hubungi via WhatsApp",
-        "footer.rights": "&copy; 2025 IT Division Surya Pangan Bali. All rights reserved."
+        "footer.rights": "© 2026 IT Division Surya Pangan Bali. All rights reserved."
     },
     en: {
         "nav.home": "Home",
