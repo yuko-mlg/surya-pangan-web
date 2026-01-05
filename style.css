@@ -469,7 +469,7 @@ ul {
     -webkit-backdrop-filter: blur(25px);
     border: 1px solid rgba(255, 255, 255, 0.2);
     border-radius: 40px;
-    padding: 6rem 4rem;
+    padding: 3.5rem 4rem;
     max-width: 900px;
     text-align: center;
     box-shadow: 0 40px 120px -20px rgba(0, 0, 0, 0.7);
@@ -478,7 +478,7 @@ ul {
 .hero-title {
     font-size: clamp(2.5rem, 6vw, 4.2rem);
     color: #fff;
-    margin-bottom: 2rem;
+    margin-bottom: 1.5rem;
     line-height: 1.1;
     font-weight: 800;
 }
@@ -486,7 +486,7 @@ ul {
 .hero-lead {
     font-size: 1.35rem;
     color: rgba(255, 255, 255, 0.9);
-    margin-bottom: 4rem;
+    margin-bottom: 2.5rem;
     line-height: 1.6;
     max-width: 650px;
     margin-left: auto;
@@ -498,8 +498,8 @@ ul {
     justify-content: center;
     align-items: center;
     gap: 4rem;
-    margin-bottom: 4rem;
-    padding: 2.5rem;
+    margin-bottom: 3rem;
+    padding: 1.5rem 2.5rem;
     background: rgba(0, 0, 0, 0.3);
     border-radius: 25px;
     border: 1px solid rgba(255, 255, 255, 0.1);
