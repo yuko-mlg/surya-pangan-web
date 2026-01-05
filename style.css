@@ -512,11 +512,10 @@ ul {
 }
 
 .stat-number {
-    font-size: 3rem;
+    font-size: 2.8rem;
     font-weight: 800;
     color: var(--color-accent);
     line-height: 1;
-    margin-bottom: 0.5rem;
 }
 
 .stat-label {
@@ -524,6 +523,7 @@ ul {
     color: rgba(255, 255, 255, 0.6);
     text-transform: uppercase;
     letter-spacing: 2px;
+    margin-bottom: 0.5rem;
 }
 
 .stat-divider {
