@@ -49,10 +49,8 @@ const updateContent = (lang) => {
 document.getElementById('lang-toggle').addEventListener('click', () => {
     const newLang = currentLang === 'id' ? 'en' : 'id';
     updateContent(newLang);
-    generateMathCaptcha();
-
-    updateContent(newLang);
     renderNews(newLang);
+    renderTestimonials(activeTestimonialCategory, newLang);
     generateMathCaptcha();
 });
 
@@ -316,9 +314,11 @@ function renderNews(lang) {
 // Testimonials Logic
 const testimonialContainer = document.getElementById('testimonial-container');
 const testimonialTabs = document.querySelectorAll('.tab-btn');
+let activeTestimonialCategory = 'partners';
 
 function renderTestimonials(category, lang) {
     if (!testimonialContainer) return;
+    activeTestimonialCategory = category;
 
     // Helper to get testimonial data from translations
     const getTestimonial = (cat, id) => ({
@@ -357,7 +357,7 @@ testimonialTabs.forEach(btn => {
 // Initial render
 updateContent(currentLang);
 renderNews(currentLang);
-renderTestimonials('partners', currentLang);
+renderTestimonials(activeTestimonialCategory, currentLang);
 generateMathCaptcha();
 
 console.log('Surya Pangan website loaded successfully');
