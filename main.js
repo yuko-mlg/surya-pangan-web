@@ -313,9 +313,51 @@ function renderNews(lang) {
     `).join('');
 }
 
+// Testimonials Logic
+const testimonialContainer = document.getElementById('testimonial-container');
+const testimonialTabs = document.querySelectorAll('.tab-btn');
+
+function renderTestimonials(category, lang) {
+    if (!testimonialContainer) return;
+
+    // Helper to get testimonial data from translations
+    const getTestimonial = (cat, id) => ({
+        text: translations[lang][`testimonials.${cat}.${id}.text`],
+        name: translations[lang][`testimonials.${cat}.${id}.name`],
+        company: translations[lang][`testimonials.${cat}.${id}.company`]
+    });
+
+    const data = category === 'partners'
+        ? [getTestimonial('partners', 'p1'), getTestimonial('partners', 'p2')]
+        : [getTestimonial('customers', 'c1'), getTestimonial('customers', 'c2')];
+
+    testimonialContainer.innerHTML = data.map(item => `
+        <div class="testimonial-card">
+            <div class="quote-icon">"</div>
+            <p class="testimonial-text">${item.text}</p>
+            <div class="testimonial-author">
+                <div class="author-info">
+                    <h4>${item.name}</h4>
+                    <p>${item.company}</p>
+                </div>
+            </div>
+        </div>
+    `).join('');
+}
+
+testimonialTabs.forEach(btn => {
+    btn.addEventListener('click', () => {
+        testimonialTabs.forEach(t => t.classList.remove('active'));
+        btn.classList.add('active');
+        const category = btn.getAttribute('data-target');
+        renderTestimonials(category, currentLang);
+    });
+});
+
 // Initial render
 updateContent(currentLang);
 renderNews(currentLang);
+renderTestimonials('partners', currentLang);
 generateMathCaptcha();
 
 console.log('Surya Pangan website loaded successfully');
