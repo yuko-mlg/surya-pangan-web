@@ -585,12 +585,21 @@ ul {
     .hero-btns {
         flex-direction: column;
         width: 100%;
-        gap: 1rem;
+        gap: 1.25rem;
+        align-items: center;
+        /* Ensure contents are centered */
     }
 
     .hero-btns .btn {
         width: 100%;
+        max-width: 320px;
+        /* Limit width for better appearance on larger mobiles */
         padding: 1.2rem;
+        display: flex;
+        /* Use flex instead of inline-flex for block behavior */
+        justify-content: center;
+        margin-left: auto;
+        margin-right: auto;
     }
 }
 
