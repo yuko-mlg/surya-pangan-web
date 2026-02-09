@@ -3,11 +3,7 @@ import crypto from 'crypto';
 const OAUTH_URL = 'https://github.com/login/oauth/authorize';
 
 export default async function handler(req, res) {
-    const { provider } = req.query;
-
-    if (!provider) {
-        return res.status(400).send('Missing provider parameter');
-    }
+    const provider = req.query.provider || 'github';
 
     // Generate a random state
     const state = crypto.randomBytes(16).toString('hex');

@@ -3,16 +3,17 @@ backend:
   repo: yuko-mlg/surya-pangan-web # Repository GitHub Anda
   branch: main 
   base_url: https://surya-pangan-web.vercel.app # Ganti dengan domain Vercel Anda nanti
+  site_url: https://surya-pangan-web.vercel.app
   auth_endpoint: api/auth
 
-media_folder: "public/assets/images/uploads"
-public_folder: "assets/images/uploads"
+media_folder: "assets/images"
+public_folder: "assets/images"
 
 collections:
-  - name: "data"
-    label: "Data"
+  - name: "news"
+    label: "Berita"
     files:
-      - name: "news"
+      - name: "news_data"
         label: "Berita & Artikel"
         file: "public/data/news.json"
         description: "Daftar berita dan artikel yang tampil di website"
