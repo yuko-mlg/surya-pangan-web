@@ -31,39 +31,46 @@ export default async function handler(req, res) {
         const token = data.access_token;
         const providerStr = provider || 'github';
 
-        // Post message back to the window (Decap CMS listens for this)
+        // Safe script injection to avoid syntax errors
         const script = `
+      <!DOCTYPE html>
+      <html>
+      <head>
+        <title>Authenticating...</title>
+      </head>
+      <body>
+      <p>Authentication successful! You can close this window if it doesn't close automatically.</p>
       <script>
         (function() {
-          function receiveMessage(e) {
-            console.log("receiveMessage %o", e);
+          try {
+            var data = {
+              token: "${token}",
+              provider: "${providerStr}"
+            };
             
-            // Check origin if necessary
-            // window.opener.postMessage(
-            //   '${providerStr}:${token}',
-            //   e.origin
-            // );
+            // Format: "authorization:<provider>:success:<json-data>"
+            var msg = "authorization:" + data.provider + ":success:" + JSON.stringify(data);
             
-            // Send message to opener
-            window.opener.postMessage("authorization:${providerStr}:success:${JSON.stringify({
-            token: '${token}',
-            provider: '${providerStr}'
-        })}", "*");
-            
-            // Also supported by some versions:
-            window.opener.postMessage("authorization:github:success:${JSON.stringify({
-            token: '${token}',
-            provider: 'github'
-        })}", "*");
+            if (window.opener) {
+              window.opener.postMessage(msg, "*");
+              
+              // Also send legacy format if relevant
+              if (data.provider === "github") {
+                 window.opener.postMessage("authorization:github:success:" + JSON.stringify(data), "*");
+              }
+              
+              document.body.innerHTML += "<br>Message sent to CMS.";
+              setTimeout(function() { window.close(); }, 1000);
+            } else {
+              document.body.innerHTML += "<br>Error: Cannot find the main window (opener). Please close this window and try again.";
+            }
+          } catch (err) {
+             document.body.innerHTML += "<br>Error: " + err.message;
           }
-          // Immediate send
-          window.opener.postMessage("authorization:${providerStr}:success:${JSON.stringify({
-            token: '${token}',
-            provider: '${providerStr}'
-        })}", "*");
-          window.close();
         })()
       </script>
+      </body>
+      </html>
     `;
 
         res.setHeader('Content-Type', 'text/html');
@@ -71,6 +78,6 @@ export default async function handler(req, res) {
 
     } catch (error) {
         console.error(error);
-        res.status(500).send('Internal Server Error');
+        res.status(500).send('Internal Server Error: ' + error.message);
     }
 }
