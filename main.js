@@ -283,41 +283,64 @@ revealElements.forEach(el => {
     revealObserver.observe(el);
 });
 
-// Render News Function
-function renderNews(lang) {
-    const newsGrid = document.getElementById('news-grid');
-    if (!newsGrid) {
-        console.warn('News grid element not found');
-        return;
+// Helper for Automatic Translation (Google Translate API Client-side)
+async function translateText(text, target = 'en') {
+    if (!text || target === 'id') return text;
+    try {
+        const url = `https://translate.googleapis.com/translate_a/single?client=gtx&sl=auto&tl=${target}&dt=t&q=${encodeURIComponent(text)}`;
+        const response = await fetch(url);
+        const data = await response.json();
+        return data[0].map(item => item[0]).join('');
+    } catch (e) {
+        console.error('Translation error:', e);
+        return text;
     }
+}
 
-    // Updated: Fetch from language-specific JSON
-    fetch(`data/news_${lang}.json`)
-        .then(response => response.json())
-        .then(data => {
-            const news = data.news || data;
+// Render News Function
+async function renderNews(lang) {
+    const newsGrid = document.getElementById('news-grid');
+    if (!newsGrid) return;
 
-            newsGrid.innerHTML = news.map(item => `
-                <article class="news-card">
-                    <div class="news-image-wrapper">
-                        <img src="${item.image}" alt="${item.title}" class="news-img" loading="lazy" onerror="this.src='https://via.placeholder.com/400x250?text=Surya+Pangan'">
-                    </div>
-                    <div class="news-content">
-                        <div class="news-date">${new Date(item.date).toLocaleDateString(lang === 'id' ? 'id-ID' : 'en-US', { day: 'numeric', month: 'long', year: 'numeric' })}</div>
-                        <h3 class="news-title">${item.title}</h3>
-                        <p class="news-excerpt">${item.summary}</p>
-                        <a href="${item.link}" class="news-link">
-                            ${translations[lang]['news.read_more']}
-                            <span class="arrow">→</span>
-                        </a>
-                    </div>
-                </article>
-            `).join('');
-        })
-        .catch(error => {
-            console.error('Error loading news:', error);
-            newsGrid.innerHTML = '<p class="text-center">Gagal memuat berita.</p>';
-        });
+    try {
+        let response = await fetch(`data/news_${lang}.json`);
+        let data = await response.json();
+        let news = data.news || data;
+
+        // Fallback: If EN news is empty, fetch ID news and translate
+        if (lang === 'en' && (!news || news.length === 0)) {
+            console.log('EN News empty, falling back to ID with auto-translation...');
+            const idResponse = await fetch('data/news_id.json');
+            const idData = await idResponse.json();
+            const idNews = idData.news || idData;
+
+            news = await Promise.all(idNews.map(async (item) => ({
+                ...item,
+                title: await translateText(item.title, 'en'),
+                summary: await translateText(item.summary, 'en')
+            })));
+        }
+
+        newsGrid.innerHTML = news.map(item => `
+            <article class="news-card">
+                <div class="news-image-wrapper">
+                    <img src="${item.image}" alt="${item.title}" class="news-img" loading="lazy">
+                </div>
+                <div class="news-content">
+                    <div class="news-date">${new Date(item.date).toLocaleDateString(lang === 'id' ? 'id-ID' : 'en-US', { day: 'numeric', month: 'long', year: 'numeric' })}</div>
+                    <h3 class="news-title">${item.title}</h3>
+                    <p class="news-excerpt">${item.summary}</p>
+                    <a href="${item.link}" class="news-link">
+                        ${translations[lang]['news.read_more']}
+                        <span class="arrow">→</span>
+                    </a>
+                </div>
+            </article>
+        `).join('');
+    } catch (error) {
+        console.error('Error loading news:', error);
+        newsGrid.innerHTML = '<p class="text-center">Gagal memuat berita.</p>';
+    }
 }
 
 // Testimonials Logic
