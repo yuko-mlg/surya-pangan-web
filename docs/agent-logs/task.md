@@ -1,0 +1,39 @@
+# Tasks
+
+- [x] Verify CMS Authentication Flow
+    - [x] Analyze `api/auth.js` and `api/callback.js`
+    - [x] Check `public/admin/config.yml`
+    - [x] Confirm if the CMS window logs in successfully (Confirmed via user screenshot)
+- [x] Finalize CMS Configuration
+    - [x] Remove unnecessary Netlify Identity script if using GitHub backend
+    - [x] Ensure `base_url` is dynamic or correctly set for production/local
+- [x] Debug CMS Collection Access
+    - [x] Analyze `config.yml` collection structure
+    - [x] Check media folder paths
+    - [x] Flatten collection structure for better visibility
+    - [x] Update media folder configuration
+- [x] Debug CMS Login Redirect
+    - [x] Analyze `api/callback.js` message pattern
+    - [x] Update `api/callback.js` with standard Decap CMS handshake and compatibility layers
+    - [x] Deploy changes to GitHub/Vercel
+    - [x] Verify if login completes successfully on live site
+- [x] Setup Marketing Access & Workflow
+    - [x] Enable `editorial_workflow` for draft management
+    - [x] Provide instructions for adding collaborators via GitHub
+- [x] Memisahkan Pengelolaan Bahasa Berita
+    - [x] Ekstrak data ke `news_id.json` dan `news_en.json`
+    - [x] Update `config.yml` dengan dua koleksi terpisah
+    - [x] Update `main.js` untuk pemuatan data dinamis
+    - [x] Deploy ke GitHub/Vercel
+- [x] Tambah Tombol WhatsApp Melayang
+    - [x] Siapkan rencana implementasi
+    - [x] Tambahkan elemen HTML tombol WhatsApp
+    - [x] Tambahkan styling CSS (efek melayang & animasi)
+    - [x] Deploy ke GitHub/Vercel
+- [x] Fitur Terjemahan Berita Otomatis
+    - [x] Siapkan rencana implementasi
+    - [x] Tambahkan fungsi `translateText` di `main.js`
+    - [x] Update `renderNews` dengan logika fallback & translate
+    - [x] Deploy ke GitHub/Vercel
+- [x] Verifikasi dan Dokumentasi
+    - [x] Update walkthrough with translation feature guide

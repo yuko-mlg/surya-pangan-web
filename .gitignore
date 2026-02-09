@@ -3,4 +3,4 @@ dist
 .DS_Store
 *.log
 .vscode
-docs/
+# docs/ (Removed to allow project documentation archive)
