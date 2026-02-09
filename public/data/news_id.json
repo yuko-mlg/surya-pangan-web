@@ -1,0 +1,28 @@
+{
+    "news": [
+        {
+            "id": 1,
+            "date": "2026-01-05",
+            "image": "assets/images/news-1.png",
+            "title": "Tren Bahan Kuliner Bali 2026: Ke arah Mana Bisnis Anda?",
+            "summary": "Temukan tren terbaru dalam industri bakery dan pastry di Bali tahun ini. Dari bahan organik hingga inovasi tekstur.",
+            "link": "#"
+        },
+        {
+            "id": 2,
+            "date": "2026-01-02",
+            "image": "assets/images/news-2.png",
+            "title": "Kolaborasi Surya Pangan & Anchor: Jaminan Kualitas Premium",
+            "summary": "Bagaimana kerjasama kami dengan Anchor memastikan stok mentega dan keju premium selalu tersedia untuk outlet Anda.",
+            "link": "#"
+        },
+        {
+            "id": 3,
+            "date": "2025-12-28",
+            "image": "assets/images/news-3.png",
+            "title": "CSR: Aksi Donor Darah Rutin Akhir Tahun Surya Pangan",
+            "summary": "Menutup tahun dengan berbagi. Kebahagiaan tim Surya Pangan dalam mendukung stok darah PMI Bali.",
+            "link": "#"
+        }
+    ]
+}

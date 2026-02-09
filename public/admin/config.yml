@@ -11,13 +11,13 @@ media_folder: "assets/images"
 public_folder: "assets/images"
 
 collections:
-  - name: "news"
-    label: "Berita"
+  - name: "news_id"
+    label: "Berita (ID)"
     files:
-      - name: "news_data"
-        label: "Berita & Artikel"
-        file: "public/data/news.json"
-        description: "Daftar berita dan artikel yang tampil di website"
+      - name: "berita_data"
+        label: "Konten Berita Indonesia"
+        file: "public/data/news_id.json"
+        description: "Daftar berita dalam Bahasa Indonesia"
         fields:
           - label: "Daftar Berita"
             name: "news"
@@ -27,15 +27,24 @@ collections:
               - {label: "Tanggal", name: "date", widget: "datetime", format: "YYYY-MM-DD", date_format: "YYYY-MM-DD", time_format: false}
               - {label: "Gambar", name: "image", widget: "image"}
               - {label: "Link", name: "link", widget: "string", default: "#"}
-              - label: "Judul"
-                name: "title"
-                widget: "object"
-                fields:
-                  - {label: "Bahasa Indonesia", name: "id", widget: "string"}
-                  - {label: "English", name: "en", widget: "string"}
-              - label: "Ringkasan"
-                name: "summary"
-                widget: "object"
-                fields:
-                  - {label: "Bahasa Indonesia", name: "id", widget: "text"}
-                  - {label: "English", name: "en", widget: "text"}
+              - {label: "Judul News (ID)", name: "title", widget: "string"}
+              - {label: "Ringkasan News (ID)", name: "summary", widget: "text"}
+
+  - name: "news_en"
+    label: "News (EN)"
+    files:
+      - name: "news_data_en"
+        label: "English News Content"
+        file: "public/data/news_en.json"
+        description: "List of news in English"
+        fields:
+          - label: "News List"
+            name: "news"
+            widget: "list"
+            fields:
+              - {label: "ID (Unique)", name: "id", widget: "number", value_type: "int"}
+              - {label: "Date", name: "date", widget: "datetime", format: "YYYY-MM-DD", date_format: "YYYY-MM-DD", time_format: false}
+              - {label: "Image", name: "image", widget: "image"}
+              - {label: "Link", name: "link", widget: "string", default: "#"}
+              - {label: "Title (EN)", name: "title", widget: "string"}
+              - {label: "Summary (EN)", name: "summary", widget: "text"}

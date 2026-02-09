@@ -1,0 +1,28 @@
+{
+    "news": [
+        {
+            "id": 1,
+            "date": "2026-01-05",
+            "image": "assets/images/news-1.png",
+            "title": "Bali Culinary Trends 2026: Where is Your Business Heading?",
+            "summary": "Discover the latest trends in the Bali bakery and pastry industry this year. From organic ingredients to texture innovations.",
+            "link": "#"
+        },
+        {
+            "id": 2,
+            "date": "2026-01-02",
+            "image": "assets/images/news-2.png",
+            "title": "Surya Pangan & Anchor Collaboration: Premium Quality Guarantee",
+            "summary": "How our partnership with Anchor ensures premium butter and cheese stocks are always available for your outlet.",
+            "link": "#"
+        },
+        {
+            "id": 3,
+            "date": "2025-12-28",
+            "image": "assets/images/news-3.png",
+            "title": "CSR: Surya Pangan End-of-Year Routine Blood Donation",
+            "summary": "Closing the year by sharing. The Surya Pangan team's joy in supporting the Bali PMI blood stock.",
+            "link": "#"
+        }
+    ]
+}

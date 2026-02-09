@@ -291,30 +291,21 @@ function renderNews(lang) {
         return;
     }
 
-    // Updated: Fetch from JSON instead of static variable
-    fetch('data/news.json')
+    // Updated: Fetch from language-specific JSON
+    fetch(`data/news_${lang}.json`)
         .then(response => response.json())
         .then(data => {
-             // Access the 'news' property if the JSON structure is { news: [...] } or just data if it is [...]
-             // Based on my config.yml, Decap CMS for file collection often outputs object.
-             // But my initial JSON write was an array.
-             // Decap CMS might wrap it if I used a list widget inside a file collection.
-             // Let's assume it's an array for now, but handle object wrapper if needed.
-             // Actually, Decap CMS with "file" collection and "list" widget usually expects/writes:
-             // { "news": [ ... ] }
-             // My initial write was just [ ... ].
-             // I should probably update my initial JSON to match Decap's expected structure for a named field.
-             const news = data.news || data; // Handle both {news:[...]} and [...]
-             
-             newsGrid.innerHTML = news.map(item => `
+            const news = data.news || data;
+
+            newsGrid.innerHTML = news.map(item => `
                 <article class="news-card">
                     <div class="news-image-wrapper">
-                        <img src="${item.image}" alt="${item.title[lang]}" class="news-img" loading="lazy" onerror="this.src='https://via.placeholder.com/400x250?text=Surya+Pangan'">
+                        <img src="${item.image}" alt="${item.title}" class="news-img" loading="lazy" onerror="this.src='https://via.placeholder.com/400x250?text=Surya+Pangan'">
                     </div>
                     <div class="news-content">
                         <div class="news-date">${new Date(item.date).toLocaleDateString(lang === 'id' ? 'id-ID' : 'en-US', { day: 'numeric', month: 'long', year: 'numeric' })}</div>
-                        <h3 class="news-title">${item.title[lang]}</h3>
-                        <p class="news-excerpt">${item.summary[lang]}</p>
+                        <h3 class="news-title">${item.title}</h3>
+                        <p class="news-excerpt">${item.summary}</p>
                         <a href="${item.link}" class="news-link">
                             ${translations[lang]['news.read_more']}
                             <span class="arrow">→</span>
