@@ -1,6 +1,9 @@
 backend:
-  name: git-gateway
-  branch: main # Branch to update (optional; defaults to master)
+  name: github
+  repo: yuko-mlg/surya-pangan-web # Repository GitHub Anda
+  branch: main 
+  base_url: https://surya-pangan-web.vercel.app # Ganti dengan domain Vercel Anda nanti
+  auth_endpoint: api/auth
 
 media_folder: "public/assets/images/uploads"
 public_folder: "assets/images/uploads"
