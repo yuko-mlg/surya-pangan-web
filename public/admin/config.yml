@@ -1,0 +1,36 @@
+backend:
+  name: git-gateway
+  branch: main # Branch to update (optional; defaults to master)
+
+media_folder: "public/assets/images/uploads"
+public_folder: "assets/images/uploads"
+
+collections:
+  - name: "data"
+    label: "Data"
+    files:
+      - name: "news"
+        label: "Berita & Artikel"
+        file: "public/data/news.json"
+        description: "Daftar berita dan artikel yang tampil di website"
+        fields:
+          - label: "Daftar Berita"
+            name: "news"
+            widget: "list"
+            fields:
+              - {label: "ID (Unik)", name: "id", widget: "number", value_type: "int"}
+              - {label: "Tanggal", name: "date", widget: "datetime", format: "YYYY-MM-DD", date_format: "YYYY-MM-DD", time_format: false}
+              - {label: "Gambar", name: "image", widget: "image"}
+              - {label: "Link", name: "link", widget: "string", default: "#"}
+              - label: "Judul"
+                name: "title"
+                widget: "object"
+                fields:
+                  - {label: "Bahasa Indonesia", name: "id", widget: "string"}
+                  - {label: "English", name: "en", widget: "string"}
+              - label: "Ringkasan"
+                name: "summary"
+                widget: "object"
+                fields:
+                  - {label: "Bahasa Indonesia", name: "id", widget: "text"}
+                  - {label: "English", name: "en", widget: "text"}
