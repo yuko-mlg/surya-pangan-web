@@ -24,8 +24,8 @@ collections:
             widget: "list"
             fields:
               - {label: "ID (Unik)", name: "id", widget: "number", value_type: "int"}
-              - {label: "Tanggal Mulai", name: "date", widget: "datetime", format: "YYYY-MM-DD", date_format: "YYYY-MM-DD", time_format: false}
-              - {label: "Tanggal Kadaluwarsa (Opsional)", name: "expiry_date", widget: "datetime", format: "YYYY-MM-DD", date_format: "YYYY-MM-DD", time_format: false, required: false}
+              - {label: "Tanggal Mulai", name: "date", widget: "datetime", format: "YYYY-MM-DD HH:mm", date_format: "YYYY-MM-DD", time_format: "HH:mm"}
+              - {label: "Tanggal Kadaluwarsa", name: "expiry_date", widget: "datetime", format: "YYYY-MM-DD HH:mm", date_format: "YYYY-MM-DD", time_format: "HH:mm", required: false}
               - {label: "Gambar", name: "image", widget: "image"}
               - {label: "Link", name: "link", widget: "string", default: "#"}
               - {label: "Judul News (ID)", name: "title", widget: "string"}
@@ -44,8 +44,8 @@ collections:
             widget: "list"
             fields:
               - {label: "ID (Unique)", name: "id", widget: "number", value_type: "int"}
-              - {label: "Start Date", name: "date", widget: "datetime", format: "YYYY-MM-DD", date_format: "YYYY-MM-DD", time_format: false}
-              - {label: "Expiry Date (Optional)", name: "expiry_date", widget: "datetime", format: "YYYY-MM-DD", date_format: "YYYY-MM-DD", time_format: false, required: false}
+              - {label: "Start Date", name: "date", widget: "datetime", format: "YYYY-MM-DD HH:mm", date_format: "YYYY-MM-DD", time_format: "HH:mm"}
+              - {label: "Expiry Date", name: "expiry_date", widget: "datetime", format: "YYYY-MM-DD HH:mm", date_format: "YYYY-MM-DD", time_format: "HH:mm", required: false}
               - {label: "Image", name: "image", widget: "image"}
               - {label: "Link", name: "link", widget: "string", default: "#"}
               - {label: "Title (EN)", name: "title", widget: "string"}

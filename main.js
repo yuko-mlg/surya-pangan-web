@@ -307,18 +307,18 @@ async function renderNews(lang) {
         let data = await response.json();
         let news = data.news || data;
 
-        // Scheduling Logic: Filter news by Start Date and Expiry Date
-        const today = new Date().toISOString().split('T')[0]; // Current date YYYY-MM-DD
+        // Scheduling Logic: Filter news by Start Date and Expiry Date (with Time precision)
+        const now = new Date();
 
         const filteredNews = news.filter(item => {
-            const startDate = item.date; // Existing date field
-            const expiryDate = item.expiry_date; // New optional expiry field
+            const startDate = new Date(item.date); // Full date + time
+            const expiryDate = item.expiry_date ? new Date(item.expiry_date) : null;
 
             // Show if:
-            // 1. Today is >= Start Date
-            // 2. AND (Expiry Date is not set OR Today is <= Expiry Date)
-            const isStarted = today >= startDate;
-            const isNotExpired = !expiryDate || today <= expiryDate;
+            // 1. Now is >= Start Date
+            // 2. AND (Expiry Date is not set OR Now is <= Expiry Date)
+            const isStarted = now >= startDate;
+            const isNotExpired = !expiryDate || now <= expiryDate;
 
             return isStarted && isNotExpired;
         });

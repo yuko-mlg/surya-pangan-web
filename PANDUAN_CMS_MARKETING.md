@@ -15,12 +15,11 @@ Setiap berita yang dibuat wajib memiliki informasi berikut (klik **Add Berita (I
 - **Contoh**: `donor-darah-januari-2026`, `tips-membuat-roti-lembut`.
 
 ### 2. TANGGAL MULAI
-- Pilih tanggal kapan berita ini **mulai muncul** di website.
-- Klik ikon kalender atau klik tombol **Now**.
+- Pilih tanggal dan **jam** kapan berita ini mulai muncul.
+- Klik ikon kalender, pilih hari, lalu atur jamnya.
 
-### 3. TANGGAL KADALUWARSA (OPSIONAL)
-- Pilih tanggal kapan berita ini **otomatis disembunyikan**.
-- Berita akan hilang dari website setelah melewati tanggal ini.
+### 3. TANGGAL KADALUWARSA
+- Pilih tanggal dan **jam** kapan berita ini otomatis disembunyikan.
 - **Kosongkan** jika Anda ingin berita tampil selamanya.
 
 ### 4. GAMBAR
