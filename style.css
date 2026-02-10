@@ -1634,20 +1634,23 @@ ul {
 }
 
 .wa-menu-label {
-    background: rgba(255, 255, 255, 0.85);
-    backdrop-filter: blur(8px);
-    -webkit-backdrop-filter: blur(8px);
-    color: var(--color-text-main);
+    background: rgba(15, 23, 42, 0.75);
+    /* Dark Primary Glass */
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    color: #ffffff;
+    /* Contrast white text */
     padding: 8px 18px;
     border-radius: 20px;
     font-size: 14px;
     font-weight: 700;
-    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
-    border: 1px solid rgba(255, 255, 255, 0.5);
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.25);
+    border: 1px solid rgba(255, 255, 255, 0.1);
     white-space: nowrap;
     display: flex;
     align-items: center;
     gap: 8px;
+    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.3);
 }
 
 .wa-item-icon {
