@@ -8,27 +8,23 @@
 }
 
 :root {
-    /* Color Palette - Bright & Elegant Ivory */
-    --color-bg-dark: #fbf8ef;
-    /* Soft Cream */
-    --color-bg-light: #fffdfa;
-    --color-bg-white: #fffdfa;
-    --color-bg-pearl: #fcf9f0;
+    /* Color Palette - Vibrant White-Orange (Concept 1) */
+    --color-bg-dark: #f8f9fa;
+    /* Light Gray */
+    --color-bg-light: #ffffff;
+    --color-bg-white: #ffffff;
+    --color-bg-pearl: #f1f5f9;
 
-    --color-primary: #000000;
-    /* Solid Black for text contrast */
-    --color-primary-light: #1e293b;
+    --color-primary: #1a1a1a;
+    --color-primary-light: #334155;
 
     --color-accent: #f58220;
-    /* Golden Wheat Orange to match logo icon */
-    --color-accent-hover: #d56d11;
-    --color-accent-light: #fef9c3;
+    /* Brand Orange */
+    --color-accent-hover: #e67616;
+    --color-accent-light: #fff7ed;
 
-    --color-text-main: #000000;
-    --color-text-muted: #1e293b;
-    /* Darker muted text for reachability */
-    --color-text-light: #ffffff;
-    /* White text for dark sections/hero */
+    --color-text-main: #1f2937;
+    --color-text-muted: #4b5563;
     --color-text-white: #ffffff;
 
     /* Typography */
@@ -227,16 +223,17 @@ ul {
     left: 0;
     width: 100%;
     z-index: 1000;
-    transition: all 0.3s ease;
-    padding: 1.5rem 0;
-    background: transparent;
+    background: var(--color-accent);
+    /* Solid Brand Orange */
+    transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
+    padding: 1.25rem 0;
+    color: white;
 }
 
 .navbar.scrolled {
-    background: rgba(255, 255, 255, 0.95);
-    backdrop-filter: blur(10px);
-    padding: 1rem 0;
-    box-shadow: var(--shadow-nav);
+    padding: 0.75rem 0;
+    background: var(--color-accent);
+    box-shadow: var(--shadow-lg);
 }
 
 .nav-container {
