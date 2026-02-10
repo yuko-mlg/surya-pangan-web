@@ -1634,14 +1634,20 @@ ul {
 }
 
 .wa-menu-label {
-    background: white;
+    background: rgba(255, 255, 255, 0.85);
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
     color: var(--color-text-main);
-    padding: 6px 15px;
+    padding: 8px 18px;
     border-radius: 20px;
     font-size: 14px;
-    font-weight: 600;
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    font-weight: 700;
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+    border: 1px solid rgba(255, 255, 255, 0.5);
     white-space: nowrap;
+    display: flex;
+    align-items: center;
+    gap: 8px;
 }
 
 .wa-item-icon {
