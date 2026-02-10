@@ -8,23 +8,24 @@
 }
 
 :root {
-    /* Color Palette - Vibrant White-Orange (Concept 1) */
-    --color-bg-dark: #f8f9fa;
-    /* Light Gray */
-    --color-bg-light: #ffffff;
+    /* Color Palette - Premium Dark-Orange (Concept 2) */
+    --color-bg-dark: #0f172a;
+    /* Deep Dark */
+    --color-bg-light: #f8fafc;
+    /* Crisp Light Gray */
     --color-bg-white: #ffffff;
     --color-bg-pearl: #f1f5f9;
 
-    --color-primary: #1a1a1a;
-    --color-primary-light: #334155;
+    --color-primary: #111111;
+    --color-primary-light: #1e293b;
 
     --color-accent: #f58220;
     /* Brand Orange */
     --color-accent-hover: #e67616;
     --color-accent-light: #fff7ed;
 
-    --color-text-main: #1f2937;
-    --color-text-muted: #4b5563;
+    --color-text-main: #1e293b;
+    --color-text-muted: #475569;
     --color-text-white: #ffffff;
 
     /* Typography */
@@ -223,8 +224,8 @@ ul {
     left: 0;
     width: 100%;
     z-index: 1000;
-    background: var(--color-accent);
-    /* Solid Brand Orange */
+    background: #111111;
+    /* Deep Charcoal for Premium Look */
     transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
     padding: 1.25rem 0;
     color: white;
@@ -232,8 +233,8 @@ ul {
 
 .navbar.scrolled {
     padding: 0.75rem 0;
-    background: var(--color-accent);
-    box-shadow: var(--shadow-lg);
+    background: #000000;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
 }
 
 .nav-container {
