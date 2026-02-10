@@ -1803,10 +1803,10 @@ ul {
 
 .footer-link-small {
     font-size: 0.95rem;
-    color: var(--color-text-muted);
+    color: #000000;
     text-decoration: underline;
-    opacity: 0.8;
-    transition: opacity 0.3s;
+    opacity: 1;
+    transition: all 0.3s;
     margin-top: 0.5rem;
     display: inline-block;
 }
