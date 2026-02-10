@@ -19,9 +19,9 @@
     /* Solid Black for text contrast */
     --color-primary-light: #1e293b;
 
-    --color-accent: #ff6b00;
-    /* Brand Orange to match logo */
-    --color-accent-hover: #e65a00;
+    --color-accent: #f58220;
+    /* Golden Wheat Orange to match logo icon */
+    --color-accent-hover: #d56d11;
     --color-accent-light: #fef9c3;
 
     --color-text-main: #000000;
