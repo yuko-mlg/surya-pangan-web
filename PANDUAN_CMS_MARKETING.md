@@ -40,6 +40,20 @@ Setiap berita yang dibuat wajib memiliki informasi berikut (klik **Add Berita (I
 
 ---
 
+## 🤝 Pengisian Kepedulian Sosial (CSR)
+
+Selain Berita, Anda juga bisa mengelola konten di bagian **Kepedulian Sosial (ID)**. Ini khusus untuk kegiatan aksi nyata perusahaan seperti Donor Darah.
+
+### Kolom Khusus CSR:
+1. **Label Badge**: Teks kecil di pojok gambar (Contoh: "Kegiatan Rutin", "Aksi Darurat").
+2. **Tanggal Mulai & Kadaluwarsa**: Sama seperti berita, untuk mengatur jadwal tampil.
+3. **Waktu/Frekuensi**: Kapan kegiatan biasanya diadakan (Contoh: "Setiap 3 Bulan").
+4. **Lokasi**: Tempat kegiatan diadakan (Contoh: "Kantor Pusat Surya Pangan").
+5. **Deskripsi 1**: Penjelasan detail kegiatan.
+6. **Deskripsi 2 (Quote)**: Kalimat singkat atau kutipan yang menarik (Contoh: "Setetes darah kita berarti bagi mereka").
+
+---
+
 ## 🚀 Langkah Publikasi
 
 1.  **Isi Semua Kolom**: Pastikan tidak ada kolom yang terlewat (terutama ID dan Gambar).

@@ -368,6 +368,79 @@ async function renderNews(lang) {
     }
 }
 
+async function renderCSR(lang) {
+    const csrGrid = document.getElementById('csr-grid');
+    if (!csrGrid) return;
+
+    try {
+        let response = await fetch(`data/csr_${lang}.json`);
+        let data = await response.json();
+        let csrActivities = data.csr || data;
+
+        const now = new Date();
+
+        // Scheduling & Filtering Logic
+        const filteredCSR = csrActivities.filter(item => {
+            const startDate = new Date(item.date);
+            const expiryDate = item.expiry_date ? new Date(item.expiry_date) : null;
+            return now >= startDate && (!expiryDate || now <= expiryDate);
+        });
+
+        // Fallback for EN: Auto-translate if empty
+        if (lang === 'en' && filteredCSR.length === 0) {
+            console.log('EN CSR empty/expired, falling back to ID with auto-translation...');
+            const idResponse = await fetch('data/csr_id.json');
+            const idData = await idResponse.json();
+            const idCSR = idData.csr || idData;
+
+            const filteredIdCSR = idCSR.filter(item => {
+                const isStarted = now >= new Date(item.date);
+                const isNotExpired = !item.expiry_date || now <= new Date(item.expiry_date);
+                return isStarted && isNotExpired;
+            });
+
+            csrActivities = await Promise.all(filteredIdCSR.map(async (item) => ({
+                ...item,
+                title: await translateText(item.title, 'en'),
+                badge: await translateText(item.badge, 'en'),
+                time_info: await translateText(item.time_info, 'en'),
+                location: await translateText(item.location, 'en'),
+                desc1: await translateText(item.desc1, 'en'),
+                desc2: await translateText(item.desc2, 'en')
+            })));
+        } else {
+            csrActivities = filteredCSR;
+        }
+
+        if (csrActivities.length === 0) {
+            csrGrid.innerHTML = `<p class="text-center">${lang === 'id' ? 'Belum ada kegiatan sosial terbaru.' : 'No recent social activities.'}</p>`;
+            return;
+        }
+
+        csrGrid.innerHTML = csrActivities.map(item => `
+            <div class="csr-card">
+                <div class="csr-image">
+                    <img src="${item.image}" alt="${item.title}" loading="lazy">
+                    <div class="event-badge">${item.badge}</div>
+                </div>
+                <div class="csr-text">
+                    <h3>${item.title}</h3>
+                    <div class="meta-info">
+                        <span><i class="fas fa-calendar-alt"></i> <span>${item.time_info}</span></span>
+                        <span><i class="fas fa-map-marker-alt"></i> <span>${item.location}</span></span>
+                    </div>
+                    <p>${item.desc1}</p>
+                    <p>${item.desc2}</p>
+                    <a href="${item.link}" class="btn-outline">${lang === 'id' ? 'Lihat Dokumentasi Lengkap' : 'View Full Documentation'}</a>
+                </div>
+            </div>
+        `).join('');
+    } catch (error) {
+        console.error('Error loading CSR:', error);
+        csrGrid.innerHTML = '<p class="text-center">Gagal memuat kegiatan sosial.</p>';
+    }
+}
+
 // Testimonials Logic
 const testimonialContainer = document.getElementById('testimonial-container');
 const testimonialTabs = document.querySelectorAll('.tab-btn');
@@ -414,6 +487,7 @@ testimonialTabs.forEach(btn => {
 // Initial render
 updateContent(currentLang);
 renderNews(currentLang);
+renderCSR(currentLang);
 renderTestimonials(activeTestimonialCategory, currentLang);
 generateMathCaptcha();
 

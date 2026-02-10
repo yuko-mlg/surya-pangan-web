@@ -50,3 +50,51 @@ collections:
               - {label: "Link", name: "link", widget: "string", default: "#"}
               - {label: "Title (EN)", name: "title", widget: "string"}
               - {label: "Summary (EN)", name: "summary", widget: "text"}
+
+  - name: "csr_id"
+    label: "Kepedulian Sosial (ID)"
+    files:
+      - name: "csr_data"
+        label: "Konten CSR Indonesia"
+        file: "public/data/csr_id.json"
+        description: "Daftar kegiatan sosial dalam Bahasa Indonesia"
+        fields:
+          - label: "Daftar Kegiatan"
+            name: "csr"
+            widget: "list"
+            fields:
+              - {label: "ID (Unik)", name: "id", widget: "number", value_type: "int"}
+              - {label: "Label Badge", name: "badge", widget: "string", default: "Kegiatan Rutin"}
+              - {label: "Tanggal Mulai", name: "date", widget: "datetime", format: "YYYY-MM-DD HH:mm", date_format: "YYYY-MM-DD", time_format: "HH:mm"}
+              - {label: "Tanggal Kadaluwarsa", name: "expiry_date", widget: "datetime", format: "YYYY-MM-DD HH:mm", date_format: "YYYY-MM-DD", time_format: "HH:mm", required: false}
+              - {label: "Gambar", name: "image", widget: "image"}
+              - {label: "Judul Kegiatan", name: "title", widget: "string"}
+              - {label: "Waktu/Frekuensi", name: "time_info", widget: "string", default: "Setiap 3 Bulan"}
+              - {label: "Lokasi", name: "location", widget: "string", default: "Kantor Pusat Surya Pangan"}
+              - {label: "Deskripsi 1", name: "desc1", widget: "text"}
+              - {label: "Deskripsi 2 (Quote)", name: "desc2", widget: "string"}
+              - {label: "Link Dokumentasi", name: "link", widget: "string", default: "#"}
+
+  - name: "csr_en"
+    label: "CSR (EN)"
+    files:
+      - name: "csr_data_en"
+        label: "English CSR Content"
+        file: "public/data/csr_en.json"
+        description: "List of CSR activities in English"
+        fields:
+          - label: "CSR List"
+            name: "csr"
+            widget: "list"
+            fields:
+              - {label: "ID (Unique)", name: "id", widget: "number", value_type: "int"}
+              - {label: "Label Badge", name: "badge", widget: "string", default: "Regular Activity"}
+              - {label: "Start Date", name: "date", widget: "datetime", format: "YYYY-MM-DD HH:mm", date_format: "YYYY-MM-DD", time_format: "HH:mm"}
+              - {label: "Expiry Date", name: "expiry_date", widget: "datetime", format: "YYYY-MM-DD HH:mm", date_format: "YYYY-MM-DD", time_format: "HH:mm", required: false}
+              - {label: "Image", name: "image", widget: "image"}
+              - {label: "Activity Title", name: "title", widget: "string"}
+              - {label: "Time/Frequency", name: "time_info", widget: "string", default: "Every 3 Months"}
+              - {label: "Location", name: "location", widget: "string", default: "Surya Pangan Head Office"}
+              - {label: "Description 1", name: "desc1", widget: "text"}
+              - {label: "Description 2 (Quote)", name: "desc2", widget: "string"}
+              - {label: "Documentation Link", name: "link", widget: "string", default: "#"}
