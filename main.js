@@ -392,4 +392,32 @@ renderNews(currentLang);
 renderTestimonials(activeTestimonialCategory, currentLang);
 generateMathCaptcha();
 
+// WhatsApp Multi-Contact Menu Toggle
+const waTrigger = document.getElementById('wa-menu-trigger');
+const waPopup = document.getElementById('wa-menu-popup');
+
+if (waTrigger && waPopup) {
+    waTrigger.addEventListener('click', (e) => {
+        e.stopPropagation();
+        waTrigger.classList.toggle('active');
+        waPopup.classList.toggle('active');
+    });
+
+    // Close menu when clicking outside
+    document.addEventListener('click', (e) => {
+        if (!waTrigger.contains(e.target) && !waPopup.contains(e.target)) {
+            waTrigger.classList.remove('active');
+            waPopup.classList.remove('active');
+        }
+    });
+
+    // Close menu on scroll for better UX on mobile
+    window.addEventListener('scroll', () => {
+        if (waPopup.classList.contains('active')) {
+            waTrigger.classList.remove('active');
+            waPopup.classList.remove('active');
+        }
+    }, { passive: true });
+}
+
 console.log('Surya Pangan website loaded successfully');
