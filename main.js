@@ -520,3 +520,38 @@ if (waTrigger && waPopup) {
 }
 
 console.log('Surya Pangan website loaded successfully');
+// Privacy Policy Modal Logic
+const privacyModal = document.getElementById('privacy-modal');
+const privacyTrigger = document.getElementById('privacy-trigger');
+const closePrivacyX = document.getElementById('close-privacy');
+const closePrivacyBtn = document.getElementById('close-privacy-btn');
+
+if (privacyTrigger && privacyModal) {
+    privacyTrigger.addEventListener('click', (e) => {
+        e.preventDefault();
+        privacyModal.style.display = 'block';
+        document.body.style.overflow = 'hidden'; // Prevent scrolling
+    });
+
+    const closeModal = () => {
+        privacyModal.style.display = 'none';
+        document.body.style.overflow = 'auto'; // Restore scrolling
+    };
+
+    closePrivacyX.addEventListener('click', closeModal);
+    closePrivacyBtn.addEventListener('click', closeModal);
+
+    // Close on outside click
+    window.addEventListener('click', (event) => {
+        if (event.target === privacyModal) {
+            closeModal();
+        }
+    });
+
+    // Close on ESC key
+    window.addEventListener('keydown', (event) => {
+        if (event.key === 'Escape' && privacyModal.style.display === 'block') {
+            closeModal();
+        }
+    });
+}

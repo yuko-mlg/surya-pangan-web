@@ -506,7 +506,11 @@
                     </a>
                 </div>
 
-                <p data-i18n="footer.rights">&copy; 2026 IT Division Surya Pangan. All rights reserved.</p>
+                <p class="mt-2">
+                    <a href="javascript:void(0)" id="privacy-trigger" class="footer-link-small"
+                        data-i18n="nav.privacy">Kebijakan Privasi</a>
+                </p>
+                <p data-i18n="footer.rights" class="mt-2">&copy; 2026 IT Division Surya Pangan. All rights reserved.</p>
             </div>
         </div>
     </footer>
@@ -529,6 +533,35 @@
             <i class="fab fa-whatsapp"></i>
             <i class="fas fa-times close-icon"></i>
         </button>
+    </div>
+
+    <!-- Privacy Policy Modal -->
+    <div id="privacy-modal" class="modal">
+        <div class="modal-content legal-modal">
+            <span class="close-modal" id="close-privacy">&times;</span>
+            <h2 data-i18n="privacy.title">Kebijakan Privasi</h2>
+            <div class="legal-content">
+                <p data-i18n="privacy.intro" class="mb-4"></p>
+
+                <h3 data-i18n="privacy.sec1.title"></h3>
+                <p data-i18n="privacy.sec1.text"></p>
+
+                <h3 data-i18n="privacy.sec2.title"></h3>
+                <p data-i18n="privacy.sec2.text"></p>
+
+                <h3 data-i18n="privacy.sec3.title"></h3>
+                <p data-i18n="privacy.sec3.text"></p>
+
+                <h3 data-i18n="privacy.sec4.title"></h3>
+                <p data-i18n="privacy.sec4.text"></p>
+
+                <h3 data-i18n="privacy.sec5.title"></h3>
+                <p data-i18n="privacy.sec5.text"></p>
+            </div>
+            <div class="text-center mt-6">
+                <button class="btn-primary" id="close-privacy-btn">Close</button>
+            </div>
+        </div>
     </div>
 
     <script type="module" src="main.js"></script>
