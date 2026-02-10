@@ -69,7 +69,7 @@ export const translations = {
         "csr.card.desc2": "Setetes darah kita sangat berarti bagi mereka.",
         "csr.card.cta": "Lihat Dokumentasi Lengkap",
 
-        "news.title": "Berita & Inspirasi",
+        "news.title": "Berita",
         "news.desc": "Ikuti perkembangan terbaru dan tips menarik seputar dunia kuliner Bali",
         "news.read_more": "Baca Selengkapnya",
 
@@ -186,7 +186,7 @@ export const translations = {
         "csr.card.desc2": "A drop of our blood means a lot to them.",
         "csr.card.cta": "View Full Documentation",
 
-        "news.title": "News & Insights",
+        "news.title": "News",
         "news.desc": "Follow the latest developments and interesting tips about the Bali culinary world",
         "news.read_more": "Read More",
 
