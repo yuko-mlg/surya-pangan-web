@@ -14,11 +14,16 @@ Setiap berita yang dibuat wajib memiliki informasi berikut (klik **Add Berita (I
 - **Penting**: Ini adalah identitas file. Tidak boleh sama dengan berita lain.
 - **Contoh**: `donor-darah-januari-2026`, `tips-membuat-roti-lembut`.
 
-### 2. TANGGAL
+### 2. TANGGAL MULAI
+- Pilih tanggal kapan berita ini **mulai muncul** di website.
 - Klik ikon kalender atau klik tombol **Now**.
-- Tanggal ini akan muncul di website untuk memberi tahu pembaca kapan berita diterbitkan.
 
-### 3. GAMBAR
+### 3. TANGGAL KADALUWARSA (OPSIONAL)
+- Pilih tanggal kapan berita ini **otomatis disembunyikan**.
+- Berita akan hilang dari website setelah melewati tanggal ini.
+- **Kosongkan** jika Anda ingin berita tampil selamanya.
+
+### 4. GAMBAR
 - Klik **"Choose an image"** untuk unggah foto dari komputer.
 - **Tips**: Gunakan foto dengan orientasi Landscape (Melebar) agar tampilan di kartu berita rapi. Ukuran ideal di bawah 1MB agar website tetap cepat.
 

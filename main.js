@@ -307,18 +307,43 @@ async function renderNews(lang) {
         let data = await response.json();
         let news = data.news || data;
 
-        // Fallback: If EN news is empty, fetch ID news and translate
-        if (lang === 'en' && (!news || news.length === 0)) {
-            console.log('EN News empty, falling back to ID with auto-translation...');
+        // Scheduling Logic: Filter news by Start Date and Expiry Date
+        const today = new Date().toISOString().split('T')[0]; // Current date YYYY-MM-DD
+
+        const filteredNews = news.filter(item => {
+            const startDate = item.date; // Existing date field
+            const expiryDate = item.expiry_date; // New optional expiry field
+
+            // Show if:
+            // 1. Today is >= Start Date
+            // 2. AND (Expiry Date is not set OR Today is <= Expiry Date)
+            const isStarted = today >= startDate;
+            const isNotExpired = !expiryDate || today <= expiryDate;
+
+            return isStarted && isNotExpired;
+        });
+
+        // Fallback: If EN news is empty AFTER filtering, fetch ID news and translate
+        if (lang === 'en' && filteredNews.length === 0) {
+            console.log('EN News empty/expired, falling back to ID with auto-translation...');
             const idResponse = await fetch('data/news_id.json');
             const idData = await idResponse.json();
             const idNews = idData.news || idData;
 
-            news = await Promise.all(idNews.map(async (item) => ({
+            // Apply same filtering to ID news before translating
+            const filteredIdNews = idNews.filter(item => {
+                const isStarted = today >= item.date;
+                const isNotExpired = !item.expiry_date || today <= item.expiry_date;
+                return isStarted && isNotExpired;
+            });
+
+            news = await Promise.all(filteredIdNews.map(async (item) => ({
                 ...item,
                 title: await translateText(item.title, 'en'),
                 summary: await translateText(item.summary, 'en')
             })));
+        } else {
+            news = filteredNews;
         }
 
         newsGrid.innerHTML = news.map(item => `
