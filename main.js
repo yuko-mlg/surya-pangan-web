@@ -10,7 +10,16 @@ window.addEventListener('load', () => {
 const navbar = document.getElementById('navbar');
 
 // Language Management
-let currentLang = localStorage.getItem('language') || 'id'; // Default language
+// SEO Update: Check URL param first, then localStorage, then default
+const urlParams = new URLSearchParams(window.location.search);
+const langParam = urlParams.get('lang');
+
+// If URL has lang param, use it and update localStorage
+if (langParam && (langParam === 'id' || langParam === 'en')) {
+    localStorage.setItem('language', langParam);
+}
+
+let currentLang = langParam || localStorage.getItem('language') || 'id'; // Default language
 const mobileToggle = document.querySelector('.mobile-toggle');
 const navLinks = document.querySelector('.nav-links');
 
