@@ -57,6 +57,19 @@ const updateContent = (lang) => {
 
 document.getElementById('lang-toggle').addEventListener('click', () => {
     const newLang = currentLang === 'id' ? 'en' : 'id';
+
+    // Update URL parameter for SEO and shareability
+    const url = new URL(window.location);
+    if (newLang === 'en') {
+        url.searchParams.set('lang', 'en');
+    } else {
+        url.searchParams.delete('lang'); // Remove param for Indonesian (default)
+    }
+    window.history.pushState({}, '', url);
+
+    // Update localStorage for persistence
+    localStorage.setItem('language', newLang);
+
     updateContent(newLang);
     renderNews(newLang);
     renderTestimonials(activeTestimonialCategory, newLang);
