@@ -4,3 +4,4 @@ dist
 *.log
 .vscode
 # docs/ (Removed to allow project documentation archive)
+docs/technical-docs/

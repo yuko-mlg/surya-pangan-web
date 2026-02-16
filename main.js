@@ -305,19 +305,7 @@ revealElements.forEach(el => {
     revealObserver.observe(el);
 });
 
-// Helper for Automatic Translation (Google Translate API Client-side)
-async function translateText(text, target = 'en') {
-    if (!text || target === 'id') return text;
-    try {
-        const url = `https://translate.googleapis.com/translate_a/single?client=gtx&sl=auto&tl=${target}&dt=t&q=${encodeURIComponent(text)}`;
-        const response = await fetch(url);
-        const data = await response.json();
-        return data[0].map(item => item[0]).join('');
-    } catch (e) {
-        console.error('Translation error:', e);
-        return text;
-    }
-}
+// Auto-translate function removed - all content is manually translated in CMS
 
 // Render News Function
 async function renderNews(lang) {
@@ -345,28 +333,8 @@ async function renderNews(lang) {
             return isStarted && isNotExpired;
         });
 
-        // Fallback: If EN news is empty AFTER filtering, fetch ID news and translate
-        if (lang === 'en' && filteredNews.length === 0) {
-            console.log('EN News empty/expired, falling back to ID with auto-translation...');
-            const idResponse = await fetch('data/news_id.json');
-            const idData = await idResponse.json();
-            const idNews = idData.news || idData;
-
-            // Apply same filtering to ID news before translating
-            const filteredIdNews = idNews.filter(item => {
-                const isStarted = today >= item.date;
-                const isNotExpired = !item.expiry_date || today <= item.expiry_date;
-                return isStarted && isNotExpired;
-            });
-
-            news = await Promise.all(filteredIdNews.map(async (item) => ({
-                ...item,
-                title: await translateText(item.title, 'en'),
-                summary: await translateText(item.summary, 'en')
-            })));
-        } else {
-            news = filteredNews;
-        }
+        // Use filtered news directly - no auto-translate fallback
+        news = filteredNews;
 
         newsGrid.innerHTML = news.map(item => `
             <article class="news-card">
@@ -408,31 +376,8 @@ async function renderCSR(lang) {
             return now >= startDate && (!expiryDate || now <= expiryDate);
         });
 
-        // Fallback for EN: Auto-translate if empty
-        if (lang === 'en' && filteredCSR.length === 0) {
-            console.log('EN CSR empty/expired, falling back to ID with auto-translation...');
-            const idResponse = await fetch('data/csr_id.json');
-            const idData = await idResponse.json();
-            const idCSR = idData.csr || idData;
-
-            const filteredIdCSR = idCSR.filter(item => {
-                const isStarted = now >= new Date(item.date);
-                const isNotExpired = !item.expiry_date || now <= new Date(item.expiry_date);
-                return isStarted && isNotExpired;
-            });
-
-            csrActivities = await Promise.all(filteredIdCSR.map(async (item) => ({
-                ...item,
-                title: await translateText(item.title, 'en'),
-                badge: await translateText(item.badge, 'en'),
-                time_info: await translateText(item.time_info, 'en'),
-                location: await translateText(item.location, 'en'),
-                desc1: await translateText(item.desc1, 'en'),
-                desc2: await translateText(item.desc2, 'en')
-            })));
-        } else {
-            csrActivities = filteredCSR;
-        }
+        // Use filtered CSR directly - no auto-translate fallback
+        csrActivities = filteredCSR;
 
         if (csrActivities.length === 0) {
             csrGrid.innerHTML = `<p class="text-center">${lang === 'id' ? 'Belum ada kegiatan sosial terbaru.' : 'No recent social activities.'}</p>`;
