@@ -39,44 +39,82 @@ document.addEventListener('DOMContentLoaded', () => {
         
         const responses = {
             id: {
-                greetings: ["halo", "hi", "siang", "pagi", "malam"],
-                products: ["produk", "bahan", "jual", "brand"],
-                location: ["lokasi", "alamat", "dimana", "cabang"],
-                hours: ["jam", "buka", "tutup", "minggu"],
-                chef: ["resep", "masak", "chef", "kue", "bikin"],
+                greetings: ["halo", "hi", "siang", "pagi", "malam", "panggil"],
+                products: ["produk", "bahan", "jual", "brand", "item", "apa saja"],
+                location: ["lokasi", "alamat", "dimana", "cabang", "kantor", "pusat"],
+                history: ["sejarah", "kapan berdiri", "didirikan", "sejak"],
+                coverage: ["kirim", "area", "jangkauan", "distribusi", "lombok", "sumbawa", "bali"],
+                customers: ["pelanggan", "customer", "banyak"],
+                chef: ["resep", "masak", "chef", "kue", "bikin", "rekomendasi"],
                 thanks: ["terima kasih", "thanks", "makasih"],
-                default: "Maaf, saya masih belajar. Bisa hubungi CS kami via WhatsApp untuk respon lebih cepat, ya!"
+                default: "Maaf, saya masih belajar mengenai detail spesifik itu. Bisa hubungi tim kami via WhatsApp di tombol hijau untuk respon lebih detail dari manusia ya Boz!"
             },
             en: {
                 greetings: ["hello", "hi", "hey", "morning", "afternoon"],
-                products: ["product", "ingredient", "sell", "brand"],
-                location: ["location", "address", "where", "branch"],
-                hours: ["hour", "open", "close", "sunday"],
-                chef: ["recipe", "cook", "chef", "bake", "cake"],
+                products: ["product", "ingredient", "sell", "brand", "item"],
+                location: ["location", "address", "where", "branch", "office"],
+                history: ["history", "founded", "established", "since"],
+                coverage: ["delivery", "area", "range", "distribution", "lombok", "sumbawa"],
+                customers: ["customer", "how many"],
+                chef: ["recipe", "cook", "chef", "bake", "cake", "recommendation"],
                 thanks: ["thank you", "thanks"],
-                default: "I'm still learning. Feel free to contact our CS via WhatsApp for faster response!"
+                default: "I'm still learning those specific details. Feel free to contact our team via WhatsApp for more professional assistance!"
             }
         };
 
         const res = responses[lang];
 
+        // Greetings & Identity
         if (res.greetings.some(word => lowerInput.includes(word))) {
-            return lang === 'id' ? "Halo! Ada yang bisa saya bantu?" : "Hello! How can I help you today?";
+            if (lowerInput.includes("panggil")) return lang === 'id' ? "Halo Boz Yuko! Ada yang bisa saya bantu hari ini?" : "Hello! How can I help you today?";
+            return lang === 'id' ? "Halo! Saya Surya Assistant, siap membantu info seputar Surya Pangan." : "Hello! I am Surya Assistant, ready to help with info about Surya Pangan.";
         }
+
+        // History
+        if (res.history.some(word => lowerInput.includes(word))) {
+            return lang === 'id' 
+                ? "Surya Pangan berdiri sejak 2010 (awalnya UD. Pangan Mulia Lestari). Sejak 2013 kami menjadi CV. Surya Pangan dan terus berkembang hingga membuka cabang di Canggu pada April 2023!" 
+                : "Surya Pangan was founded in 2010. Since 2013 we grew into CV. Surya Pangan and recently opened our Canggu branch in April 2023!";
+        }
+
+        // Products & Brands
         if (res.products.some(word => lowerInput.includes(word))) {
-            return lang === 'id' ? "Kami distributor resmi Anchor, Wilmar, Colatta, dan brand premium lainnya. Produk kami lengkap mulai dari tepung, mentega, hingga cokelat." : "We are an official distributor for Anchor, Wilmar, Colatta, and other premium brands. Our products range from flour and butter to chocolate.";
+            return lang === 'id' 
+                ? "Kami mendistribusikan bahan kue, cetakan, dan perlengkapan bakery dari brand ternama seperti Anchor, Wilmar, Colatta, Rose Brand, Goldenfil, Emina Cheese, dan banyak lagi!" 
+                : "We distribute bakery ingredients and tools from top brands like Anchor, Wilmar, Colatta, Rose Brand, Goldenfil, Emina Cheese, and many more!";
         }
+
+        // Location & Branches
         if (res.location.some(word => lowerInput.includes(word))) {
-            return lang === 'id' ? "Pusat kami ada di Jl. Mahendradatta No.18A-B, Denpasar. Kami juga punya cabang di Munggu!" : "Our main office is at Jl. Mahendradatta No.18A-B, Denpasar. We also have a branch in Munggu!";
+            return lang === 'id' 
+                ? "Pusat kami di Jl. Mahendradatta No.18A-B, Denpasar. Kami juga punya cabang retail di Canggu (area Badung) yang buka sejak April 2023 untuk melayani area Seminyak & sekitarnya." 
+                : "Our main office is at Jl. Mahendradatta No.18A-B, Denpasar. We also have a retail branch in Canggu opening since April 2023!";
         }
-        if (res.hours.some(word => lowerInput.includes(word))) {
-            return lang === 'id' ? "Kami buka Senin-Sabtu jam 08:00 - 17:00. Hari Minggu kami libur." : "We are open Monday-Saturday from 08:00 AM to 05:00 PM. We are closed on Sundays.";
+
+        // Coverage & Delivery
+        if (res.coverage.some(word => lowerInput.includes(word))) {
+            return lang === 'id' 
+                ? "Kami melayani pengiriman ke SELURUH area Bali. Bahkan sekarang sudah ekspansi kirim ke Lombok dan Sumbawa melalui jasa ekspedisi profesional!" 
+                : "We deliver to ALL areas of Bali, and have expanded our range to Lombok and Sumbawa via expert expedition services!";
         }
+
+        // Customers
+        if (res.customers.some(word => lowerInput.includes(word))) {
+            return lang === 'id' 
+                ? "Saat ini kami dipercaya oleh sekitar 2000 pelanggan, mulai dari toko ritel, UMKM, hingga sektor HORECA (Hotel, Restaurant, Cafe) di Bali." 
+                : "Currently, we are trusted by around 2,000 customers, ranging from retail shops, SMEs, to the HORECA sector (Hotel, Restaurant, Cafe) in Bali.";
+        }
+
+        // Chef & Recommendation
         if (res.chef.some(word => lowerInput.includes(word))) {
-            return lang === 'id' ? "Wah, mau bikin sesuatu yang enak ya? Gunakan mentega Anchor & cokelat Colatta agar hasilnya premium khas Surya Pangan!" : "Planning to bake something delicious? Use Anchor butter & Colatta chocolate for that premium Surya Pangan result!";
+            return lang === 'id' 
+                ? "Untuk hasil premium, saya sarankan pakai Mentega Anchor, Cokelat Colatta, atau Selai Goldenfil. Kami juga punya tepung dari Wilmar dan keju dari Emina untuk kreasimu!" 
+                : "For premium results, I recommend using Anchor Butter, Colatta Chocolate, or Goldenfil Jam. We also have Wilmar flour and Emina cheese for your creations!";
         }
+
+        // Thanks
         if (res.thanks.some(word => lowerInput.includes(word))) {
-            return lang === 'id' ? "Sama-sama! Senang bisa membantu." : "You're welcome! Glad I could help.";
+            return lang === 'id' ? "Sama-sama Boz Yuko! Senang bisa melayani." : "You're welcome! Happy to serve.";
         }
 
         return res.default;
