@@ -204,20 +204,33 @@ if (contactForm) {
                     ? "Pesan berhasil terkirim! Terima kasih telah menghubungi kami."
                     : "Message sent successfully! Thank you for contacting us.");
                 showStatus(successMsg, 'success');
-                contactForm.reset(); // Clear form
-                generateMathCaptcha(); // Reset captcha
+                contactForm.reset();
+                generateMathCaptcha();
             } else {
-                // Error from server
-                response.json().then(data => {
-                    if (Object.hasOwn(data, 'errors')) {
-                        showStatus(data["errors"].map(error => error["message"]).join(", "), 'error');
-                    } else {
-                        showStatus(translations[currentLang].formError, 'error');
-                    }
-                });
+                // Error from server (e.g. limit reached)
+                throw new Error("Form submission error");
             }
         }).catch(error => {
-            showStatus(translations[currentLang].formError, 'error');
+            // Check for potential rate limit or network error
+            const fallbackMsg = currentLang === 'id'
+                ? "Gagal mengirim via formulir. Silakan gunakan WhatsApp untuk respon cepat."
+                : "Form submission failed. Please use WhatsApp for a faster response.";
+
+            showStatus(fallbackMsg, 'error');
+
+            // Show WhatsApp button as fallback
+            const waFallback = document.createElement('div');
+            waFallback.id = 'wa-fallback-btn';
+            waFallback.style.marginTop = '1rem';
+            waFallback.innerHTML = `
+                <a href="https://wa.me/628176335737" class="btn btn-primary" style="width: 100%; background: #25D366; border: none; display: flex; align-items: center; justify-content: center; gap: 0.5rem;">
+                    <i class="fab fa-whatsapp"></i> ${currentLang === 'id' ? 'Hubungi via WhatsApp' : 'Contact via WhatsApp'}
+                </a>
+            `;
+            // Check if it already exists to avoid duplication
+            if (!document.getElementById('wa-fallback-btn')) {
+                formStatus.appendChild(waFallback);
+            }
         }).finally(() => {
             // Restore Button
             btn.innerText = originalBtnText;
