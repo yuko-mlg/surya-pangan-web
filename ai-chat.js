@@ -47,7 +47,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 customers: ["pelanggan", "customer", "banyak"],
                 chef: ["resep", "masak", "chef", "kue", "bikin", "rekomendasi"],
                 thanks: ["terima kasih", "thanks", "makasih"],
-                default: "Maaf, saya masih belajar mengenai detail spesifik itu. Bisa hubungi tim kami via WhatsApp di tombol hijau untuk respon lebih detail dari manusia ya Boz!"
+                default: "Maaf, saya masih belajar mengenai detail spesifik itu. Bisa hubungi tim kami via WhatsApp di tombol hijau untuk respon lebih detail ya!"
             },
             en: {
                 greetings: ["hello", "hi", "hey", "morning", "afternoon"],
@@ -66,7 +66,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
         // Greetings & Identity
         if (res.greetings.some(word => lowerInput.includes(word))) {
-            if (lowerInput.includes("panggil")) return lang === 'id' ? "Halo Boz Yuko! Ada yang bisa saya bantu hari ini?" : "Hello! How can I help you today?";
+            if (lowerInput.includes("panggil")) return lang === 'id' ? "Halo! Ada yang bisa saya bantu hari ini?" : "Hello! How can I help you today?";
             return lang === 'id' ? "Halo! Saya Surya Assistant, siap membantu info seputar Surya Pangan." : "Hello! I am Surya Assistant, ready to help with info about Surya Pangan.";
         }
 
@@ -114,7 +114,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
         // Thanks
         if (res.thanks.some(word => lowerInput.includes(word))) {
-            return lang === 'id' ? "Sama-sama Boz Yuko! Senang bisa melayani." : "You're welcome! Happy to serve.";
+            return lang === 'id' ? "Sama-sama! Senang bisa melayani." : "You're welcome! Happy to serve.";
         }
 
         return res.default;
