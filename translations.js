@@ -47,7 +47,7 @@ export const translations = {
         "products.desc": "Brand-brand terbaik yang kami distribusikan untuk bisnis Anda",
 
         "coverage.title": "Distribusi",
-        "coverage.desc": "Kami melayani pengiriman ke seluruh area Bali.",
+        "coverage.desc": "Kami melayani pengiriman ke seluruh area Bali, Lombok dan Sumbawa.",
         "shop.title": "Belanja Online",
         "shop.desc": "Dapatkan produk kami dengan mudah melalui marketplace kesayangan Anda.",
         "shop.shopee": "Kunjungi Shopee",
@@ -186,7 +186,7 @@ export const translations = {
         "products.desc": "The best brands we distribute for your business",
 
         "coverage.title": "Distribution",
-        "coverage.desc": "We serve deliveries to all areas of Bali.",
+        "coverage.desc": "We serve deliveries to all areas of Bali, Lombok and Sumbawa.",
         "shop.title": "Shop Online",
         "shop.desc": "Get our products easily through your favorite marketplace.",
         "shop.shopee": "Visit Shopee",
