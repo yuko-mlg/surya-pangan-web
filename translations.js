@@ -69,7 +69,7 @@ export const translations = {
         "csr.card.desc2": "Setetes darah kita sangat berarti bagi mereka.",
         "csr.card.cta": "Lihat Dokumentasi Lengkap",
 
-        "news.title": "Berita & Inspirasi",
+        "news.title": "Berita",
         "news.desc": "Ikuti perkembangan terbaru dan tips menarik seputar dunia kuliner Bali",
         "news.read_more": "Baca Selengkapnya",
 
@@ -114,7 +114,29 @@ export const translations = {
         "testimonials.customers.c1.company": "Pelanggan Setia Outlet",
         "testimonials.customers.c2.text": "Suka sekali mampir ke tokonya karena harganya jujur dan kualitas bahannya selalu fresh. Lokasinya juga strategis dan mudah dijangkau dari mana saja.",
         "testimonials.customers.c2.name": "Agus Pratama",
-        "testimonials.customers.c2.company": "Pelanggan Rumah Tangga"
+        "testimonials.customers.c2.company": "Pelanggan Rumah Tangga",
+
+        "privacy.title": "Kebijakan Privasi",
+        "privacy.intro": "Surya Pangan Bali menghargai privasi Anda dan berkomitmen untuk melindungi data pribadi Anda sesuai dengan Peraturan Perlindungan Data Umum (GDPR).",
+        "privacy.sec1.title": "1. Data yang Kami Kumpulkan",
+        "privacy.sec1.text": "Kami hanya mengumpulkan informasi yang Anda berikan secara sukarela melalui formulir kontak, seperti nama, alamat email, dan nomor telepon.",
+        "privacy.sec2.title": "2. Tujuan Penggunaan Data",
+        "privacy.sec2.text": "Data Anda digunakan semata-mata untuk merespons pertanyaan Anda, memberikan layanan informasi, dan meningkatkan pengalaman Anda di situs kami.",
+        "privacy.sec3.title": "3. Hak-Hak Anda (GDPR)",
+        "privacy.sec3.text": "Anda berhak untuk mengakses, memperbaiki, atau menghapus data pribadi Anda. Anda juga dapat menarik persetujuan penggunaan data kapan saja dengan menghubungi kami.",
+        "privacy.sec4.title": "4. Keamanan Data",
+        "privacy.sec4.text": "Kami menerapkan langkah-langkah teknis yang ketat untuk mencegah akses tidak sah terhadap data pribadi Anda.",
+        "privacy.sec5.title": "5. Kontak Perlindungan Data",
+        "privacy.sec5.text": "Untuk pertanyaan terkait privasi, hubungi kami di: info@suryapanganbali.com",
+        "nav.privacy": "Kebijakan Privasi",
+
+        "ai.chat.title": "Surya Assistant",
+        "ai.chat.greeting": "Halo! Saya Surya AI. Ada yang bisa saya bantu seputar bahan kue atau layanan Surya Pangan?",
+        "ai.chat.placeholder": "Ketik pesan...",
+        "ai.chat.typing": "Surya AI sedang mengetik...",
+        "ai.chef.title": "Surya Chef",
+        "ai.chef.desc": "Tanya AI untuk rekomendasi bahan & resep!",
+        "ai.chef.button": "Tanya Surya Chef"
     },
     en: {
         "nav.home": "Home",
@@ -186,7 +208,7 @@ export const translations = {
         "csr.card.desc2": "A drop of our blood means a lot to them.",
         "csr.card.cta": "View Full Documentation",
 
-        "news.title": "News & Insights",
+        "news.title": "News",
         "news.desc": "Follow the latest developments and interesting tips about the Bali culinary world",
         "news.read_more": "Read More",
 
@@ -231,6 +253,28 @@ export const translations = {
         "testimonials.customers.c1.company": "Loyal Outlet Customer",
         "testimonials.customers.c2.text": "I love visiting the store because the prices are honest and the quality of the ingredients is always fresh. The location is also strategic and easy to reach.",
         "testimonials.customers.c2.name": "Agus Pratama",
-        "testimonials.customers.c2.company": "Household Customer"
+        "testimonials.customers.c2.company": "Household Customer",
+
+        "privacy.title": "Privacy Policy",
+        "privacy.intro": "Surya Pangan Bali respects your privacy and is committed to protecting your personal data in accordance with the General Data Protection Regulation (GDPR).",
+        "privacy.sec1.title": "1. Data We Collect",
+        "privacy.sec1.text": "We only collect information that you voluntarily provide through the contact form, such as your name, email address, and phone number.",
+        "privacy.sec2.title": "2. Purpose of Data Use",
+        "privacy.sec2.text": "Your data is used solely to respond to your inquiries, provide information services, and improve your experience on our site.",
+        "privacy.sec3.title": "3. Your Rights (GDPR)",
+        "privacy.sec3.text": "You have the right to access, rectify, or delete your personal data. You can also withdraw your consent for data use at any time by contacting us.",
+        "privacy.sec4.title": "4. Data Security",
+        "privacy.sec4.text": "We implement strict technical measures to prevent unauthorized access to your personal data.",
+        "privacy.sec5.title": "5. Data Protection Contact",
+        "privacy.sec5.text": "For privacy-related questions, contact us at: info@suryapanganbali.com",
+        "nav.privacy": "Privacy Policy",
+
+        "ai.chat.title": "Surya Assistant",
+        "ai.chat.greeting": "Hello! I'm Surya AI. How can I help you today with ingredients or our services?",
+        "ai.chat.placeholder": "Type a message...",
+        "ai.chat.typing": "Surya AI is typing...",
+        "ai.chef.title": "Surya Chef",
+        "ai.chef.desc": "Ask AI for ingredient recommendations & recipes!",
+        "ai.chef.button": "Ask Surya Chef"
     }
 };

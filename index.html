@@ -11,6 +11,11 @@
         content="Distributor bahan roti Bali, Supplier bahan kue Denpasar, Bahan makanan premium Bali, Surya Pangan Bali, Distributor Anchor Bali, Bahan Kue Bali, Bahan Jajan Bali, Bahan Kuliner Bali">
     <link rel="canonical" href="https://surya-pangan-web.vercel.app/">
 
+    <!-- Multi-language SEO (Hreflang) -->
+    <link rel="alternate" hreflang="id" href="https://surya-pangan-web.vercel.app/" />
+    <link rel="alternate" hreflang="en" href="https://surya-pangan-web.vercel.app/?lang=en" />
+    <link rel="alternate" hreflang="x-default" href="https://surya-pangan-web.vercel.app/" />
+
     <!-- Open Graph / Facebook -->
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://surya-pangan-web.vercel.app/">
@@ -79,7 +84,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
 
     <link rel="stylesheet" href="style.css">
-    <link rel="stylesheet" href="shop.css">
+    <script src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
 </head>
 
 <body>
@@ -109,17 +114,9 @@
                 <li><a href="#products" data-i18n="nav.products">Produk</a></li>
                 <li><a href="#coverage" data-i18n="nav.coverage">Distribusi</a></li>
                 <li><a href="#testimonials" data-i18n="nav.testimonials">Testimoni</a></li>
-                <li><a href="#shop" data-i18n="nav.shop">Belanja</a></li>
-                <li class="nav-dropdown">
-                    <a href="javascript:void(0)" class="dropdown-trigger">
-                        <span data-i18n="nav.info">Informasi</span> <i class="fas fa-chevron-down"></i>
-                    </a>
-                    <ul class="dropdown-menu">
-                        <li><a href="#news" data-i18n="nav.news">Berita</a></li>
-                        <li><a href="#csr" data-i18n="nav.csr">CSR</a></li>
-                    </ul>
-                </li>
-                <li><a href="#contact" class="btn-primary" data-i18n="nav.contact">Hubungi Kami</a></li>
+                <li><a href="#news" data-i18n="nav.news">Berita</a></li>
+                <li><a href="#csr" data-i18n="nav.csr">CSR</a></li>
+                <li><a href="#contact" data-i18n="nav.contact">Hubungi Kami</a></li>
                 <li class="lang-switch-container">
                     <button id="lang-toggle" class="lang-btn" aria-label="Switch Language">
                         <span class="lang-text" data-lang="id" style="display: none;">
@@ -137,7 +134,7 @@
     <!-- Hero Section -->
     <header id="hero" class="hero">
         <div class="hero-bg-wrapper">
-            <img src="assets/images/hero_bg.png" alt="Warehouse Surya Pangan" class="hero-bg-img">
+            <img src="assets/images/hero_bg.webp" alt="Warehouse Surya Pangan" class="hero-bg-img">
             <div class="hero-overlay"></div>
         </div>
 
@@ -174,7 +171,7 @@
         <div class="container about-grid">
             <div class="about-image reveal">
                 <div class="image-wrapper">
-                    <img src="assets/images/ingredients.png" alt="Bahan Kue Premium Surya Pangan"
+                    <img src="assets/images/ingredients.webp" alt="Bahan Kue Premium Surya Pangan"
                         class="img-fluid rounded-lg shadow-lg">
                     <div class="glass-card overlay-card">
                         <h3 data-i18n="about.vision.title">Visi Kami</h3>
@@ -270,28 +267,56 @@
             <div class="logo-grid reveal">
                 <!-- Product Brand Logos -->
                 <div class="brand-card">
-                    <img src="assets/images/Logo_Anchor.png" alt="Anchor" class="supplier-logo">
+                    <img src="assets/images/Logo_Anchor.webp" alt="Anchor" class="supplier-logo">
                 </div>
                 <div class="brand-card">
-                    <img src="assets/images/logo_Ares_Coco.jpg" alt="Ares" class="supplier-logo">
+                    <img src="assets/images/Logo Colatta.webp" alt="Colatta" class="supplier-logo">
                 </div>
                 <div class="brand-card">
-                    <img src="assets/images/logo_Upfield.jpg" alt="Upfield" class="supplier-logo">
+                    <img src="assets/images/logo_Upfield.webp" alt="Upfield" class="supplier-logo">
                 </div>
                 <div class="brand-card">
-                    <img src="assets/images/Logo_GandumMas.jpg" alt="Gandum Mas" class="supplier-logo">
+                    <img src="assets/images/Logo_GandumMas.webp" alt="Gandum Mas" class="supplier-logo">
                 </div>
                 <div class="brand-card">
-                    <img src="assets/images/Logo_Forisa.jpg" alt="Forisa" class="supplier-logo">
+                    <img src="assets/images/Logo_Forisa.webp" alt="Forisa" class="supplier-logo">
                 </div>
                 <div class="brand-card">
-                    <img src="assets/images/Logo_PrambananKencana.png" alt="Prambanan" class="supplier-logo">
+                    <img src="assets/images/Logo_PrambananKencana.webp" alt="Prambanan" class="supplier-logo">
                 </div>
                 <div class="brand-card">
-                    <img src="assets/images/Logo_Sasa.png" alt="Sasa" class="supplier-logo">
+                    <img src="assets/images/Logo_Sasa.webp" alt="Sasa" class="supplier-logo">
                 </div>
                 <div class="brand-card">
-                    <img src="assets/images/Logo_Wilmar.jpg" alt="Wilmar" class="supplier-logo">
+                    <img src="assets/images/Logo_Wilmar.webp" alt="Wilmar" class="supplier-logo">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- AI Chef / Ingredient Guru Section -->
+    <section id="ai-chef" class="section bg-light">
+        <div class="container">
+            <div class="ai-chef-card reveal">
+                <div class="ai-chef-content">
+                    <div class="ai-chef-info">
+                        <div class="ai-badge">AI POWERED</div>
+                        <h2 class="section-title" data-i18n="ai.chef.title">Surya Chef</h2>
+                        <p class="lead" data-i18n="ai.chef.desc">Tanya AI untuk rekomendasi bahan & resep!</p>
+                        <button class="btn btn-primary btn-ai" id="chef-trigger">
+                            <i class="fas fa-magic"></i> <span data-i18n="ai.chef.button">Tanya Surya Chef</span>
+                        </button>
+                    </div>
+                    <div class="ai-chef-visual">
+                        <div class="floating-ingredients">
+                            <i class="fas fa-bread-slice slice-1"></i>
+                            <i class="fas fa-egg slice-2"></i>
+                            <i class="fas fa-blender slice-3"></i>
+                        </div>
+                        <div class="chef-icon-wrapper">
+                            <img src="assets/images/Mascot00.png" alt="Surya Chef Mascot" class="chef-mascot-img">
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
@@ -305,7 +330,7 @@
             <div class="line-accent center"></div>
 
             <div class="coverage-map-wrap mt-5">
-                <img src="assets/images/Map_Bali.png" alt="Peta Distribusi Surya Pangan Bali" class="coverage-map-img">
+                <img src="assets/images/bali_map.webp" alt="Peta Distribusi Surya Pangan Bali" class="coverage-map-img">
             </div>
         </div>
     </section>
@@ -333,33 +358,12 @@
         </div>
     </section>
 
-    <!-- Shop Section -->
-    <section id="shop" class="section bg-light">
-        <div class="container text-center reveal">
-            <h2 class="section-title" data-i18n="shop.title">Belanja Online</h2>
-            <p class="section-subtitle" data-i18n="shop.desc">Dapatkan produk kami dengan mudah melalui marketplace
-                kesayangan Anda.</p>
-            <div class="line-accent center"></div>
-
-            <div class="shop-buttons mt-5 fade-in-up delay-200">
-                <a href="https://shopee.co.id/suryapanganbali" target="_blank" rel="noopener noreferrer"
-                    class="btn-shop shopee" aria-label="Shopee">
-                    <img src="https://upload.wikimedia.org/wikipedia/commons/f/fe/Shopee.svg" alt="Shopee Logo"
-                        class="shop-icon">
-                </a>
-                <a href="https://tokopedia.co.id/suryapanganbali" target="_blank" rel="noopener noreferrer"
-                    class="btn-shop tokopedia" aria-label="Tokopedia">
-                    <img src="assets/images/Logo_Tokopedia.png" alt="Tokopedia Logo" class="shop-icon">
-                </a>
-            </div>
-        </div>
-    </section>
 
     <!-- News Section -->
     <section id="news" class="section">
         <div class="container">
             <div class="text-center reveal">
-                <h2 class="section-title" data-i18n="news.title">Berita & Inspirasi</h2>
+                <h2 class="section-title" data-i18n="news.title">Berita</h2>
                 <p class="section-subtitle" data-i18n="news.desc">Ikuti perkembangan terbaru dan tips menarik seputar
                     dunia kuliner Bali</p>
                 <div class="line-accent center"></div>
@@ -380,28 +384,9 @@
                 <div class="line-accent center"></div>
             </div>
 
-            <div class="csr-content reveal">
-                <div class="csr-card">
-                    <div class="csr-image">
-                        <img src="assets/images/blood_donation.png" alt="Kegiatan Donor Darah Surya Pangan">
-                        <div class="event-badge" data-i18n="csr.card.badge">Kegiatan Rutin</div>
-                    </div>
-                    <div class="csr-text">
-                        <h3 data-i18n="csr.card.title">Aksi Donor Darah Peduli Sesama</h3>
-                        <div class="meta-info">
-                            <span><i class="icon-calendar"></i> <span data-i18n="csr.card.time">Setiap 3
-                                    Bulan</span></span>
-                            <span><i class="icon-location"></i> <span data-i18n="csr.card.loc">Kantor Pusat Surya
-                                    Pangan</span></span>
-                        </div>
-                        <p data-i18n="csr.card.desc1">Sebagai bentuk rasa syukur dan kepedulian terhadap sesama, Surya
-                            Pangan secara rutin menyelenggarakan kegiatan donor darah. Bekerja sama dengan PMI Bali,
-                            kami mengajak seluruh staf, mitra, and masyarakat sekitar untuk mendonorkan darah demi
-                            menyelamatkan nyawa mereka yang membutuhkan.</p>
-                        <p data-i18n="csr.card.desc2">Setetes darah kita sangat berarti bagi mereka.</p>
-                        <a href="#" class="btn-outline" data-i18n="csr.card.cta">Lihat Dokumentasi Lengkap</a>
-                    </div>
-                </div>
+            <div id="csr-grid" class="csr-content reveal">
+                <!-- CSR content will be loaded from CMS -->
+                <p class="text-center">Memuat kegiatan sosial...</p>
             </div>
         </div>
     </section>
@@ -418,19 +403,19 @@
 
             <div class="gallery-grid reveal">
                 <div class="gallery-item">
-                    <img src="assets/images/chocolate.png" alt="Cokelat dan Pastry">
+                    <img src="assets/images/chocolate.webp" alt="Cokelat dan Pastry">
                     <div class="gallery-overlay">
                         <h4 data-i18n="gallery.item1">Bahan Premium</h4>
                     </div>
                 </div>
                 <div class="gallery-item">
-                    <img src="assets/images/ingredients.png" alt="Alat dan Bahan Lengkap">
+                    <img src="assets/images/ingredients.webp" alt="Alat dan Bahan Lengkap">
                     <div class="gallery-overlay">
                         <h4 data-i18n="gallery.item2">Stok Lengkap</h4>
                     </div>
                 </div>
                 <div class="gallery-item">
-                    <img src="assets/images/warehouse.png" alt="Gudang Distribusi Surya Pangan">
+                    <img src="assets/images/warehouse.webp" alt="Gudang Distribusi Surya Pangan">
                     <div class="gallery-overlay">
                         <h4 data-i18n="gallery.item3">Distribusi Profesional</h4>
                     </div>
@@ -522,16 +507,8 @@
                     </div>
                     <div class="footer-contact-row">
                         <div class="contact-item">
-                            <img src="assets/images/Logo_Telpon.jpg" alt="Telpon" class="contact-icon">
                             <a href="tel:+6236184661713" class="footer-contact-link"><span
                                     data-i18n="contact.info.phone">(0361) 84661713</span></a>
-                        </div>
-                        <span class="contact-divider">|</span>
-                        <div class="contact-item">
-                            <img src="assets/images/Logo_Wa.jpg" alt="WhatsApp" class="contact-icon">
-                            <a href="https://wa.me/628176335737" target="_blank" rel="noopener noreferrer"
-                                class="footer-contact-link"><span
-                                    data-i18n="contact.info.whatsapp">08176335737</span></a>
                         </div>
                     </div>
                 </div>
@@ -563,12 +540,98 @@
                     </a>
                 </div>
 
-                <p data-i18n="footer.rights">&copy; 2026 IT Division Surya Pangan. All rights reserved.</p>
+                <p class="mt-2">
+                    <a href="javascript:void(0)" id="privacy-trigger" class="footer-link-small"
+                        data-i18n="nav.privacy">Kebijakan Privasi</a>
+                </p>
+                <p data-i18n="footer.rights" class="mt-2">&copy; 2026 IT Division Surya Pangan. All rights reserved.</p>
             </div>
         </div>
     </footer>
 
+    <!-- Floating AI & WhatsApp Menu -->
+    <div class="floating-controls">
+        <!-- AI Chat Widget -->
+        <div class="ai-chat-container">
+            <div class="ai-chat-window" id="ai-chat-window">
+                <div class="ai-chat-header">
+                    <div class="ai-chat-header-info">
+                        <img src="assets/images/Mascot00.png" alt="AI Mascot" class="ai-header-mascot">
+                        <span data-i18n="ai.chat.title">Surya Assistant</span>
+                    </div>
+                    <button class="ai-chat-close" id="ai-chat-close">&times;</button>
+                </div>
+                <div class="ai-chat-messages" id="ai-chat-messages">
+                    <div class="ai-message bot">
+                        <div class="ai-message-bubble" data-i18n="ai.chat.greeting">
+                            Halo! Saya Surya AI. Ada yang bisa saya bantu seputar bahan kue atau layanan Surya Pangan?
+                        </div>
+                    </div>
+                </div>
+                <div class="ai-chat-typing" id="ai-chat-typing" style="display: none;">
+                    <span data-i18n="ai.chat.typing">Surya AI sedang mengetik...</span>
+                </div>
+                <div class="ai-chat-input-area">
+                    <input type="text" id="ai-chat-input" data-i18n-placeholder="ai.chat.placeholder" placeholder="Ketik pesan...">
+                    <button id="ai-chat-send"><i class="fas fa-paper-plane"></i></button>
+                </div>
+            </div>
+            <button class="ai-float-btn" id="ai-chat-trigger" aria-label="Open AI Assistant">
+                <img src="assets/images/Mascot00.png" alt="AI Robot Mascot" class="ai-btn-mascot">
+            </button>
+        </div>
+
+        <div class="wa-menu-container">
+            <div class="wa-menu-popup" id="wa-menu-popup">
+                <a href="https://wa.me/628176335740" class="wa-menu-item" target="_blank" rel="noopener noreferrer">
+                    <span class="wa-menu-label"><i class="fas fa-shopping-cart" style="margin-right: 5px;"></i>
+                        Mahendradatta</span>
+                    <div class="wa-item-icon"><i class="fab fa-whatsapp"></i></div>
+                </a>
+                <a href="https://wa.me/62817776016" class="wa-menu-item" target="_blank" rel="noopener noreferrer">
+                    <span class="wa-menu-label"><i class="fas fa-shopping-cart" style="margin-right: 5px;"></i>
+                        Munggu</span>
+                    <div class="wa-item-icon"><i class="fab fa-whatsapp"></i></div>
+                </a>
+            </div>
+            <button class="whatsapp-float" id="wa-menu-trigger" aria-label="Contact us on WhatsApp">
+                <i class="fab fa-whatsapp"></i>
+                <i class="fas fa-times close-icon"></i>
+            </button>
+        </div>
+    </div>
+
+    <!-- Privacy Policy Modal -->
+    <div id="privacy-modal" class="modal">
+        <div class="modal-content legal-modal">
+            <span class="close-modal" id="close-privacy">&times;</span>
+            <h2 data-i18n="privacy.title">Kebijakan Privasi</h2>
+            <div class="legal-content">
+                <p data-i18n="privacy.intro" class="mb-4"></p>
+
+                <h3 data-i18n="privacy.sec1.title"></h3>
+                <p data-i18n="privacy.sec1.text"></p>
+
+                <h3 data-i18n="privacy.sec2.title"></h3>
+                <p data-i18n="privacy.sec2.text"></p>
+
+                <h3 data-i18n="privacy.sec3.title"></h3>
+                <p data-i18n="privacy.sec3.text"></p>
+
+                <h3 data-i18n="privacy.sec4.title"></h3>
+                <p data-i18n="privacy.sec4.text"></p>
+
+                <h3 data-i18n="privacy.sec5.title"></h3>
+                <p data-i18n="privacy.sec5.text"></p>
+            </div>
+            <div class="text-center mt-6">
+                <button class="btn-primary" id="close-privacy-btn">Close</button>
+            </div>
+        </div>
+    </div>
+
     <script type="module" src="main.js"></script>
+    <script type="module" src="ai-chat.js"></script>
 </body>
 
 </html>

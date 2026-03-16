@@ -1,5 +1,5 @@
 import { translations } from './translations.js';
-import { newsData } from './news-data.js';
+// import { newsData } from './news-data.js'; // REMOVED: Now fetching from JSON
 
 // Scroll to top on page load/refresh
 window.addEventListener('load', () => {
@@ -10,7 +10,16 @@ window.addEventListener('load', () => {
 const navbar = document.getElementById('navbar');
 
 // Language Management
-let currentLang = localStorage.getItem('language') || 'id'; // Default language
+// SEO Update: Check URL param first, then localStorage, then default
+const urlParams = new URLSearchParams(window.location.search);
+const langParam = urlParams.get('lang');
+
+// If URL has lang param, use it and update localStorage
+if (langParam && (langParam === 'id' || langParam === 'en')) {
+    localStorage.setItem('language', langParam);
+}
+
+let currentLang = langParam || localStorage.getItem('language') || 'id'; // Default language
 const mobileToggle = document.querySelector('.mobile-toggle');
 const navLinks = document.querySelector('.nav-links');
 
@@ -26,6 +35,15 @@ const updateContent = (lang) => {
             } else {
                 el.innerText = translations[lang][key];
             }
+        }
+    });
+
+    // Support for placeholders
+    const placeholderElements = document.querySelectorAll('[data-i18n-placeholder]');
+    placeholderElements.forEach(el => {
+        const key = el.getAttribute('data-i18n-placeholder');
+        if (translations[lang] && translations[lang][key]) {
+            el.placeholder = translations[lang][key];
         }
     });
 
@@ -48,6 +66,19 @@ const updateContent = (lang) => {
 
 document.getElementById('lang-toggle').addEventListener('click', () => {
     const newLang = currentLang === 'id' ? 'en' : 'id';
+
+    // Update URL parameter for SEO and shareability
+    const url = new URL(window.location);
+    if (newLang === 'en') {
+        url.searchParams.set('lang', 'en');
+    } else {
+        url.searchParams.delete('lang'); // Remove param for Indonesian (default)
+    }
+    window.history.pushState({}, '', url);
+
+    // Update localStorage for persistence
+    localStorage.setItem('language', newLang);
+
     updateContent(newLang);
     renderNews(newLang);
     renderTestimonials(activeTestimonialCategory, newLang);
@@ -283,32 +314,107 @@ revealElements.forEach(el => {
     revealObserver.observe(el);
 });
 
+// Auto-translate function removed - all content is manually translated in CMS
+
 // Render News Function
-function renderNews(lang) {
+async function renderNews(lang) {
     const newsGrid = document.getElementById('news-grid');
-    if (!newsGrid) {
-        console.warn('News grid element not found');
-        return;
+    if (!newsGrid) return;
+
+    try {
+        let response = await fetch(`data/news_${lang}.json`);
+        let data = await response.json();
+        let news = data.news || data;
+
+        // Scheduling Logic: Filter news by Start Date and Expiry Date (with Time precision)
+        const now = new Date();
+
+        const filteredNews = news.filter(item => {
+            const startDate = new Date(item.date); // Full date + time
+            const expiryDate = item.expiry_date ? new Date(item.expiry_date) : null;
+
+            // Show if:
+            // 1. Now is >= Start Date
+            // 2. AND (Expiry Date is not set OR Now is <= Expiry Date)
+            const isStarted = now >= startDate;
+            const isNotExpired = !expiryDate || now <= expiryDate;
+
+            return isStarted && isNotExpired;
+        });
+
+        // Use filtered news directly - no auto-translate fallback
+        news = filteredNews;
+
+        newsGrid.innerHTML = news.map(item => `
+            <article class="news-card">
+                <div class="news-image-wrapper">
+                    <img src="${item.image}" alt="${item.title}" class="news-img" loading="lazy">
+                </div>
+                <div class="news-content">
+                    <div class="news-date">${new Date(item.date).toLocaleDateString(lang === 'id' ? 'id-ID' : 'en-US', { day: 'numeric', month: 'long', year: 'numeric' })}</div>
+                    <h3 class="news-title">${item.title}</h3>
+                    <p class="news-excerpt">${item.summary}</p>
+                    <a href="${item.link}" class="news-link">
+                        ${translations[lang]['news.read_more']}
+                        <span class="arrow">→</span>
+                    </a>
+                </div>
+            </article>
+        `).join('');
+    } catch (error) {
+        console.error('Error loading news:', error);
+        newsGrid.innerHTML = '<p class="text-center">Gagal memuat berita.</p>';
     }
+}
 
-    const newsDataToRender = typeof newsData !== 'undefined' ? newsData : [];
+async function renderCSR(lang) {
+    const csrGrid = document.getElementById('csr-grid');
+    if (!csrGrid) return;
 
-    newsGrid.innerHTML = newsDataToRender.map(item => `
-        <article class="news-card">
-            <div class="news-image-wrapper">
-                <img src="${item.image}" alt="${item.title[lang]}" class="news-img" loading="lazy" onerror="this.src='https://via.placeholder.com/400x250?text=Surya+Pangan'">
+    try {
+        let response = await fetch(`data/csr_${lang}.json`);
+        let data = await response.json();
+        let csrActivities = data.csr || data;
+
+        const now = new Date();
+
+        // Scheduling & Filtering Logic
+        const filteredCSR = csrActivities.filter(item => {
+            const startDate = new Date(item.date);
+            const expiryDate = item.expiry_date ? new Date(item.expiry_date) : null;
+            return now >= startDate && (!expiryDate || now <= expiryDate);
+        });
+
+        // Use filtered CSR directly - no auto-translate fallback
+        csrActivities = filteredCSR;
+
+        if (csrActivities.length === 0) {
+            csrGrid.innerHTML = `<p class="text-center">${lang === 'id' ? 'Belum ada kegiatan sosial terbaru.' : 'No recent social activities.'}</p>`;
+            return;
+        }
+
+        csrGrid.innerHTML = csrActivities.map(item => `
+            <div class="csr-card">
+                <div class="csr-image">
+                    <img src="${item.image}" alt="${item.title}" loading="lazy">
+                    <div class="event-badge">${item.badge}</div>
+                </div>
+                <div class="csr-text">
+                    <h3>${item.title}</h3>
+                    <div class="meta-info">
+                        <span><i class="fas fa-calendar-alt"></i> <span>${item.time_info}</span></span>
+                        <span><i class="fas fa-map-marker-alt"></i> <span>${item.location}</span></span>
+                    </div>
+                    <p>${item.desc1}</p>
+                    <p>${item.desc2}</p>
+                    <a href="${item.link}" class="btn-outline">${lang === 'id' ? 'Lihat Dokumentasi Lengkap' : 'View Full Documentation'}</a>
+                </div>
             </div>
-            <div class="news-content">
-                <div class="news-date">${new Date(item.date).toLocaleDateString(lang === 'id' ? 'id-ID' : 'en-US', { day: 'numeric', month: 'long', year: 'numeric' })}</div>
-                <h3 class="news-title">${item.title[lang]}</h3>
-                <p class="news-excerpt">${item.summary[lang]}</p>
-                <a href="${item.link}" class="news-link">
-                    ${translations[lang]['news.read_more']}
-                    <span class="arrow">→</span>
-                </a>
-            </div>
-        </article>
-    `).join('');
+        `).join('');
+    } catch (error) {
+        console.error('Error loading CSR:', error);
+        csrGrid.innerHTML = '<p class="text-center">Gagal memuat kegiatan sosial.</p>';
+    }
 }
 
 // Testimonials Logic
@@ -357,7 +463,71 @@ testimonialTabs.forEach(btn => {
 // Initial render
 updateContent(currentLang);
 renderNews(currentLang);
+renderCSR(currentLang);
 renderTestimonials(activeTestimonialCategory, currentLang);
 generateMathCaptcha();
 
+// WhatsApp Multi-Contact Menu Toggle
+const waTrigger = document.getElementById('wa-menu-trigger');
+const waPopup = document.getElementById('wa-menu-popup');
+
+if (waTrigger && waPopup) {
+    waTrigger.addEventListener('click', (e) => {
+        e.stopPropagation();
+        waTrigger.classList.toggle('active');
+        waPopup.classList.toggle('active');
+    });
+
+    // Close menu when clicking outside
+    document.addEventListener('click', (e) => {
+        if (!waTrigger.contains(e.target) && !waPopup.contains(e.target)) {
+            waTrigger.classList.remove('active');
+            waPopup.classList.remove('active');
+        }
+    });
+
+    // Close menu on scroll for better UX on mobile
+    window.addEventListener('scroll', () => {
+        if (waPopup.classList.contains('active')) {
+            waTrigger.classList.remove('active');
+            waPopup.classList.remove('active');
+        }
+    }, { passive: true });
+}
+
 console.log('Surya Pangan website loaded successfully');
+// Privacy Policy Modal Logic
+const privacyModal = document.getElementById('privacy-modal');
+const privacyTrigger = document.getElementById('privacy-trigger');
+const closePrivacyX = document.getElementById('close-privacy');
+const closePrivacyBtn = document.getElementById('close-privacy-btn');
+
+if (privacyTrigger && privacyModal) {
+    privacyTrigger.addEventListener('click', (e) => {
+        e.preventDefault();
+        privacyModal.style.display = 'block';
+        document.body.style.overflow = 'hidden'; // Prevent scrolling
+    });
+
+    const closeModal = () => {
+        privacyModal.style.display = 'none';
+        document.body.style.overflow = 'auto'; // Restore scrolling
+    };
+
+    closePrivacyX.addEventListener('click', closeModal);
+    closePrivacyBtn.addEventListener('click', closeModal);
+
+    // Close on outside click
+    window.addEventListener('click', (event) => {
+        if (event.target === privacyModal) {
+            closeModal();
+        }
+    });
+
+    // Close on ESC key
+    window.addEventListener('keydown', (event) => {
+        if (event.key === 'Escape' && privacyModal.style.display === 'block') {
+            closeModal();
+        }
+    });
+}
