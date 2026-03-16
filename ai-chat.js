@@ -152,7 +152,7 @@ document.addEventListener('DOMContentLoaded', () => {
             }
             const lang = getCurrentLang();
             const surpriseText = lang === 'id' 
-                ? "Boz Yuko minta rekomendasi resep premium dong!" 
+                ? "Minta rekomendasi resep premium dong!" 
                 : "Give me some premium recipe recommendations!";
             
             aiInput.value = surpriseText;
