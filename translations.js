@@ -11,10 +11,10 @@ export const translations = {
         "nav.csr": "Kepedulian Sosial",
         "nav.contact": "Hubungi Kami",
         "nav.history": "Sejarah",
-        "nav.management": "Managemen",
+        "nav.chef": "Chef Surya",
         "nav.profile": "Profil",
+        "nav.management": "Managemen",
         "nav.info": "Informasi",
-        "nav.news": "Berita",
 
         "hero.title": "Distributor Bahan Kuliner Terpercaya",
         "hero.desc": "Menyediakan bahan makanan kualitas terbaik untuk kesuksesan outlet dan industri makanan.",
@@ -134,9 +134,9 @@ export const translations = {
         "ai.chat.greeting": "Halo! Saya Surya AI. Ada yang bisa saya bantu seputar bahan kue atau layanan Surya Pangan?",
         "ai.chat.placeholder": "Ketik pesan...",
         "ai.chat.typing": "Surya AI sedang mengetik...",
-        "ai.chef.title": "Surya Chef",
+        "ai.chef.title": "Chef Surya",
         "ai.chef.desc": "Tanya AI untuk rekomendasi bahan & resep!",
-        "ai.chef.button": "Tanya Surya Chef"
+        "ai.chef.button": "Tanya Chef Surya"
     },
     en: {
         "nav.home": "Home",
@@ -150,10 +150,10 @@ export const translations = {
         "nav.csr": "CSR",
         "nav.contact": "Contact Us",
         "nav.history": "History",
-        "nav.management": "Management",
+        "nav.chef": "Surya Chef",
         "nav.profile": "Profile",
+        "nav.management": "Management",
         "nav.info": "Information",
-        "nav.news": "News",
 
         "hero.title": "Trusted Culinary Ingredients Distributor",
         "hero.desc": "Providing the best quality food ingredients to support the success of outlets and food industries.",

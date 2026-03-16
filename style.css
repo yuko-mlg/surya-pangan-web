@@ -2338,4 +2338,54 @@ ul {
         border-radius: 16px;
     }
 }
+
+/* Nav Chef Surya Styling */
+.nav-chef-item {
+    margin-right: 15px;
+}
+
+.nav-chef-btn {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    background: linear-gradient(135deg, var(--color-primary), #ff914d);
+    color: white !important;
+    padding: 6px 16px;
+    border-radius: 50px;
+    font-weight: 600;
+    font-size: 0.9rem;
+    box-shadow: 0 4px 15px rgba(230, 126, 34, 0.3);
+    transition: all 0.3s ease;
+    border: 2px solid rgba(255,255,255,0.1);
+}
+
+.nav-chef-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(230, 126, 34, 0.4);
+    background: linear-gradient(135deg, #ff914d, var(--color-primary));
+}
+
+.nav-chef-logo {
+    width: 24px;
+    height: 24px;
+    border-radius: 50%;
+    background: white;
+    padding: 2px;
+    object-fit: contain;
+    transition: transform 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.nav-chef-btn:hover .nav-chef-logo {
+    transform: rotate(360deg) scale(1.2);
+}
+
+@media (max-width: 992px) {
+    .nav-chef-item {
+        margin: 10px 0;
+        width: 100%;
+    }
+    .nav-chef-btn {
+        justify-content: center;
+    }
+}
 
