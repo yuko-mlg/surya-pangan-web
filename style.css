@@ -2349,21 +2349,21 @@ ul {
     display: flex;
     align-items: center;
     gap: 8px;
-    background: linear-gradient(135deg, var(--color-primary), #ff914d);
+    background: var(--color-accent);
     color: white !important;
-    padding: 6px 16px;
+    padding: 7px 18px;
     border-radius: 50px;
-    font-weight: 600;
+    font-weight: 700;
     font-size: 0.9rem;
-    box-shadow: 0 4px 15px rgba(230, 126, 34, 0.3);
+    box-shadow: 0 4px 15px rgba(235, 105, 11, 0.3);
     transition: all 0.3s ease;
-    border: 2px solid rgba(255,255,255,0.1);
+    border: none;
 }
 
 .nav-chef-btn:hover {
     transform: translateY(-2px);
-    box-shadow: 0 6px 20px rgba(230, 126, 34, 0.4);
-    background: linear-gradient(135deg, #ff914d, var(--color-primary));
+    box-shadow: 0 6px 20px rgba(235, 105, 11, 0.45);
+    background: var(--color-accent-hover);
 }
 
 .nav-chef-logo {
