@@ -230,14 +230,15 @@ ul {
     background: var(--color-bg-light);
     transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
     padding: 1.25rem 0;
-    border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+    border-bottom: 3px solid var(--color-accent);
 }
 
 .navbar.scrolled {
     padding: 0.75rem 0;
-    background: rgba(255, 255, 255, 0.95);
+    background: rgba(255, 255, 255, 0.97);
     backdrop-filter: blur(10px);
     box-shadow: var(--shadow-md);
+    border-bottom: 3px solid var(--color-accent);
 }
 
 .nav-container {
@@ -2366,11 +2367,9 @@ ul {
 }
 
 .nav-chef-logo {
-    width: 24px;
-    height: 24px;
+    width: 28px;
+    height: 28px;
     border-radius: 50%;
-    background: white;
-    padding: 2px;
     object-fit: contain;
     transition: transform 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
 }
