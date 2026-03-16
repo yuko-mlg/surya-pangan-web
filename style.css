@@ -2306,7 +2306,7 @@ ul {
 /* Milestone & History Styling */
 .milestone-wrapper {
     position: relative;
-    max-width: 1000px;
+    max-width: 750px;
     margin: 0 auto;
     overflow: hidden;
     border-radius: 24px;
