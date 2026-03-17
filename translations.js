@@ -19,7 +19,7 @@ export const translations = {
         "nav.info": "Informasi",
 
         "hero.title": "Solusi Bahan Baku Kuliner & Mitra Bisnis Terpercaya",
-        "hero.desc": "Mendukung kesuksesan Chef, UMKM, dan Industri Kuliner dengan produk berkualitas tinggi serta dukungan teknologi AI Chef 24/7.",
+        "hero.desc": "Mendukung kesuksesan UMKM, dan Industri Kuliner dengan produk berkualitas tinggi serta dukungan teknologi Online Chef Surya 24/7.",
         "hero.cta_primary": "Konsultasi Kebutuhan",
         "hero.cta_secondary": "Katalog Produk",
         "hero.stat.years": "Melayani Sejak",
@@ -137,8 +137,8 @@ export const translations = {
         "ai.chat.placeholder": "Ketik pesan...",
         "ai.chat.typing": "Surya AI sedang mengetik...",
         "ai.chef.title": "Chef Surya",
-        "ai.chef.desc": "Tanya AI untuk rekomendasi bahan & resep!",
-        "ai.chef.button": "Tanya Chef Surya"
+        "ai.chef.desc": "Tanya Online Chef Surya untuk rekomendasi bahan & resep!",
+        "ai.chef.button": "Tanya Online Chef Surya"
     },
     en: {
         "nav.home": "Home",
@@ -152,7 +152,7 @@ export const translations = {
         "nav.csr": "CSR",
         "nav.contact": "Contact Us",
         "nav.history": "History",
-        "nav.chef": "Surya Chef",
+        "nav.chef": "Online Chef",
         "nav.profile": "Profile",
         "nav.management": "Management",
         "cookie.text": "We use cookies to improve your experience and security on our website.",
@@ -160,7 +160,7 @@ export const translations = {
         "nav.info": "Information",
 
         "hero.title": "Culinary Solutions & Your Trusted Business Partner",
-        "hero.desc": "Empowering Chefs, SMEs, and Food Industries with high-quality products and 24/7 AI Chef support.",
+        "hero.desc": "Empowering SMEs and Food Industries with high-quality products and 24/7 Online Chef Surya support.",
         "hero.cta_primary": "Business Consultation",
         "hero.cta_secondary": "Product Catalog",
         "hero.stat.years": "Serving Since",
@@ -278,7 +278,7 @@ export const translations = {
         "ai.chat.placeholder": "Type a message...",
         "ai.chat.typing": "Surya AI is typing...",
         "ai.chef.title": "Surya Chef",
-        "ai.chef.desc": "Ask AI for ingredient recommendations & recipes!",
-        "ai.chef.button": "Ask Surya Chef"
+        "ai.chef.desc": "Ask Online Chef Surya for ingredient recommendations & recipes!",
+        "ai.chef.button": "Ask Online Chef Surya"
     }
 };
