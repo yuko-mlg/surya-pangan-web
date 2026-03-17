@@ -55,7 +55,7 @@ export const translations = {
         "shop.shopee": "Kunjungi Shopee",
         "shop.tokopedia": "Kunjungi Tokopedia",
 
-        "gallery.title": "Kualitas yang Kami Tawarkan",
+        "gallery.title": "Kualitas",
         "gallery.desc": "Dari bahan mentah berkualitas hingga pengiriman yang terorganisir.",
         "gallery.item1": "Bahan Berkualitas",
         "gallery.item2": "Stok Lengkap",
@@ -196,7 +196,7 @@ export const translations = {
         "shop.shopee": "Visit Shopee",
         "shop.tokopedia": "Visit Tokopedia",
 
-        "gallery.title": "Quality We Offer",
+        "gallery.title": "Quality",
         "gallery.desc": "From high-quality raw materials to organized delivery.",
         "gallery.item1": "High-Quality Ingredients",
         "gallery.item2": "Complete Stock",
