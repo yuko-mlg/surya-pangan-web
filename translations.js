@@ -18,7 +18,7 @@ export const translations = {
         "cookie.accept": "Setuju",
         "nav.info": "Informasi",
 
-        "hero.title": "Solusi Bahan Baku Kuliner & Mitra Bisnis Terpercaya",
+        "hero.title": "Solusi Bahan Baku Kuliner dan Mitra Bisnis Terpercaya",
         "hero.desc": "Mendukung kesuksesan UMKM, dan Industri Kuliner dengan produk berkualitas tinggi serta dukungan teknologi Online Chef Surya 24/7.",
         "hero.cta_primary": "Konsultasi Kebutuhan",
         "hero.cta_secondary": "Katalog Produk",
@@ -159,7 +159,7 @@ export const translations = {
         "cookie.accept": "Accept",
         "nav.info": "Information",
 
-        "hero.title": "Culinary Solutions & Your Trusted Business Partner",
+        "hero.title": "Culinary Solutions and Your Trusted Business Partner",
         "hero.desc": "Empowering SMEs and Food Industries with high-quality products and 24/7 Online Chef Surya support.",
         "hero.cta_primary": "Business Consultation",
         "hero.cta_secondary": "Product Catalog",
