@@ -14,6 +14,8 @@ export const translations = {
         "nav.chef": "Chef Surya",
         "nav.profile": "Profil",
         "nav.management": "Managemen",
+        "cookie.text": "Kami menggunakan cookies untuk meningkatkan pengalaman Anda di website kami.",
+        "cookie.accept": "Setuju",
         "nav.info": "Informasi",
 
         "hero.title": "Distributor Bahan Kuliner Terpercaya",
@@ -153,6 +155,8 @@ export const translations = {
         "nav.chef": "Surya Chef",
         "nav.profile": "Profile",
         "nav.management": "Management",
+        "cookie.text": "We use cookies to improve your experience on our website.",
+        "cookie.accept": "Accept",
         "nav.info": "Information",
 
         "hero.title": "Trusted Culinary Ingredients Distributor",
