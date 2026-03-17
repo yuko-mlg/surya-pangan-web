@@ -2388,61 +2388,115 @@ ul {
     }
 }
 
- / *   C o o k i e   B a n n e r   * / 
- . c o o k i e - b a n n e r   { 
-         p o s i t i o n :   f i x e d ; 
-         b o t t o m :   2 0 p x ; 
-         l e f t :   2 0 p x ; 
-         r i g h t :   2 0 p x ; 
-         b a c k g r o u n d :   r g b a ( 2 5 5 ,   2 5 5 ,   2 5 5 ,   0 . 9 5 ) ; 
-         b a c k d r o p - f i l t e r :   b l u r ( 1 0 p x ) ; 
-         p a d d i n g :   2 0 p x ; 
-         b o r d e r - r a d i u s :   1 2 p x ; 
-         b o x - s h a d o w :   0   1 0 p x   4 0 p x   r g b a ( 0 , 0 , 0 , 0 . 1 ) ; 
-         z - i n d e x :   9 9 9 9 ; 
-         d i s p l a y :   f l e x ; 
-         a l i g n - i t e m s :   c e n t e r ; 
-         j u s t i f y - c o n t e n t :   s p a c e - b e t w e e n ; 
-         g a p :   2 0 p x ; 
-         b o r d e r :   1 p x   s o l i d   r g b a ( 2 3 5 ,   1 0 5 ,   1 1 ,   0 . 2 ) ; 
-         t r a n s f o r m :   t r a n s l a t e Y ( 1 5 0 % ) ; 
-         t r a n s i t i o n :   t r a n s f o r m   0 . 6 s   c u b i c - b e z i e r ( 0 . 1 6 5 ,   0 . 8 4 ,   0 . 4 4 ,   1 ) ; 
- } 
- 
- . c o o k i e - b a n n e r . a c t i v e   { 
-         t r a n s f o r m :   t r a n s l a t e Y ( 0 ) ; 
- } 
- 
- . c o o k i e - c o n t e n t   { 
-         d i s p l a y :   f l e x ; 
-         a l i g n - i t e m s :   c e n t e r ; 
-         g a p :   1 5 p x ; 
-         c o l o r :   v a r ( - - c o l o r - t e x t - d a r k ) ; 
- } 
- 
- . c o o k i e - i c o n   { 
-         f o n t - s i z e :   1 . 5 r e m ; 
-         c o l o r :   v a r ( - - c o l o r - a c c e n t ) ; 
- } 
- 
- . c o o k i e - t e x t   { 
-         f o n t - s i z e :   0 . 9 r e m ; 
-         m a r g i n :   0 ; 
-         l i n e - h e i g h t :   1 . 5 ; 
- } 
- 
- . c o o k i e - b t n   { 
-         w h i t e - s p a c e :   n o w r a p ; 
- } 
- 
- @ m e d i a   ( m a x - w i d t h :   7 6 8 p x )   { 
-         . c o o k i e - b a n n e r   { 
-                 f l e x - d i r e c t i o n :   c o l u m n ; 
-                 t e x t - a l i g n :   c e n t e r ; 
-         } 
-         . c o o k i e - c o n t e n t   { 
-                 f l e x - d i r e c t i o n :   c o l u m n ; 
-         } 
- } 
-  
- 
+/* Cookie Modal & Overlay Styling */
+.cookie-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.4);
+    backdrop-filter: blur(8px);
+    z-index: 9998;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.5s ease;
+}
+
+.cookie-overlay.active {
+    opacity: 1;
+    visibility: visible;
+}
+
+.cookie-banner {
+    position: relative;
+    width: 90%;
+    max-width: 450px;
+    background: rgba(255, 255, 255, 0.98);
+    backdrop-filter: blur(15px);
+    padding: 2.5rem 2rem;
+    border-radius: 24px;
+    box-shadow: 0 25px 60px rgba(0, 0, 0, 0.2);
+    z-index: 9999;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    gap: 1.5rem;
+    border: 1px solid rgba(235, 105, 11, 0.15);
+    opacity: 0;
+    visibility: hidden;
+    transform: scale(0.8);
+    transition: all 0.6s cubic-bezier(0.165, 0.84, 0.44, 1);
+}
+
+.cookie-banner.active {
+    opacity: 1;
+    visibility: visible;
+    transform: scale(1);
+}
+
+.cookie-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1.25rem;
+    color: var(--color-text-dark);
+}
+
+.cookie-icon {
+    width: 70px;
+    height: 70px;
+    background: var(--color-accent-light);
+    color: var(--color-accent);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 20px;
+    font-size: 2.5rem;
+    margin-bottom: 0.5rem;
+    animation: cookiePulse 2s infinite;
+}
+
+@keyframes cookiePulse {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.05); }
+    100% { transform: scale(1); }
+}
+
+.cookie-text {
+    font-size: 1.1rem;
+    margin: 0;
+    line-height: 1.6;
+    font-weight: 500;
+    color: #1e293b;
+}
+
+.cookie-btn {
+    width: 100%;
+}
+
+.cookie-btn .btn-primary {
+    width: 100%;
+    padding: 1rem;
+    font-size: 1.05rem;
+    border-radius: 14px;
+}
+
+@media (max-width: 480px) {
+    .cookie-banner {
+        padding: 2rem 1.5rem;
+        width: 95%;
+    }
+    .cookie-icon {
+        width: 60px;
+        height: 60px;
+        font-size: 2rem;
+    }
+    .cookie-text {
+        font-size: 1rem;
+    }
+}
