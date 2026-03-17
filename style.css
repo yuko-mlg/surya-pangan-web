@@ -181,8 +181,8 @@ ul {
 }
 
 .lang-btn {
-    background: rgba(0, 0, 0, 0.05);
-    border: 1px solid rgba(0, 0, 0, 0.1);
+    background: #000000;
+    border: 1.5px solid rgba(255, 255, 255, 0.2);
     border-radius: 20px;
     padding: 0.4rem 0.8rem;
     display: flex;
@@ -190,15 +190,22 @@ ul {
     gap: 0.5rem;
     cursor: pointer;
     font-family: var(--font-body);
-    font-weight: 600;
-    color: var(--color-primary);
+    font-weight: 700;
+    color: white;
     transition: all 0.3s;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.2);
 }
 
 .navbar.scrolled .lang-btn {
-    background: rgba(0, 0, 0, 0.05);
-    border-color: rgba(0, 0, 0, 0.1);
-    color: var(--color-primary);
+    background: #000000;
+    border-color: rgba(255, 255, 255, 0.2);
+    color: white;
+}
+
+.lang-btn:hover {
+    background: #1a1a1a;
+    transform: translateY(-1px);
+    box-shadow: 0 6px 15px rgba(0,0,0,0.3);
 }
 
 .lang-text {
@@ -227,18 +234,18 @@ ul {
     left: 0;
     width: 100%;
     z-index: 1000;
-    background: var(--color-bg-light);
+    background: var(--color-accent);
     transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
-    padding: 1.25rem 0;
-    border-bottom: 3px solid var(--color-accent);
+    padding: 1rem 0;
+    border-bottom: none;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.15);
 }
 
 .navbar.scrolled {
-    padding: 0.75rem 0;
-    background: rgba(255, 255, 255, 0.97);
+    padding: 0.6rem 0;
+    background: var(--color-accent);
     backdrop-filter: blur(10px);
-    box-shadow: var(--shadow-md);
-    border-bottom: 3px solid var(--color-accent);
+    box-shadow: var(--shadow-lg);
 }
 
 .nav-container {
@@ -261,12 +268,18 @@ ul {
     display: flex;
     align-items: center;
     gap: 0.75rem;
+    background: white;
+    padding: 6px 20px;
+    border-radius: 50px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+    height: 52px;
 }
 
 @media (min-width: 992px) {
     .brand {
         justify-content: center;
-        width: 100%;
+        width: fit-content;
+        margin: 0 auto;
     }
 }
 
@@ -301,13 +314,14 @@ ul {
 }
 
 .nav-links a {
-    color: var(--color-primary);
-    font-weight: 500;
+    color: white;
+    font-weight: 600;
     font-size: 0.95rem;
     transition: all 0.3s ease;
     display: flex;
     align-items: center;
     gap: 0.5rem;
+    opacity: 0.95;
 }
 
 /* Dropdown Base Styles */
@@ -395,8 +409,8 @@ ul {
 
 .nav-links a:hover,
 .navbar.scrolled .nav-links a:hover {
-    color: #e65100;
-    /* Dark Orange / Orange Tua */
+    color: #ffffff;
+    opacity: 1;
     transform: translateY(-2px);
 }
 
@@ -421,8 +435,9 @@ ul {
     transition: all 0.3s ease;
 }
 
-.navbar.scrolled .mobile-toggle .bar {
-    background-color: var(--color-primary);
+.navbar.scrolled .mobile-toggle .bar,
+.mobile-toggle .bar {
+    background-color: white;
 }
 
 /* Hero Section - Immersive Modernism */
@@ -2349,15 +2364,15 @@ ul {
     display: flex;
     align-items: center;
     gap: 8px;
-    background: var(--color-accent);
+    background: #000000;
     color: white !important;
-    padding: 7px 18px;
+    padding: 7px 20px;
     border-radius: 50px;
-    font-weight: 700;
+    font-weight: 800;
     font-size: 0.9rem;
-    box-shadow: 0 4px 15px rgba(235, 105, 11, 0.3);
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
     transition: all 0.3s ease;
-    border: none;
+    border: 1.5px solid rgba(255, 255, 255, 0.2);
 }
 
 .nav-chef-btn:hover {
