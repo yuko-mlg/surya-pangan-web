@@ -480,6 +480,27 @@ renderCSR(currentLang);
 renderTestimonials(activeTestimonialCategory, currentLang);
 generateMathCaptcha();
 
+// Visitor Counter Logic
+async function updateVisitorCounter() {
+    const counterDisplay = document.getElementById('visitor-number');
+    if (!counterDisplay) return;
+
+    try {
+        // Menggunakan counterapi.dev - hit count bertambah setiap page load
+        const response = await fetch('https://api.counterapi.dev/v1/suryapangan/hits/up');
+        const data = await response.json();
+        if (data && data.count) {
+            // Format angka agar selalu 7 digit (contoh: 0000004)
+            counterDisplay.innerText = data.count.toString().padStart(7, '0');
+        }
+    } catch (error) {
+        console.warn('Visitor counter API error:', error);
+        counterDisplay.innerText = '2.000+'; // Fallback
+    }
+}
+
+updateVisitorCounter();
+
 // WhatsApp Multi-Contact Menu Toggle
 const waTrigger = document.getElementById('wa-menu-trigger');
 const waPopup = document.getElementById('wa-menu-popup');

@@ -177,7 +177,7 @@ ul {
 
 /* Language Switcher */
 .lang-switch-container {
-    margin-left: 1rem;
+    margin-left: 0.5rem;
 }
 
 .lang-btn {
@@ -225,6 +225,45 @@ ul {
     border-radius: 4px;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
     border: 1px solid rgba(0, 0, 0, 0.05);
+}
+
+/* Visitor Counter in Navbar */
+.nav-visitor-counter {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    background: rgba(0, 0, 0, 0.5);
+    padding: 6px 20px;
+    border-radius: 25px;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    gap: 12px;
+    margin: 5px auto 0 auto; /* Centered with top margin */
+    width: fit-content;
+}
+
+#visitor-number {
+    color: #ffd700; /* Gold/Yellow for visibility */
+    font-weight: 800;
+    font-size: 1.1rem;
+    line-height: 1;
+    letter-spacing: 1px;
+}
+
+.visitor-label {
+    font-size: 0.65rem;
+    color: rgba(255, 255, 255, 0.9);
+    letter-spacing: 0.5px;
+    white-space: nowrap;
+}
+
+.navbar.scrolled .nav-visitor-counter {
+    background: rgba(0, 0, 0, 0.8);
+}
+
+@media (max-width: 991px) {
+    .nav-visitor-counter {
+        margin: 10px auto 0 auto;
+    }
 }
 
 /* Navbar */

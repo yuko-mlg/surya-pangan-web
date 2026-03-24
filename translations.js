@@ -138,7 +138,8 @@ export const translations = {
         "ai.chat.typing": "Surya AI sedang mengetik...",
         "ai.chef.title": "Chef Surya",
         "ai.chef.desc": "Tanya Online Chef Surya untuk rekomendasi bahan & resep!",
-        "ai.chef.button": "Tanya Online Chef Surya"
+        "ai.chef.button": "Tanya Online Chef Surya",
+        "footer.visitor_count": "Anda pengunjung ke :"
     },
     en: {
         "nav.home": "Home",
@@ -279,6 +280,7 @@ export const translations = {
         "ai.chat.typing": "Surya AI is typing...",
         "ai.chef.title": "Surya Chef",
         "ai.chef.desc": "Ask Online Chef Surya for ingredient recommendations & recipes!",
-        "ai.chef.button": "Ask Online Chef Surya"
+        "ai.chef.button": "Ask Online Chef Surya",
+        "footer.visitor_count": "You Are Visitor Number :"
     }
 };
