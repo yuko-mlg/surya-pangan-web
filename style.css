@@ -48,7 +48,7 @@
 
 html {
     scroll-behavior: smooth;
-    scroll-padding-top: 140px;
+    scroll-padding-top: 200px; /* Ditambah agar pas dengan navbar yang lebih tinggi */
     /* Offset for fixed navbar */
 }
 
@@ -487,7 +487,7 @@ ul {
     align-items: center;
     justify-content: center;
     overflow: hidden;
-    padding-top: 80px;
+    padding-top: 180px; /* Ditambah agar tidak tertutup navbar yang lebih tinggi */
 }
 
 .hero-bg-wrapper {
@@ -538,7 +538,7 @@ ul {
 }
 
 .hero-title {
-    font-size: clamp(2.5rem, 6vw, 4.2rem);
+    font-size: clamp(2rem, 4.5vw, 3rem); /* Dikecilkan 70% dari sebelumnya 4.2rem */
     color: #fff;
     margin-bottom: 1.5rem;
     line-height: 1.1;
@@ -625,7 +625,7 @@ ul {
     }
 
     .hero-title {
-        font-size: clamp(2.2rem, 10vw, 3rem);
+        font-size: clamp(1.8rem, 8vw, 2.4rem); /* Disesuaikan agar tetap proporsional */
     }
 
     .hero-lead {
