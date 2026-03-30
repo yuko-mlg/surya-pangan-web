@@ -565,3 +565,39 @@ if (privacyTrigger && privacyModal) {
         }
     });
 }
+
+// Otty Philosophy Modal Logic
+const ottyModal = document.getElementById('otty-modal');
+const ottyTrigger = document.getElementById('otty-modal-trigger');
+const closeOttyX = document.getElementById('close-otty');
+const closeOttyBtn = document.getElementById('close-otty-btn');
+
+if (ottyTrigger && ottyModal) {
+    ottyTrigger.addEventListener('click', (e) => {
+        e.preventDefault();
+        ottyModal.style.display = 'block';
+        document.body.style.overflow = 'hidden'; // Prevent scrolling
+    });
+
+    const closeOttyModal = () => {
+        ottyModal.style.display = 'none';
+        document.body.style.overflow = 'auto'; // Restore scrolling
+    };
+
+    closeOttyX.addEventListener('click', closeOttyModal);
+    closeOttyBtn.addEventListener('click', closeOttyModal);
+
+    // Close on outside click
+    window.addEventListener('click', (event) => {
+        if (event.target === ottyModal) {
+            closeOttyModal();
+        }
+    });
+
+    // Close on ESC key
+    window.addEventListener('keydown', (event) => {
+        if (event.key === 'Escape' && ottyModal.style.display === 'block') {
+            closeOttyModal();
+        }
+    });
+}
