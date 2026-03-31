@@ -1,3 +1,16 @@
 {
-    "csr": []
+    "csr": [
+        {
+            "id": 1,
+            "badge": "Social Event",
+            "date": "2026-02-14 08:00",
+            "image": "assets/CSR/Bazaar & Donor Darah 14 Feb 26/_DSC9000.webp",
+            "title": "Bazaar & Blood Donation - February 14, 2026",
+            "time_info": "February 14, 2026",
+            "location": "Surya Pangan Head Office",
+            "desc1": "Surya Pangan organized a Bazaar & Blood Donation event as a form of care for others, coinciding with the moment of Valentine's Day.",
+            "desc2": "Your drop of blood means a lot to help those in need.",
+            "link": "#"
+        }
+    ]
 }

@@ -1,25 +1,18 @@
 import { translations } from './translations.js';
-// import { newsData } from './news-data.js'; // REMOVED: Now fetching from JSON
 
-// Scroll to top on page load/refresh
-window.addEventListener('load', () => {
-    window.scrollTo(0, 0);
-});
+// Window Reset
+window.addEventListener('load', () => window.scrollTo(0, 0));
 
-// Sticky Header & Navigation
 const navbar = document.getElementById('navbar');
 
-// Language Management
-// SEO Update: Check URL param first, then localStorage, then default
 const urlParams = new URLSearchParams(window.location.search);
 const langParam = urlParams.get('lang');
 
-// If URL has lang param, use it and update localStorage
 if (langParam && (langParam === 'id' || langParam === 'en')) {
     localStorage.setItem('language', langParam);
 }
 
-let currentLang = langParam || localStorage.getItem('language') || 'id'; // Default language
+let currentLang = langParam || localStorage.getItem('language') || 'id';
 const mobileToggle = document.querySelector('.mobile-toggle');
 const navLinks = document.querySelector('.nav-links');
 
@@ -47,8 +40,6 @@ const updateContent = (lang) => {
         }
     });
 
-    // Smart Flag Toggle: Show ONLY the target language flag
-    // (If current is ID, show EN flag. If current is EN, show ID flag.)
     const idFlag = document.querySelector('.lang-text[data-lang="id"]');
     const enFlag = document.querySelector('.lang-text[data-lang="en"]');
 

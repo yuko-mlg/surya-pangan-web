@@ -15,7 +15,7 @@ Surya Pangan adalah distributor bahan kue dan bahan baku kuliner terkemuka di Ba
 ## 3. FITUR UNGGULAN (THE SURYA ADVANTAGE)
 
 ### A. Surya AI Chef Assistant
-Fitur chat AI pintar yang mampu memberikan rekomendasi produk, tips penggunaan bahan baku, hingga konsultasi resep kuliner secara 24/7. Ini memberikan nilai tambah yang tidak dimiliki oleh kompetitor lain.
+Fitur chat AI pintar yang mampu memberikan rekomendasi produk, tips penggunaan bahan baku, hingga konsultasi resep kuliner secara 24/7. Ini memberikan nilai tambah yang belum dimiliki oleh kompetitor lain.
 
 ### B. News & Update System
 Sistem manajemen konten (CMS) yang memungkinkan admin mengunggah berita industri kuliner, demo Chef Surya, hingga event CSR perusahaan secara dinamis.

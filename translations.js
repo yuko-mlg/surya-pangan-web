@@ -59,7 +59,7 @@ export const translations = {
         "gallery.desc": "Dari bahan mentah berkualitas hingga pengiriman yang terorganisir.",
         "gallery.item1": "Bahan Berkualitas",
         "gallery.item2": "Stok Lengkap",
-        "gallery.item3": "Distribusi Profesional",
+        "gallery.item3": "Distribusi",
 
         "csr.title": "Kepedulian Sosial",
         "csr.desc": "Berbagi kasih untuk sesama melalui aksi nyata.",
@@ -216,7 +216,7 @@ export const translations = {
         "gallery.desc": "From high-quality raw materials to organized delivery.",
         "gallery.item1": "High-Quality Ingredients",
         "gallery.item2": "Complete Stock",
-        "gallery.item3": "Professional Distribution",
+        "gallery.item3": "Distribution",
 
         "csr.title": "Social Responsibility (CSR)",
         "csr.desc": "Sharing love for others through real action.",

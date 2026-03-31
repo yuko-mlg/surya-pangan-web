@@ -2,14 +2,14 @@
     "csr": [
         {
             "id": 1,
-            "badge": "Kegiatan Rutin",
-            "date": "2026-01-01 08:00",
-            "image": "assets/images/blood_donation.png",
-            "title": "Aksi Donor Darah Peduli Sesama",
-            "time_info": "Setiap 3 Bulan",
+            "badge": "Kegiatan Sosial",
+            "date": "2026-02-14 08:00",
+            "image": "assets/CSR/Bazaar & Donor Darah 14 Feb 26/_DSC9000.webp",
+            "title": "Bazaar & Donor Darah 14 Februari 2026",
+            "time_info": "14 Februari 2026",
             "location": "Kantor Pusat Surya Pangan",
-            "desc1": "Sebagai bentuk rasa syukur dan kepedulian terhadap sesama, Surya Pangan secara rutin menyelenggarakan kegiatan donor darah. Bekerja sama dengan PMI Bali, kami mengajak seluruh staf, mitra, and masyarakat sekitar untuk mendonorkan darah demi menyelamatkan nyawa mereka yang membutuhkan.",
-            "desc2": "Setetes darah kita sangat berarti bagi mereka.",
+            "desc1": "Surya Pangan mengadakan kegiatan Bazaar & Donor Darah sebagai bentuk kepedulian terhadap sesama bertepatan dengan momen hari kasih sayang.",
+            "desc2": "Setetes darah Anda sangat berarti untuk membantu mereka yang membutuhkan.",
             "link": "#"
         }
     ]

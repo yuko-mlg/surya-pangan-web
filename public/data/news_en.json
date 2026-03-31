@@ -2,26 +2,18 @@
     "news": [
         {
             "id": 1,
-            "date": "2026-01-05",
-            "image": "assets/images/news-1.png",
-            "title": "Bali Culinary Trends 2026: Where is Your Business Heading?",
-            "summary": "Discover the latest trends in the Bali bakery and pastry industry this year. From organic ingredients to texture innovations.",
+            "date": "2026-01-30",
+            "image": "assets/Berita/Baking Demo Blueband - 30 Januari 26/_DSC8624.webp",
+            "title": "Blueband Baking Demo - January 30, 2026",
+            "summary": "Surya Pangan held a Baking Demo with Blueband at the Denpasar Demo Room. Led by Chef Felix, featuring many exciting tips and a special menu like Kastengel Roll Cake.",
             "link": "#"
         },
         {
             "id": 2,
-            "date": "2026-01-02",
-            "image": "assets/images/news-2.png",
-            "title": "Surya Pangan & Anchor Collaboration: Premium Quality Guarantee",
-            "summary": "How our partnership with Anchor ensures premium butter and cheese stocks are always available for your outlet.",
-            "link": "#"
-        },
-        {
-            "id": 3,
-            "date": "2025-12-28",
-            "image": "assets/images/blood_donation.webp",
-            "title": "CSR: Surya Pangan End-of-Year Routine Blood Donation",
-            "summary": "Closing the year by sharing. The Surya Pangan team's joy in supporting the Bali PMI blood stock.",
+            "date": "2025-09-13",
+            "image": "assets/Berita/Grand Opening Munggu - 13-20 Sept 25/DSC06629.webp",
+            "title": "Grand Opening of Surya Pangan Munggu Branch",
+            "summary": "Surya Pangan officially opened its new branch in Munggu. A lively event featuring an inauguration with local community leaders, door prizes, and free tastings for visitors.",
             "link": "#"
         }
     ]
