@@ -1961,7 +1961,8 @@ ul {
     font-size: 2rem;
     font-weight: bold;
     cursor: pointer;
-    transition: color 0.3s;
+    transition: all 0.3s;
+    z-index: 1100;
 }
 
 .close-modal:hover {
@@ -2078,6 +2079,52 @@ ul {
     0% { box-shadow: 0 0 0 0 rgba(235, 105, 11, 0.7); }
     70% { box-shadow: 0 0 0 15px rgba(235, 105, 11, 0); }
     100% { box-shadow: 0 0 0 0 rgba(235, 105, 11, 0); }
+}
+
+@keyframes nudge-otty {
+    0%, 100% { transform: scale(1); }
+    10%, 20% { transform: scale(0.9) rotate(-3deg); }
+    30%, 50%, 70%, 90% { transform: scale(1.1) rotate(3deg); }
+    40%, 60%, 80% { transform: scale(1.1) rotate(-3deg); }
+}
+
+.ai-float-btn.nudge {
+    animation: nudge-otty 0.8s ease-in-out;
+}
+
+.ai-float-btn .otty-tooltip {
+    position: absolute;
+    bottom: 120%;
+    right: 0;
+    background: white;
+    padding: 10px 15px;
+    border-radius: 18px;
+    font-size: 0.85rem;
+    font-weight: 700;
+    white-space: nowrap;
+    box-shadow: 0 8px 20px rgba(0,0,0,0.12);
+    border: 2px solid var(--color-accent);
+    color: var(--color-primary);
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    transform: translateY(10px) scale(0.8);
+    pointer-events: none;
+}
+
+.ai-float-btn.active .otty-tooltip {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0) scale(1);
+}
+
+.ai-float-btn .otty-tooltip::after {
+    content: '';
+    position: absolute;
+    top: 100%;
+    right: 20px;
+    border: 8px solid transparent;
+    border-top-color: var(--color-accent);
 }
 
 .ai-float-btn:hover {
@@ -2576,4 +2623,305 @@ ul {
     .cookie-text {
         font-size: 1rem;
     }
+}
+
+/* --- Mascot Integration & Otty Experience --- */
+.otty-cards-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 1.5rem;
+    margin: 2.5rem 0;
+}
+
+.otty-card {
+    background: rgba(255, 255, 255, 0.6);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(0, 0, 0, 0.05);
+    padding: 2rem 1.5rem;
+    border-radius: 24px;
+    text-align: center;
+    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    box-shadow: 0 4px 20px rgba(0,0,0,0.03);
+    cursor: pointer;
+}
+
+.otty-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 20px 40px rgba(0,0,0,0.08);
+    background: white;
+    border-color: var(--color-accent);
+}
+
+.otty-card i {
+    font-size: 2.2rem;
+    color: var(--color-accent);
+    margin-bottom: 1.2rem;
+    display: block;
+}
+
+.otty-card h5 {
+    font-size: 1.2rem;
+    margin-bottom: 0.75rem;
+    color: var(--color-primary);
+}
+
+.otty-card p {
+    font-size: 0.9rem;
+    color: var(--color-text-muted);
+    line-height: 1.5;
+}
+
+/* Otty's Choice Badge */
+.slider-card {
+    position: relative;
+}
+
+.otty-badge {
+    position: absolute;
+    top: -12px;
+    right: -12px;
+    width: 50px;
+    height: 50px;
+    background: white;
+    border-radius: 50%;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 10;
+    border: 2px solid var(--color-accent);
+    padding: 4px;
+}
+
+.otty-badge img {
+    width: 32px;
+    height: 32px;
+    object-fit: contain;
+}
+
+.footer-otty-wrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.footer-otty {
+    width: 100px;
+    opacity: 0.9;
+    filter: drop-shadow(0 5px 10px rgba(0,0,0,0.1));
+}
+
+@media (max-width: 768px) {
+    .otty-cards-container {
+        grid-template-columns: 1fr;
+    }
+}
+
+/* News & CSR Detail Modal */
+.news-detail-modal .modal-content {
+    max-width: 700px;
+    max-height: 85vh;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+    border-radius: 24px;
+    margin: 2vh auto;
+    scrollbar-width: thin;
+}
+
+.news-modal-header {
+    width: 100%;
+    height: 350px;
+    position: relative;
+    overflow: hidden;
+}
+
+.news-modal-header img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.news-modal-body {
+    padding: 3.5rem;
+}
+
+.news-modal-meta {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1.5rem;
+    margin-bottom: 1.5rem;
+    font-size: 0.95rem;
+    font-weight: 500;
+    color: var(--color-accent);
+}
+
+.news-modal-meta span {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.news-modal-title {
+    font-size: 2.5rem;
+    line-height: 1.2;
+    margin-bottom: 2rem;
+    color: var(--color-primary);
+    font-weight: 800;
+}
+
+.news-modal-text {
+    font-size: 1.15rem;
+    line-height: 1.9;
+    color: var(--color-text-dark);
+}
+
+.news-modal-text p {
+    margin-bottom: 1.5rem;
+}
+
+.modal-loader {
+    padding: 8rem;
+    text-align: center;
+    font-weight: 700;
+    font-size: 1.2rem;
+    color: var(--color-accent);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+}
+
+.modal-loader::after {
+    content: '';
+    width: 40px;
+    height: 40px;
+    border: 4px solid #f3f3f3;
+    border-top: 4px solid var(--color-accent);
+    border-radius: 50%;
+    animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+@media (max-width: 768px) {
+    .news-detail-modal .modal-content {
+        margin: 5% auto;
+        width: 95%;
+    }
+    .news-modal-header {
+        height: 250px;
+    }
+    .news-modal-body {
+        padding: 2rem 1.5rem;
+    }
+    .news-modal-title {
+        font-size: 1.8rem;
+    }
+    .news-modal-text {
+        font-size: 1rem;
+    }
+}
+
+/* New Otty Trigger Design */
+.otty-mascot-trigger-wrap {
+    display: flex;
+    justify-content: center;
+    margin: 3rem 0;
+}
+
+.otty-mascot-trigger {
+    position: relative;
+    cursor: pointer;
+    text-align: center;
+    transition: all 0.3s ease;
+}
+
+.otty-mascot-img-trigger {
+    width: 180px;
+    height: auto;
+    transition: all 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    filter: drop-shadow(0 10px 20px rgba(0,0,0,0.1));
+}
+
+.otty-label-philosophy {
+    position: absolute;
+    top: -20px;
+    right: -40px;
+    background: var(--color-accent);
+    color: white;
+    padding: 0.75rem 1.25rem;
+    border-radius: 30px;
+    font-weight: 800;
+    font-size: 1.1rem;
+    box-shadow: 0 10px 20px rgba(235, 105, 11, 0.3);
+    border: 3px solid white;
+    animation: otty-float 3s infinite ease-in-out;
+}
+
+@keyframes otty-float {
+    0%, 100% { transform: translateY(0) rotate(5deg); }
+    50% { transform: translateY(-10px) rotate(8deg); }
+}
+
+.otty-mascot-trigger:hover .otty-mascot-img-trigger {
+    transform: scale(1.1) rotate(-3deg);
+}
+
+.otty-mascot-trigger:hover .otty-label-philosophy {
+    background: var(--color-primary);
+    transform: scale(1.1) rotate(0deg) !important;
+}
+
+@media (max-width: 768px) {
+    .otty-mascot-img-trigger {
+        width: 140px;
+    }
+    .otty-label-philosophy {
+        font-size: 0.9rem;
+        right: -20px;
+    }
+}
+
+/* News Modal Detail Styling Refinements */
+.news-modal-header {
+    flex-shrink: 0;
+}
+
+.news-modal-body {
+    overflow-y: auto;
+    flex-grow: 1;
+    scrollbar-width: thin;
+    scrollbar-color: var(--color-accent) transparent;
+}
+
+/* Modal Close Button Visibility Fix (Modern Style) */
+.news-detail-modal .close-modal {
+    background: rgba(255, 255, 255, 0.95);
+    width: 44px;
+    height: 44px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.25);
+    color: var(--color-primary);
+    top: 20px;
+    right: 20px;
+    font-size: 1.8rem;
+    padding-bottom: 2px;
+    z-index: 1200;
+    transition: all 0.3s ease;
+    cursor: pointer;
+}
+
+.news-detail-modal .close-modal:hover {
+    background: #ffffff;
+    transform: scale(1.1) rotate(90deg);
+    color: var(--color-accent);
 }

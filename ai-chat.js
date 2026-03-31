@@ -24,6 +24,30 @@ document.addEventListener('DOMContentLoaded', () => {
     aiTrigger.addEventListener('click', toggleChat);
     aiClose.addEventListener('click', toggleChat);
 
+    // Otty Interactivity Logic (Nudge & Tooltip)
+    if (aiTrigger) {
+        // Show tooltip and nudge after 5 seconds
+        setTimeout(() => {
+            aiTrigger.classList.add('active'); // Shows tooltip
+            aiTrigger.classList.add('nudge'); // Plays nudge animation
+            
+            // Remove nudge class after animation finishes so it can be re-triggered
+            setTimeout(() => {
+                aiTrigger.classList.remove('nudge');
+            }, 1000);
+        }, 5000);
+
+        // Periodically nudge every 15 seconds if chat is closed
+        setInterval(() => {
+            if (!aiWindow.classList.contains('active')) {
+                aiTrigger.classList.add('nudge');
+                setTimeout(() => {
+                    aiTrigger.classList.remove('nudge');
+                }, 1000);
+            }
+        }, 15000);
+    }
+
     // Add Message to UI
     const addMessage = (text, sender) => {
         const messageDiv = document.createElement('div');

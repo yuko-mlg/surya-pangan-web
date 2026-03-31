@@ -13,6 +13,8 @@ if (langParam && (langParam === 'id' || langParam === 'en')) {
 }
 
 let currentLang = langParam || localStorage.getItem('language') || 'id';
+let currentNewsData = [];
+let currentCSRData = [];
 const mobileToggle = document.querySelector('.mobile-toggle');
 const navLinks = document.querySelector('.nav-links');
 
@@ -348,6 +350,7 @@ async function renderNews(lang) {
 
         // Use filtered news directly - no auto-translate fallback
         news = filteredNews;
+        currentNewsData = news;
 
         newsGrid.innerHTML = news.map(item => `
             <article class="news-card">
@@ -358,7 +361,7 @@ async function renderNews(lang) {
                     <div class="news-date">${new Date(item.date).toLocaleDateString(lang === 'id' ? 'id-ID' : 'en-US', { day: 'numeric', month: 'long', year: 'numeric' })}</div>
                     <h3 class="news-title">${item.title}</h3>
                     <p class="news-excerpt">${item.summary}</p>
-                    <a href="${item.link}" class="news-link">
+                    <a href="javascript:void(0)" class="news-link detail-trigger" data-type="news" data-id="${item.id}">
                         ${translations[lang]['news.read_more']}
                         <span class="arrow">→</span>
                     </a>
@@ -391,6 +394,7 @@ async function renderCSR(lang) {
 
         // Use filtered CSR directly - no auto-translate fallback
         csrActivities = filteredCSR;
+        currentCSRData = csrActivities;
 
         if (csrActivities.length === 0) {
             csrGrid.innerHTML = `<p class="text-center">${lang === 'id' ? 'Belum ada kegiatan sosial terbaru.' : 'No recent social activities.'}</p>`;
@@ -411,7 +415,7 @@ async function renderCSR(lang) {
                     </div>
                     <p>${item.desc1}</p>
                     <p>${item.desc2}</p>
-                    <a href="${item.link}" class="btn-outline">${lang === 'id' ? 'Lihat Dokumentasi Lengkap' : 'View Full Documentation'}</a>
+                    <a href="javascript:void(0)" class="btn-outline detail-trigger" data-type="csr" data-id="${item.id}">${lang === 'id' ? 'Baca Selengkapnya' : 'Read More'}</a>
                 </div>
             </div>
         `).join('');
@@ -559,16 +563,20 @@ if (privacyTrigger && privacyModal) {
 
 // Otty Philosophy Modal Logic
 const ottyModal = document.getElementById('otty-modal');
-const ottyTrigger = document.getElementById('otty-modal-trigger');
+const ottyTrigger = document.getElementById('otty-philosophies-trigger');
 const closeOttyX = document.getElementById('close-otty');
 const closeOttyBtn = document.getElementById('close-otty-btn');
 
-if (ottyTrigger && ottyModal) {
-    ottyTrigger.addEventListener('click', (e) => {
-        e.preventDefault();
+if (ottyModal) {
+    const openOttyModal = (e) => {
+        if (e) e.preventDefault();
         ottyModal.style.display = 'block';
-        document.body.style.overflow = 'hidden'; // Prevent scrolling
-    });
+        document.body.style.overflow = 'hidden';
+    };
+
+    if (ottyTrigger) {
+        ottyTrigger.addEventListener('click', openOttyModal);
+    }
 
     const closeOttyModal = () => {
         ottyModal.style.display = 'none';
@@ -592,3 +600,78 @@ if (ottyTrigger && ottyModal) {
         }
     });
 }
+
+// News & CSR Detail Modal Logic
+const newsCsrModal = document.getElementById('news-csr-modal');
+const modalBody = document.getElementById('modal-body-content');
+const closeNewsCsrX = document.getElementById('close-news-csr');
+const closeNewsCsrBtn = document.getElementById('close-news-csr-btn');
+
+function openDetailModal(type, id) {
+    if (!newsCsrModal || !modalBody) return;
+
+    const data = type === 'news' ? currentNewsData : currentCSRData;
+    const item = data.find(i => String(i.id) === String(id));
+
+    if (!item) return;
+
+    // Set Loading state
+    modalBody.innerHTML = '<div class="modal-loader">Memuat detail...</div>';
+    newsCsrModal.style.display = 'block';
+    document.body.style.overflow = 'hidden';
+
+    // Build Content (Magazine Style)
+    let html = `
+        <div class="news-modal-header">
+            <img src="${item.image}" alt="${item.title}">
+        </div>
+        <div class="news-modal-body">
+            <div class="news-modal-meta">
+                <span><i class="fas fa-calendar-alt"></i> ${type === 'news' ? new Date(item.date).toLocaleDateString(currentLang === 'id' ? 'id-ID' : 'en-US', { day: 'numeric', month: 'long', year: 'numeric' }) : item.time_info}</span>
+                ${item.location ? `<span><i class="fas fa-map-marker-alt"></i> ${item.location}</span>` : ''}
+            </div>
+            <h2 class="news-modal-title">${item.title}</h2>
+            <div class="news-modal-text">
+                ${item.content ? item.content.split('\n').map(p => `<p>${p}</p>`).join('') : `<p>${item.summary || item.desc1}</p>`}
+            </div>
+        </div>
+    `;
+
+    setTimeout(() => {
+        modalBody.innerHTML = html;
+    }, 300); // Small delay for smooth transition
+}
+
+const closeDetailModal = () => {
+    if (newsCsrModal) {
+        newsCsrModal.style.display = 'none';
+        document.body.style.overflow = '';
+    }
+};
+
+// Event Delegation for Read More buttons
+document.addEventListener('click', (e) => {
+    const trigger = e.target.closest('.detail-trigger');
+    if (trigger) {
+        e.preventDefault();
+        const type = trigger.getAttribute('data-type');
+        const id = trigger.getAttribute('data-id');
+        openDetailModal(type, id);
+    }
+});
+
+if (closeNewsCsrX) closeNewsCsrX.onclick = closeDetailModal;
+if (closeNewsCsrBtn) closeNewsCsrBtn.onclick = closeDetailModal;
+
+// Close on outside click
+window.addEventListener('click', (e) => {
+    if (e.target === newsCsrModal) closeDetailModal();
+});
+
+// Close on ESC key
+window.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape' && newsCsrModal && newsCsrModal.style.display === 'block') {
+        closeDetailModal();
+    }
+});
+
