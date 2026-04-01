@@ -143,7 +143,7 @@ ul {
 }
 
 .title-column {
-    flex: 1.2;
+    flex: 1.4;
 }
 
 .spirit-column {
@@ -151,10 +151,11 @@ ul {
     display: flex;
     flex-direction: column;
     align-items: flex-start;
+    padding-top: 0.5rem; /* Aligns with h2 top */
 }
 
 .spirit-header {
-    font-size: 1.5rem;
+    font-size: 1.8rem;
     font-family: var(--font-heading);
     font-weight: 700;
     color: var(--color-primary);
