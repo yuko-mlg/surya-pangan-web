@@ -2851,16 +2851,16 @@ ul {
 
 .otty-label-philosophy {
     position: absolute;
-    top: -20px;
-    right: -40px;
+    top: -45px;
+    right: -55px;
     background: var(--color-accent);
     color: white;
-    padding: 0.75rem 1.25rem;
+    padding: 0.4rem 1rem;
     border-radius: 30px;
     font-weight: 800;
-    font-size: 1.1rem;
+    font-size: 0.85rem;
     box-shadow: 0 10px 20px rgba(235, 105, 11, 0.3);
-    border: 3px solid white;
+    border: 2px solid white;
     animation: otty-float 3s infinite ease-in-out;
 }
 
