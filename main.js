@@ -482,22 +482,21 @@ renderTestimonials(activeTestimonialCategory, currentLang);
 generateMathCaptcha();
 
 // Visitor Counter Logic
-// Max 1 API hit per device per 24 jam → drastically reduces server load
+// Hanya hit API 1x per session untuk menghindari spam & high traffic
 async function updateVisitorCounter() {
     const counterDisplay = document.getElementById('visitor-number');
     if (!counterDisplay) return;
 
+    const SESSION_KEY = 'sp_visitor_session';
     const CACHE_KEY = 'sp_visitor_count';
-    const TIMESTAMP_KEY = 'sp_visitor_ts';
-    const COOLDOWN_MS = 24 * 60 * 60 * 1000; // 24 jam
 
-    const cached = localStorage.getItem(CACHE_KEY);
-    const lastHit = parseInt(localStorage.getItem(TIMESTAMP_KEY) || '0', 10);
-    const now = Date.now();
+    // Cek apakah sudah pernah hit API di session ini
+    const alreadyHit = sessionStorage.getItem(SESSION_KEY);
 
-    // Jika masih dalam 24 jam, langsung tampilkan cache — NO API call
-    if (cached && (now - lastHit) < COOLDOWN_MS) {
-        counterDisplay.innerText = cached;
+    if (alreadyHit) {
+        // Tampilkan cached count dari localStorage tanpa hit API
+        const cached = localStorage.getItem(CACHE_KEY);
+        counterDisplay.innerText = cached || '2.000+';
         return;
     }
 
@@ -508,12 +507,17 @@ async function updateVisitorCounter() {
         if (data && data.count) {
             const formatted = data.count.toString().padStart(7, '0');
             counterDisplay.innerText = formatted;
+            // Simpan ke cache & tandai session sudah hit
             localStorage.setItem(CACHE_KEY, formatted);
-            localStorage.setItem(TIMESTAMP_KEY, now.toString());
+            sessionStorage.setItem(SESSION_KEY, '1');
         }
     } catch (error) {
         console.warn('Visitor counter API error:', error);
-        counterDisplay.innerText = cached || '0002000';
+        // Tampilkan cached value atau fallback
+        const cached = localStorage.getItem(CACHE_KEY);
+        counterDisplay.innerText = cached || '2.000+';
+        // Set session agar tidak retry terus jika API down
+        sessionStorage.setItem(SESSION_KEY, '1');
     }
 }
 
