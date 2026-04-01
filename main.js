@@ -482,21 +482,42 @@ renderTestimonials(activeTestimonialCategory, currentLang);
 generateMathCaptcha();
 
 // Visitor Counter Logic
+// Hanya hit API 1x per session untuk menghindari spam & high traffic
 async function updateVisitorCounter() {
     const counterDisplay = document.getElementById('visitor-number');
     if (!counterDisplay) return;
 
+    const SESSION_KEY = 'sp_visitor_session';
+    const CACHE_KEY = 'sp_visitor_count';
+
+    // Cek apakah sudah pernah hit API di session ini
+    const alreadyHit = sessionStorage.getItem(SESSION_KEY);
+
+    if (alreadyHit) {
+        // Tampilkan cached count dari localStorage tanpa hit API
+        const cached = localStorage.getItem(CACHE_KEY);
+        counterDisplay.innerText = cached || '2.000+';
+        return;
+    }
+
     try {
-        // Menggunakan counterapi.dev - hit count bertambah setiap page load
         const response = await fetch('https://api.counterapi.dev/v1/suryapangan/hits/up');
+        if (!response.ok) throw new Error(`HTTP ${response.status}`);
         const data = await response.json();
         if (data && data.count) {
-            // Format angka agar selalu 7 digit (contoh: 0000004)
-            counterDisplay.innerText = data.count.toString().padStart(7, '0');
+            const formatted = data.count.toString().padStart(7, '0');
+            counterDisplay.innerText = formatted;
+            // Simpan ke cache & tandai session sudah hit
+            localStorage.setItem(CACHE_KEY, formatted);
+            sessionStorage.setItem(SESSION_KEY, '1');
         }
     } catch (error) {
         console.warn('Visitor counter API error:', error);
-        counterDisplay.innerText = '2.000+'; // Fallback
+        // Tampilkan cached value atau fallback
+        const cached = localStorage.getItem(CACHE_KEY);
+        counterDisplay.innerText = cached || '2.000+';
+        // Set session agar tidak retry terus jika API down
+        sessionStorage.setItem(SESSION_KEY, '1');
     }
 }
 
