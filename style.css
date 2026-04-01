@@ -2858,9 +2858,11 @@ ul {
     padding: 0.4rem 1rem;
     border-radius: 30px;
     font-weight: 800;
-    font-size: 0.85rem;
+    font-size: 0.75rem; /* Dikecilkan dari 0.85rem */
     box-shadow: 0 10px 20px rgba(235, 105, 11, 0.3);
     border: 2px solid white;
+    right: -10px; /* Digeser agar lebih rapat */
+    bottom: -10px;
     animation: otty-float 3s infinite ease-in-out;
 }
 
@@ -2883,8 +2885,9 @@ ul {
         width: 140px;
     }
     .otty-label-philosophy {
-        font-size: 0.9rem;
-        right: -20px;
+        font-size: 0.7rem; /* Dikecilkan dari 0.9rem */
+        right: -5px;
+        bottom: -5px;
     }
 }
 
@@ -2916,6 +2919,7 @@ ul {
     font-size: 1.8rem;
     padding-bottom: 2px;
     z-index: 1200;
+    position: absolute; /* Tetap absolute namun pastikan context container overflow-y: hidden */
     transition: all 0.3s ease;
     cursor: pointer;
 }

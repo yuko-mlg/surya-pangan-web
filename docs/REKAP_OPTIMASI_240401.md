@@ -10,21 +10,22 @@ Laporan ringkasan pembaruan fitur, perbaikan UI, dan update konten untuk meningk
 ## 2. 🦦 Redesign Filosofi Otty (SMART)
 - **Akronim SMART**: Nilai filosofi diperbarui menjadi akronim yang lebih bermakna:
   - **S**inergi (Synergy)
-  - **M**andiri (Maintained)
+- **M**andiri (Mature)
   - **A**ndal (Accountable)
-  - **R**ajin (Reliable)
+  - **R**ajin (Resilient)
   - **T**angguh (Tough)
 - **Deskripsi Mendalam**: Penjelasan di modal kini lebih panjang, profesional, dan puitis (Bahasa Indonesia & Inggris).
 - **Label UI**: Ukuran label oranye "Filosofi Otty (SMART)" dikecilkan dan digeser agar tidak menutupi wajah maskot.
+- **Istilah SMART (EN)**: Menggunakan istilah **Mature** dan **Resilient** sesuai arahan Boz Yuko.
 
 ## 3. 🎯 Section Visi & Misi Baru
 - Menambahkan section **Misi** (Mission) tepat di bawah section **Visi** pada halaman *About Us*.
 - Styling menggunakan *glass-card* yang elegan dengan ikon panah (→) berwarna emas sebagai penanda poin misi.
 
 ## 4. 📝 Pembaruan Konten (Data Word)
-- Berhasil mengekstrak dan memasukkan 4 konten artikel baru (News & CSR) dari dokumen `.docx` ke dalam sistem JSON website:
+- Berhasil mengekstrak dan memasukkan 3 konten artikel baru (News & CSR) dari dokumen `.docx` ke dalam sistem JSON website:
   - Update Berita 1 & 2
-  - Update CSR 1 & 2
+  - Update CSR 1 (Bazaar & Donor Darah)
 - Sinkronisasi teks Bahasa Indonesia dan Inggris untuk semua konten baru.
 
 ## 5. 🛰️ Status Sinkronisasi
