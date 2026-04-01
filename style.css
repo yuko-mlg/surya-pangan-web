@@ -143,7 +143,7 @@ ul {
 }
 
 .title-column {
-    flex: 1.4;
+    flex: 1; /* Diubah jadi seimbang 1:1 */
 }
 
 .spirit-column {
@@ -151,15 +151,16 @@ ul {
     display: flex;
     flex-direction: column;
     align-items: flex-start;
-    padding-top: 0.5rem; /* Aligns with h2 top */
+    padding-top: 0.2rem;
 }
 
 .spirit-header {
-    font-size: 1.8rem;
+    font-size: 2rem; /* Diperbesar agar sesuai mockup */
     font-family: var(--font-heading);
-    font-weight: 700;
+    font-weight: 800;
     color: var(--color-primary);
     margin-bottom: 0.5rem;
+    line-height: 1.2;
 }
 
 .line-accent-short {
