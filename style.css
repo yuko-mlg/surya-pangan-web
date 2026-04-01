@@ -679,7 +679,7 @@ ul {
 }
 
 /* About Section */
-.spirit-values-wrapper {
+.smart-values-wrapper {
     width: 100%;
     margin-top: 2rem;
     border-radius: 20px;
@@ -688,11 +688,11 @@ ul {
     transition: transform 0.3s ease;
 }
 
-.spirit-values-wrapper:hover {
+.smart-values-wrapper:hover {
     transform: scale(1.02);
 }
 
-.spirit-img {
+.smart-img {
     width: 100%;
     height: auto;
     display: block;
