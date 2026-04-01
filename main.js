@@ -53,6 +53,12 @@ const updateContent = (lang) => {
         enFlag.style.display = 'none';
     }
 
+    // Update SMART Spirit image source based on language
+    const spiritImg = document.getElementById('spirit-img-main');
+    if (spiritImg) {
+        spiritImg.src = lang === 'en' ? 'assets/images/SMART_spirit_en.png' : 'assets/images/SMART_spirit_id.png';
+    }
+
     currentLang = lang;
     renderNews(lang);
 };
