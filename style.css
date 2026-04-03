@@ -3479,3 +3479,28 @@ ul {
     }
 }
 
+/* Timeline/Milestone Sizing Update */
+.milestone-wrapper {
+    max-width: 1680px; /* 1200px + 40% */
+    margin: 3rem auto 0;
+    padding: 0 1rem;
+    width: 100%;
+}
+
+.milestone-img {
+    width: 100%;
+    height: auto;
+    display: block;
+    transition: transform 0.3s ease;
+}
+
+.milestone-img:hover {
+    transform: scale(1.02);
+}
+
+@media (max-width: 1700px) {
+    .milestone-wrapper {
+        max-width: 95vw;
+    }
+}
+
