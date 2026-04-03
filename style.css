@@ -3481,9 +3481,9 @@ ul {
 
 /* Timeline/Milestone Sizing Update */
 .milestone-wrapper {
-    max-width: 1680px; /* 1200px + 40% */
+    max-width: 1500px; /* 1200px + 25% */
     margin: 3rem auto 0;
-    padding: 0 1rem;
+    padding: 0 1.5rem;
     width: 100%;
 }
 
