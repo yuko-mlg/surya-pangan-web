@@ -3101,3 +3101,111 @@ ul {
     left: 0;
     top: -15px;
 }
+
+/* Stores Section Styling */
+.stores-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+    gap: 3rem;
+    margin-top: 3rem;
+}
+
+.store-card {
+    background: #ffffff;
+    border-radius: 24px;
+    overflow: hidden;
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.08);
+    transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
+    border: 1px solid rgba(0, 0, 0, 0.05);
+    display: flex;
+    flex-direction: column;
+}
+
+.store-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 25px 50px rgba(0, 0, 0, 0.15);
+    border-color: var(--color-accent);
+}
+
+.store-image-placeholder {
+    height: 250px;
+    background: #f1f5f9;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    color: #cbd5e1;
+    gap: 1rem;
+    position: relative;
+    overflow: hidden;
+}
+
+.store-image-placeholder i {
+    font-size: 4rem;
+    transition: transform 0.5s ease;
+}
+
+.store-card:hover .store-image-placeholder i {
+    transform: scale(1.2);
+    color: var(--color-accent);
+}
+
+.store-image-placeholder span {
+    font-size: 0.8rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.store-content {
+    padding: 2.5rem;
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+}
+
+.store-content h3 {
+    font-size: 1.5rem;
+    margin-bottom: 1rem;
+    color: var(--color-primary);
+}
+
+.store-address {
+    font-size: 0.95rem;
+    color: var(--color-text-muted);
+    margin-bottom: 2rem;
+    line-height: 1.6;
+    display: flex;
+    gap: 10px;
+}
+
+.store-address i {
+    color: var(--color-accent);
+    margin-top: 4px;
+}
+
+.store-actions {
+    display: flex;
+    gap: 1rem;
+    margin-top: auto;
+}
+
+.store-actions .btn-sm {
+    padding: 0.6rem 1rem;
+    font-size: 0.85rem;
+    flex: 1;
+}
+
+@media (max-width: 768px) {
+    .stores-grid {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+    }
+    .store-image-placeholder {
+        height: 200px;
+    }
+    .store-content {
+        padding: 1.5rem;
+    }
+}
+
