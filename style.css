@@ -2167,7 +2167,7 @@ ul {
     }
 }
 
-/* AI & Floating Controls */
+/* Chef & Floating Controls */
 .floating-controls {
     position: fixed;
     bottom: 2rem;
@@ -2179,15 +2179,15 @@ ul {
     align-items: flex-end;
 }
 
-/* AI Chat Widget Styles */
-.ai-chat-container {
+/* Chef Chat Widget Styles */
+.chef-chat-container {
     position: relative;
     display: flex;
     flex-direction: column;
     align-items: flex-end;
 }
 
-.ai-float-btn {
+.chef-float-btn {
     width: 60px;
     height: 60px;
     background: linear-gradient(135deg, var(--color-accent) 0%, #ff8c3a 100%);
@@ -2201,18 +2201,18 @@ ul {
     box-shadow: 0 10px 25px rgba(235, 105, 11, 0.4);
     border: none;
     transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-    animation: pulse-ai 2s infinite;
+    animation: pulse-chef 2s infinite;
     overflow: hidden; /* Ensure mascot doesn't bleed out */
 }
 
-.ai-btn-mascot {
+.chef-btn-mascot {
     width: 100%;
     height: 100%;
     object-fit: contain;
     transition: transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
 }
 
-@keyframes pulse-ai {
+@keyframes pulse-chef {
     0% { box-shadow: 0 0 0 0 rgba(235, 105, 11, 0.7); }
     70% { box-shadow: 0 0 0 15px rgba(235, 105, 11, 0); }
     100% { box-shadow: 0 0 0 0 rgba(235, 105, 11, 0); }
@@ -2225,11 +2225,11 @@ ul {
     40%, 60%, 80% { transform: scale(1.1) rotate(-3deg); }
 }
 
-.ai-float-btn.nudge {
+.chef-float-btn.nudge {
     animation: nudge-otty 0.8s ease-in-out;
 }
 
-.ai-float-btn .otty-tooltip {
+.chef-float-btn .otty-tooltip {
     position: absolute;
     bottom: 120%;
     right: 0;
@@ -2249,13 +2249,13 @@ ul {
     pointer-events: none;
 }
 
-.ai-float-btn.active .otty-tooltip {
+.chef-float-btn.active .otty-tooltip {
     opacity: 1;
     visibility: visible;
     transform: translateY(0) scale(1);
 }
 
-.ai-float-btn .otty-tooltip::after {
+.chef-float-btn .otty-tooltip::after {
     content: '';
     position: absolute;
     top: 100%;
@@ -2264,15 +2264,15 @@ ul {
     border-top-color: var(--color-accent);
 }
 
-.ai-float-btn:hover {
+.chef-float-btn:hover {
     box-shadow: 0 15px 30px rgba(235, 105, 11, 0.6);
 }
 
-.ai-float-btn:hover .ai-btn-mascot {
+.chef-float-btn:hover .chef-btn-mascot {
     transform: scale(1.15) rotate(5deg);
 }
 
-.ai-chat-window {
+.chef-chat-window {
     position: absolute;
     bottom: 80px;
     right: 0;
@@ -2294,13 +2294,13 @@ ul {
     z-index: 1001;
 }
 
-.ai-chat-window.active {
+.chef-chat-window.active {
     opacity: 1;
     visibility: visible;
     transform: translateY(0) scale(1);
 }
 
-.ai-chat-header {
+.chef-chat-header {
     background: linear-gradient(135deg, var(--color-accent) 0%, #ff8c3a 100%);
     padding: 1.25rem;
     color: white;
@@ -2309,21 +2309,21 @@ ul {
     align-items: center;
 }
 
-.ai-header-mascot {
+.chef-header-mascot {
     width: 40px;
     height: 40px;
     object-fit: contain;
     filter: drop-shadow(0 2px 4px rgba(0,0,0,0.1));
 }
 
-.ai-chat-header-info {
+.chef-chat-header-info {
     display: flex;
     align-items: center;
     gap: 0.75rem;
     font-weight: 700;
 }
 
-.ai-chat-close {
+.chef-chat-close {
     background: none;
     border: none;
     color: white;
@@ -2333,11 +2333,11 @@ ul {
     transition: opacity 0.3s;
 }
 
-.ai-chat-close:hover {
+.chef-chat-close:hover {
     opacity: 1;
 }
 
-.ai-chat-messages {
+.chef-chat-messages {
     flex: 1;
     padding: 1.5rem;
     overflow-y: auto;
@@ -2347,19 +2347,19 @@ ul {
     scroll-behavior: smooth;
 }
 
-.ai-message {
+.chef-message {
     max-width: 85%;
 }
 
-.ai-message.bot {
+.chef-message.bot {
     align-self: flex-start;
 }
 
-.ai-message.user {
+.chef-message.user {
     align-self: flex-end;
 }
 
-.ai-message-bubble {
+.chef-message-bubble {
     padding: 0.8rem 1.2rem;
     border-radius: 18px;
     font-size: 0.95rem;
@@ -2368,26 +2368,26 @@ ul {
     box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
 }
 
-.ai-message.bot .ai-message-bubble {
+.chef-message.bot .chef-message-bubble {
     background: white;
     color: var(--color-primary);
     border-bottom-left-radius: 4px;
 }
 
-.ai-message.user .ai-message-bubble {
+.chef-message.user .chef-message-bubble {
     background: #ff8c3a;
     color: white;
     border-bottom-right-radius: 4px;
 }
 
-.ai-chat-typing {
+.chef-chat-typing {
     padding: 0.5rem 1.5rem;
     font-size: 0.8rem;
     color: #64748b;
     font-style: italic;
 }
 
-.ai-chat-input-area {
+.chef-chat-input-area {
     padding: 1.25rem;
     background: white;
     display: flex;
@@ -2395,7 +2395,7 @@ ul {
     border-top: 1px solid rgba(0, 0, 0, 0.05);
 }
 
-.ai-chat-input-area input {
+.chef-chat-input-area input {
     flex: 1;
     border: 1px solid #e2e8f0;
     border-radius: 12px;
@@ -2405,12 +2405,12 @@ ul {
     transition: border-color 0.3s;
 }
 
-.ai-chat-input-area input:focus {
+.chef-chat-input-area input:focus {
     outline: none;
     border-color: var(--color-accent);
 }
 
-.ai-chat-input-area button {
+.chef-chat-input-area button {
     width: 44px;
     height: 44px;
     background: var(--color-accent);
@@ -2421,13 +2421,13 @@ ul {
     transition: all 0.3s;
 }
 
-.ai-chat-input-area button:hover {
+.chef-chat-input-area button:hover {
     background: var(--color-accent-hover);
     transform: translateY(-2px);
 }
 
 /* AI Chef Section Styles */
-.ai-chef-card {
+.chef-online-card {
     background: white;
     border-radius: 32px;
     padding: 3rem;
@@ -2437,7 +2437,7 @@ ul {
     overflow: hidden;
 }
 
-.ai-chef-card::before {
+.chef-online-card::before {
     content: '';
     position: absolute;
     top: 0;
@@ -2448,7 +2448,7 @@ ul {
     z-index: 0;
 }
 
-.ai-chef-content {
+.chef-online-content {
     display: grid;
     grid-template-columns: 1fr 1fr;
     gap: 3rem;
@@ -2457,7 +2457,7 @@ ul {
     z-index: 1;
 }
 
-.ai-badge {
+.chef-badge {
     display: inline-block;
     background: #fff7ed;
     color: var(--color-accent);
@@ -2470,7 +2470,7 @@ ul {
     box-shadow: 0 4px 10px rgba(235, 105, 11, 0.1);
 }
 
-.btn-ai {
+.btn-chef {
     background: linear-gradient(135deg, var(--color-accent) 0%, #ff8c3a 100%);
     border: none;
     box-shadow: 0 10px 20px rgba(235, 105, 11, 0.3);
@@ -2486,13 +2486,13 @@ ul {
     transition: all 0.3s ease;
 }
 
-.btn-ai:hover {
+.btn-chef:hover {
     background: linear-gradient(135deg, var(--color-accent-hover) 0%, var(--color-accent) 100%);
     box-shadow: 0 15px 30px rgba(235, 105, 11, 0.5);
     transform: translateY(-2px);
 }
 
-.ai-chef-visual {
+.chef-online-visual {
     position: relative;
     height: 300px;
     display: flex;
@@ -2524,24 +2524,24 @@ ul {
     font-size: 2rem;
     color: #cbd5e1;
     opacity: 0.5;
-    animation: float-ai 6s infinite ease-in-out;
+    animation: float-chef 6s infinite ease-in-out;
 }
 
 .slice-1 { top: 20%; left: 10%; animation-delay: 0s !important; }
 .slice-2 { top: 70%; left: 20%; animation-delay: 2s !important; font-size: 2.5rem !important; }
 .slice-3 { top: 40%; right: 15%; animation-delay: 4s !important; }
 
-@keyframes float-ai {
+@keyframes float-chef {
     0%, 100% { transform: translateY(0) rotate(0); }
     50% { transform: translateY(-20px) rotate(10deg); }
 }
 
 @media (max-width: 992px) {
-    .ai-chef-content {
+    .chef-online-content {
         grid-template-columns: 1fr;
         text-align: center;
     }
-    .ai-chef-visual {
+    .chef-online-visual {
         order: -1;
         height: 200px;
     }
@@ -2553,7 +2553,7 @@ ul {
 }
 
 @media (max-width: 480px) {
-    .ai-chat-window {
+    .chef-chat-window {
         width: calc(100vw - 4rem);
         height: 70vh;
         bottom: 70px;

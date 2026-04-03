@@ -1,48 +1,49 @@
 import { translations } from './translations.js';
 
 document.addEventListener('DOMContentLoaded', () => {
-    const aiTrigger = document.getElementById('ai-chat-trigger');
-    const aiWindow = document.getElementById('ai-chat-window');
-    const aiClose = document.getElementById('ai-chat-close');
-    const aiMessages = document.getElementById('ai-chat-messages');
-    const aiInput = document.getElementById('ai-chat-input');
-    const aiSend = document.getElementById('ai-chat-send');
-    const aiTyping = document.getElementById('ai-chat-typing');
-    const chefTrigger = document.getElementById('chef-trigger');
+    const chefTrigger = document.getElementById('chef-chat-trigger');
+    const chefWindow = document.getElementById('chef-chat-window');
+    const chefClose = document.getElementById('chef-chat-close');
+    const chefMessages = document.getElementById('chef-chat-messages');
+    const chefInput = document.getElementById('chef-chat-input');
+    const chefSend = document.getElementById('chef-chat-send');
+    const chefTyping = document.getElementById('chef-chat-typing');
+    const triggerBtn = document.getElementById('open-chat-btn');
 
     // Get current language from main app or localStorage
     const getCurrentLang = () => localStorage.getItem('language') || 'id';
 
     // Toggle Chat Window
     const toggleChat = () => {
-        aiWindow.classList.toggle('active');
-        if (aiWindow.classList.contains('active')) {
-            aiInput.focus();
+        chefWindow.classList.toggle('active');
+        if (chefWindow.classList.contains('active')) {
+            chefInput.focus();
         }
     };
 
-    aiTrigger.addEventListener('click', toggleChat);
-    aiClose.addEventListener('click', toggleChat);
+    if (chefTrigger) chefTrigger.addEventListener('click', toggleChat);
+    if (chefClose) chefClose.addEventListener('click', toggleChat);
+    if (triggerBtn) triggerBtn.addEventListener('click', toggleChat);
 
     // Otty Interactivity Logic (Nudge & Tooltip)
-    if (aiTrigger) {
+    if (chefTrigger) {
         // Show tooltip and nudge after 5 seconds
         setTimeout(() => {
-            aiTrigger.classList.add('active'); // Shows tooltip
-            aiTrigger.classList.add('nudge'); // Plays nudge animation
+            chefTrigger.classList.add('active'); // Shows tooltip
+            chefTrigger.classList.add('nudge'); // Plays nudge animation
             
             // Remove nudge class after animation finishes so it can be re-triggered
             setTimeout(() => {
-                aiTrigger.classList.remove('nudge');
+                chefTrigger.classList.remove('nudge');
             }, 1000);
         }, 5000);
 
         // Periodically nudge every 15 seconds if chat is closed
         setInterval(() => {
-            if (!aiWindow.classList.contains('active')) {
-                aiTrigger.classList.add('nudge');
+            if (!chefWindow.classList.contains('active')) {
+                chefTrigger.classList.add('nudge');
                 setTimeout(() => {
-                    aiTrigger.classList.remove('nudge');
+                    chefTrigger.classList.remove('nudge');
                 }, 1000);
             }
         }, 15000);
@@ -51,10 +52,10 @@ document.addEventListener('DOMContentLoaded', () => {
     // Add Message to UI
     const addMessage = (text, sender) => {
         const messageDiv = document.createElement('div');
-        messageDiv.className = `ai-message ${sender}`;
-        messageDiv.innerHTML = `<div class="ai-message-bubble">${text}</div>`;
-        aiMessages.appendChild(messageDiv);
-        aiMessages.scrollTop = aiMessages.scrollHeight;
+        messageDiv.className = `chef-message ${sender}`;
+        messageDiv.innerHTML = `<div class="chef-message-bubble">${text}</div>`;
+        chefMessages.appendChild(messageDiv);
+        chefMessages.scrollTop = chefMessages.scrollHeight;
     };
 
     // Simulated Bot Response Logic
@@ -91,14 +92,14 @@ document.addEventListener('DOMContentLoaded', () => {
         // Greetings & Identity
         if (res.greetings.some(word => lowerInput.includes(word))) {
             if (lowerInput.includes("panggil")) return lang === 'id' ? "Halo! Ada yang bisa saya bantu hari ini?" : "Hello! How can I help you today?";
-            return lang === 'id' ? "Halo! Saya Surya Assistant, siap membantu info seputar Surya Pangan." : "Hello! I am Surya Assistant, ready to help with info about Surya Pangan.";
+            return lang === 'id' ? "Halo! Saya Otty, asisten Surya Pangan yang siap membantu Anda." : "Hello! I am Otty, Surya Pangan's assistant ready to help you.";
         }
 
         // History
         if (res.history.some(word => lowerInput.includes(word))) {
             return lang === 'id' 
-                ? "Surya Pangan berdiri sejak 2010 (awalnya UD. Pangan Mulia Lestari). Sejak 2013 kami menjadi CV. Surya Pangan dan terus berkembang hingga membuka cabang di Canggu pada April 2023!" 
-                : "Surya Pangan was founded in 2010. Since 2013 we grew into CV. Surya Pangan and recently opened our Canggu branch in April 2023!";
+                ? "Surya Pangan berdiri sejak 2010 (awalnya UD. Pangan Mulia Lestari). Sejak 2013 kami menjadi CV. Surya Pangan dan terus berkembang hingga membuka cabang baru di Munggu pada April 2023!" 
+                : "Surya Pangan was founded in 2010. Since 2013 we grew into CV. Surya Pangan and recently opened our Munggu branch in April 2023!";
         }
 
         // Products & Brands
@@ -111,8 +112,8 @@ document.addEventListener('DOMContentLoaded', () => {
         // Location & Branches
         if (res.location.some(word => lowerInput.includes(word))) {
             return lang === 'id' 
-                ? "Pusat kami di Jl. Mahendradatta No.18A-B, Denpasar. Kami juga punya cabang retail di Canggu (area Badung) yang buka sejak April 2023 untuk melayani area Seminyak & sekitarnya." 
-                : "Our main office is at Jl. Mahendradatta No.18A-B, Denpasar. We also have a retail branch in Canggu opening since April 2023!";
+                ? "Pusat kami di Jl. Mahendradatta No.18A-B, Denpasar. Kami juga punya cabang di Munggu (area Badung) yang buka sejak April 2023 untuk melayani area tersebut dan sekitarnya." 
+                : "Our main office is at Jl. Mahendradatta No.18A-B, Denpasar. We also have a branch in Munggu opening since April 2023!";
         }
 
         // Coverage & Delivery
@@ -146,49 +147,35 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // Handle Sending Message
     const handleSend = () => {
-        const text = aiInput.value.trim();
+        const text = chefInput.value.trim();
         if (!text) return;
 
         const lang = getCurrentLang();
         addMessage(text, 'user');
-        aiInput.value = '';
+        chefInput.value = '';
 
         // Typing indicator
-        aiTyping.style.display = 'block';
+        chefTyping.style.display = 'block';
         
         setTimeout(() => {
-            aiTyping.style.display = 'none';
+            chefTyping.style.display = 'none';
             const response = getBotResponse(text, lang);
             addMessage(response, 'bot');
         }, 1000 + Math.random() * 1000); // 1-2s delay
     };
 
-    aiSend.addEventListener('click', handleSend);
-    aiInput.addEventListener('keypress', (e) => {
-        if (e.key === 'Enter') handleSend();
-    });
-
-    // Surya Chef Section Trigger
-    if (chefTrigger) {
-        chefTrigger.addEventListener('click', () => {
-            if (!aiWindow.classList.contains('active')) {
-                toggleChat();
-            }
-            const lang = getCurrentLang();
-            const surpriseText = lang === 'id' 
-                ? "Minta rekomendasi resep premium dong!" 
-                : "Give me some premium recipe recommendations!";
-            
-            aiInput.value = surpriseText;
-            handleSend();
+    if (chefSend) chefSend.addEventListener('click', handleSend);
+    if (chefInput) {
+        chefInput.addEventListener('keypress', (e) => {
+            if (e.key === 'Enter') handleSend();
         });
     }
 
     // Update placeholders based on language changes
     const observer = new MutationObserver(() => {
         const lang = getCurrentLang();
-        const placeholder = translations[lang]["ai.chat.placeholder"];
-        if (placeholder) aiInput.placeholder = placeholder;
+        const placeholder = translations[lang]["chef.chat.placeholder"];
+        if (placeholder) chefInput.placeholder = placeholder;
     });
 
     observer.observe(document.documentElement, { attributes: true, attributeFilter: ['lang'] });
