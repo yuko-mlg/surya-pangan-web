@@ -3242,13 +3242,74 @@ ul {
 .partner-hero {
     height: 70vh;
     min-height: 500px;
-    background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url('assets/images/Mahendra01.webp') no-repeat center center;
-    background-size: cover;
+    position: relative;
     display: flex;
     align-items: center;
     color: white;
     text-align: center;
     padding-top: 80px;
+    overflow: hidden;
+}
+
+.hero-bg-slider {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+}
+
+.hero-slide {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-size: cover;
+    background-position: center;
+    opacity: 0;
+    transition: opacity 2s ease-in-out;
+}
+
+.hero-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.5));
+    z-index: 1;
+}
+
+/* Background Crossfade Animation */
+.hero-slide:nth-child(1) {
+    animation: heroCrossfade1 12s infinite;
+}
+
+.hero-slide:nth-child(2) {
+    animation: heroCrossfade2 12s infinite;
+}
+
+@keyframes heroCrossfade1 {
+    0% { opacity: 1; }
+    45% { opacity: 1; }
+    55% { opacity: 0; }
+    95% { opacity: 0; }
+    100% { opacity: 1; }
+}
+
+@keyframes heroCrossfade2 {
+    0% { opacity: 0; }
+    45% { opacity: 0; }
+    55% { opacity: 1; }
+    95% { opacity: 1; }
+    100% { opacity: 0; }
+}
+
+.partner-hero .content-wrapper {
+    position: relative;
+    z-index: 10;
 }
 
 .partner-hero .hero-title {
