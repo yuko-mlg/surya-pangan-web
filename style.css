@@ -3453,3 +3453,14 @@ ul {
     }
 }
 
+/* SMART Spirit Interactivity */
+.clickable-spirit {
+    cursor: pointer;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.clickable-spirit:hover {
+    transform: translateY(-5px) scale(1.02);
+    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.15);
+}
+

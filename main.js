@@ -572,6 +572,12 @@ if (ottyModal) {
         ottyTrigger.addEventListener('click', openOttyModal);
     }
 
+    // SMART Spirit image also opens the modal
+    const spiritImg = document.getElementById('spirit-img-main');
+    if (spiritImg) {
+        spiritImg.addEventListener('click', openOttyModal);
+    }
+
     const closeOttyModal = () => {
         ottyModal.style.display = 'none';
         document.body.style.overflow = 'auto'; // Restore scrolling
