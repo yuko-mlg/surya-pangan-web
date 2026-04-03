@@ -3,7 +3,7 @@ export const translations = {
         "nav.home": "Beranda",
         "nav.about": "Tentang Kami",
         "nav.suppliers": "Supplier",
-        "nav.products": "Produk",
+        "nav.products": "Prinsipal",
         "nav.news": "Berita",
         "nav.coverage": "Distribusi",
         "nav.testimonials": "Testimoni",
@@ -21,7 +21,7 @@ export const translations = {
         "hero.title": "Solusi Bahan Baku Kuliner dan Mitra Bisnis Terpercaya",
         "hero.desc": "Mendukung kesuksesan UMKM, dan Industri Kuliner dengan produk berkualitas tinggi serta dukungan teknologi Online Chef Surya 24/7.",
         "hero.cta_primary": "Konsultasi Kebutuhan",
-        "hero.cta_secondary": "Katalog Produk",
+        "hero.cta_secondary": "Prinsipal Kami",
         "hero.stat.years": "Melayani Sejak",
         "hero.stat.customers": "Customer Aktif",
         "hero.stat.area": "Seluruh Area",
@@ -51,7 +51,7 @@ export const translations = {
         "suppliers.title": "Supplier",
         "suppliers.desc": "Kami bekerja sama dengan brand-brand terbaik di industri pangan",
 
-        "products.title": "Produk",
+        "products.title": "Prinsipal Kami",
         "products.desc": "Brand-brand terbaik yang kami distribusikan untuk bisnis Anda",
 
         "coverage.title": "Distribusi",
@@ -178,7 +178,7 @@ export const translations = {
         "nav.home": "Home",
         "nav.about": "About Us",
         "nav.suppliers": "Suppliers",
-        "nav.products": "Products",
+        "nav.products": "Principals",
         "nav.news": "News",
         "nav.coverage": "Distribution",
         "nav.testimonials": "Testimonials",
@@ -196,7 +196,7 @@ export const translations = {
         "hero.title": "Culinary Solutions and Your Trusted Business Partner",
         "hero.desc": "Empowering SMEs and Food Industries with high-quality products and 24/7 Online Chef Surya support.",
         "hero.cta_primary": "Business Consultation",
-        "hero.cta_secondary": "Product Catalog",
+        "hero.cta_secondary": "Our Principals",
         "hero.stat.years": "Serving Since",
         "hero.stat.customers": "Active Customers",
         "hero.stat.area": "All Areas",
@@ -225,7 +225,7 @@ export const translations = {
         "suppliers.title": "Suppliers",
         "suppliers.desc": "We work with the best brands in the food industry",
 
-        "products.title": "Products",
+        "products.title": "Our Principals",
         "products.desc": "The best brands we distribute for your business",
 
         "coverage.title": "Distribution",
