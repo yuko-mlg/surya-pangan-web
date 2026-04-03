@@ -3481,9 +3481,9 @@ ul {
 
 /* Timeline/Milestone Sizing Update */
 .milestone-wrapper {
-    max-width: 1500px; /* 1200px + 25% */
+    max-width: 1200px; /* Kembali ke ukuran standar (80% dari 1500px) */
     margin: 3rem auto 0;
-    padding: 0 1.5rem;
+    padding: 0;
     width: 100%;
 }
 
