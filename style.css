@@ -3193,7 +3193,27 @@ ul {
 .store-actions .btn-sm {
     padding: 0.6rem 1rem;
     font-size: 0.85rem;
-    flex: 1;
+}
+
+.btn-wa-icon {
+    width: 45px;
+    height: 45px;
+    background-color: #25d366;
+    color: white;
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.5rem;
+    transition: all 0.3s ease;
+    flex-shrink: 0;
+    box-shadow: 0 4px 10px rgba(37, 211, 102, 0.2);
+}
+
+.btn-wa-icon:hover {
+    background-color: #128c7e;
+    transform: translateY(-2px) scale(1.05);
+    color: white;
 }
 
 @media (max-width: 768px) {
