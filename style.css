@@ -438,18 +438,7 @@ ul {
     width: auto;
 }
 
-/* Optional: hide text if logo is sufficient, or keep both */
-.brand-text {
-    font-family: var(--font-heading);
-    font-weight: 800;
-    font-size: 1.75rem;
-    color: var(--color-primary);
-    letter-spacing: -0.5px;
-}
-
-.brand-text .text-accent {
-    color: var(--color-accent);
-}
+/* Brand Logo Styles */
 
 .navbar.scrolled .brand {
     color: var(--color-primary);
