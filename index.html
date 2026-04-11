@@ -118,7 +118,7 @@
                     <ul class="dropdown-menu">
                         <li><a href="#about" data-i18n="nav.about">Tentang Kami</a></li>
                         <li><a href="#history" data-i18n="nav.history">Sejarah</a></li>
-                        <li><a href="#management" data-i18n="nav.management">Managemen</a></li>
+                        <li><a href="https://drive.google.com/drive/folders/10c1aYilo4I_8Y94S3tZswXnAJrw5lZf9?usp=sharing" target="_blank">eKatalog / eCatalog</a></li>
                     </ul>
                 </li>
                 <li class="nav-dropdown">
@@ -192,6 +192,13 @@
     <!-- About Section -->
     <section id="about" class="section">
         <div class="container">
+
+            <!-- Section Main Title -->
+            <div class="text-center reveal">
+                <h2 class="section-title" data-i18n="nav.about">Tentang Kami</h2>
+                <div class="line-accent center"></div>
+            </div>
+
 
             <!-- BARIS ATAS: Judul kiri | SMART image kanan -->
             <div class="about-header-row reveal">
@@ -276,16 +283,91 @@
         </div>
     </section>
 
-    <!-- Management Section -->
+    <!-- eKatalog Section -->
     <section id="management" class="section">
         <div class="container text-center reveal">
-            <h2 class="section-title" data-i18n="management.title">Managemen</h2>
-            <p class="section-subtitle" data-i18n="management.desc">Tim di balik kesuksesan operasional Surya Pangan.
-            </p>
+            <h2 class="section-title" data-i18n="management.title">eKatalog</h2>
+            <p class="section-subtitle" data-i18n="management.desc">Dapatkan informasi produk terbaru kami melalui eKatalog.</p>
             <div class="line-accent center"></div>
-            <div class="placeholder-box"
-                style="padding: 4rem 2rem; border: 2px dashed #ccc; border-radius: 12px; margin-top: 2rem;">
-                <p>Profil tim manajemen kami akan segera ditampilkan di sini.</p>
+            <div class="mt-5 ekatalog-icon-wrap">
+                <a href="https://drive.google.com/drive/folders/10c1aYilo4I_8Y94S3tZswXnAJrw5lZf9?usp=sharing" target="_blank" class="ekatalog-link">
+                    <img src="assets/images/catalogs_icon.png" alt="eKatalog Catalogs" class="ekatalog-icon-large">
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Our Stores Section -->
+    <section id="stores" class="section">
+        <div class="container">
+            <div class="text-center reveal">
+                <h2 class="section-title" data-i18n="stores.title">Toko Kami</h2>
+                <p class="section-subtitle" data-i18n="stores.subtitle">Kunjungi cabang terdekat kami untuk berbelanja langsung.</p>
+                <div class="line-accent center"></div>
+            </div>
+
+            <div class="stores-grid reveal">
+                <!-- Mahendradatta Branch -->
+                <div id="store-mahen" class="store-card">
+                    <div class="store-gallery">
+                        <div class="store-slider">
+                            <img src="assets/images/Toko/Mahendra01.webp" alt="Surya Pangan Mahendradatta 1" class="active">
+                            <img src="assets/images/Toko/Mahendra02.webp" alt="Surya Pangan Mahendradatta 2">
+                        </div>
+                    </div>
+                    <div class="store-content">
+                        <h3 data-i18n="stores.mahendradatta.name">Surya Pangan Mahendradatta (Pusat)</h3>
+                        <p class="store-address">
+                            <a href="https://www.google.com/maps/search/CV+Surya+Pangan+Jl.+Mahendradatta+Denpasar" target="_blank" class="store-link">
+                                <i class="fas fa-map-marker-alt"></i> <span data-i18n="stores.mahendradatta.addr">Jl. Mahendradatta No.18A-B, Denpasar Barat</span>
+                            </a>
+                        </p>
+                        <div class="store-map-container mt-3">
+                            <iframe class="store-map"
+                                src="https://www.openstreetmap.org/export/embed.html?bbox=115.1880%2C-8.6800%2C115.1920%2C-8.6780&amp;layer=mapnik&amp;marker=-8.67922414364533%2C115.19003570079803"
+                                style="width: 100%; height: 150px; border: 1px solid #eee; border-radius: 8px;"></iframe>
+                        </div>
+                        <div class="store-actions mt-3">
+                            <a href="https://www.google.com/maps/search/CV+Surya+Pangan+Jl.+Mahendradatta+Denpasar" target="_blank" class="btn-outline btn-sm">
+                                <i class="fas fa-directions"></i> <span data-i18n="stores.view_map">Lihat Peta</span>
+                            </a>
+                            <a href="https://wa.me/628176335740" target="_blank" class="btn-wa-icon" aria-label="WhatsApp Mahendradatta">
+                                <i class="fab fa-whatsapp"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Munggu Branch -->
+                <div id="store-munggu" class="store-card">
+                    <div class="store-gallery">
+                        <div class="store-slider">
+                            <img src="assets/images/Toko/Munggu01.webp" alt="Surya Pangan Munggu 1" class="active">
+                            <img src="assets/images/Toko/Munggu02.webp" alt="Surya Pangan Munggu 2">
+                        </div>
+                    </div>
+                    <div class="store-content">
+                        <h3 data-i18n="stores.munggu.name">Surya Pangan Cabang Munggu</h3>
+                        <p class="store-address">
+                            <a href="https://www.google.com/maps/search/Surya+Pangan+Munggu" target="_blank" class="store-link">
+                                <i class="fas fa-map-marker-alt"></i> <span data-i18n="stores.munggu.addr">Jl. Raya Munggu, No. 88 (Dekat Pasar Munggu), Badung</span>
+                            </a>
+                        </p>
+                        <div class="store-map-container mt-3">
+                            <iframe class="store-map"
+                                src="https://www.openstreetmap.org/export/embed.html?bbox=115.1200%2C-8.6250%2C115.1400%2C-8.6100&amp;layer=mapnik&amp;marker=-8.6186%2C115.1281"
+                                style="width: 100%; height: 150px; border: 1px solid #eee; border-radius: 8px;"></iframe>
+                        </div>
+                        <div class="store-actions mt-3">
+                            <a href="https://www.google.com/maps/search/Surya+Pangan+Munggu" target="_blank" class="btn-outline btn-sm">
+                                <i class="fas fa-directions"></i> <span data-i18n="stores.view_map">Lihat Peta</span>
+                            </a>
+                            <a href="https://wa.me/62817776016" target="_blank" class="btn-wa-icon" aria-label="WhatsApp Munggu">
+                                <i class="fab fa-whatsapp"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
     </section>
@@ -460,62 +542,6 @@
         </div>
     </section>
 
-    <!-- Our Stores Section -->
-    <section id="stores" class="section">
-        <div class="container">
-            <div class="text-center reveal">
-                <h2 class="section-title" data-i18n="stores.title">Toko Kami</h2>
-                <p class="section-subtitle" data-i18n="stores.subtitle">Kunjungi cabang terdekat kami untuk berbelanja langsung.</p>
-                <div class="line-accent center"></div>
-            </div>
-
-            <div class="stores-grid reveal">
-                <!-- Mahendradatta Branch -->
-                <div id="store-mahen" class="store-card">
-                    <div class="store-gallery">
-                        <div class="store-slider">
-                            <img src="assets/images/Toko/Mahendra01.webp" alt="Surya Pangan Mahendradatta 1" class="active">
-                            <img src="assets/images/Toko/Mahendra02.webp" alt="Surya Pangan Mahendradatta 2">
-                        </div>
-                    </div>
-                    <div class="store-content">
-                        <h3 data-i18n="stores.mahendradatta.name">Surya Pangan Mahendradatta (Pusat)</h3>
-                        <p class="store-address"><i class="fas fa-map-marker-alt"></i> <span data-i18n="stores.mahendradatta.addr">Jl. Mahendradatta No.18A-B, Denpasar Barat</span></p>
-                        <div class="store-actions">
-                            <a href="https://maps.app.goo.gl/twuFDQwQAtYVa7sk6" target="_blank" class="btn-outline btn-sm">
-                                <i class="fas fa-directions"></i> <span data-i18n="stores.view_map">Lihat Peta</span>
-                            </a>
-                            <a href="https://wa.me/628176335740" target="_blank" class="btn-wa-icon" aria-label="WhatsApp Mahendradatta">
-                                <i class="fab fa-whatsapp"></i>
-                            </a>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Munggu Branch -->
-                <div id="store-munggu" class="store-card">
-                    <div class="store-gallery">
-                        <div class="store-slider">
-                            <img src="assets/images/Toko/Munggu01.webp" alt="Surya Pangan Munggu 1" class="active">
-                            <img src="assets/images/Toko/Munggu02.webp" alt="Surya Pangan Munggu 2">
-                        </div>
-                    </div>
-                    <div class="store-content">
-                        <h3 data-i18n="stores.munggu.name">Surya Pangan Cabang Munggu</h3>
-                        <p class="store-address"><i class="fas fa-map-marker-alt"></i> <span data-i18n="stores.munggu.addr">Jl. Raya Munggu, No. 88 (Dekat Pasar Munggu), Badung</span></p>
-                        <div class="store-actions">
-                            <a href="https://maps.app.goo.gl/uXfK6U9xWv9w9v9v" target="_blank" class="btn-outline btn-sm">
-                                <i class="fas fa-directions"></i> <span data-i18n="stores.view_map">Lihat Peta</span>
-                            </a>
-                            <a href="https://wa.me/62817776016" target="_blank" class="btn-wa-icon" aria-label="WhatsApp Munggu">
-                                <i class="fab fa-whatsapp"></i>
-                            </a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
 
     <!-- Testimonials Section -->
     <section id="testimonials" class="section">
@@ -700,38 +726,7 @@
 
     <!-- Floating AI & WhatsApp Menu -->
     <div class="floating-controls">
-        <!-- Chef Chat Widget -->
-        <div class="chef-chat-container">
-            <div class="chef-chat-window" id="chef-chat-window">
-                <div class="chef-chat-header">
-                    <div class="chef-chat-header-info">
-                        <img src="assets/images/Maskot berang-berang 02.webp" alt="Otty Mascot" class="chef-header-mascot">
-                        <span data-i18n="chef.chat.title">Chef Surya</span>
-                    </div>
-                    <button class="chef-chat-close" id="chef-chat-close">&times;</button>
-                </div>
-                <div class="chef-chat-messages" id="chef-chat-messages">
-                    <div class="chef-message bot">
-                        <div class="chef-message-bubble" data-i18n="chef.chat.greeting">
-                            Halo! Saya OTTY, Chef Surya yang akan membantu anda. Ada yang bisa kami bantu seputar bahan
-                            kue atau resep makanan ?
-                        </div>
-                    </div>
-                </div>
-                <div class="chef-chat-typing" id="chef-chat-typing" style="display: none;">
-                    <span data-i18n="chef.chat.typing">Chef Surya sedang mengetik...</span>
-                </div>
-                <div class="chef-chat-input-area">
-                    <input type="text" id="chef-chat-input" data-i18n-placeholder="chef.chat.placeholder"
-                        placeholder="Ketik pesan...">
-                    <button id="chef-chat-send"><i class="fas fa-paper-plane"></i></button>
-                </div>
-            </div>
-            <button class="chef-float-btn" id="chef-chat-trigger" aria-label="Tanya Chef Surya">
-                <img src="assets/images/Maskot berang-berang 02.webp" alt="Otty Mascot" class="chef-btn-mascot">
-                <div class="otty-tooltip" id="otty-bubble">Chat Otty yuk! 🦦✨</div>
-            </button>
-        </div>
+        <!-- Chef Chat Widget Removed as per request -->
 
         <div class="wa-menu-container">
             <div class="wa-menu-popup" id="wa-menu-popup">
@@ -881,7 +876,6 @@
     </div>
 
     <script type="module" src="main.js"></script>
-    <script type="module" src="chef-chat.js"></script>
     <script type="module" src="cookies.js"></script>
 </body>
 

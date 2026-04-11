@@ -45,12 +45,14 @@ const updateContent = (lang) => {
     const idFlag = document.querySelector('.lang-text[data-lang="id"]');
     const enFlag = document.querySelector('.lang-text[data-lang="en"]');
 
-    if (lang === 'id') {
-        idFlag.style.display = 'none';
-        enFlag.style.display = 'flex';
-    } else {
-        idFlag.style.display = 'flex';
-        enFlag.style.display = 'none';
+    if (idFlag && enFlag) {
+        if (lang === 'id') {
+            idFlag.style.display = 'none';
+            enFlag.style.display = 'flex';
+        } else {
+            idFlag.style.display = 'flex';
+            enFlag.style.display = 'none';
+        }
     }
 
     // Update SMART Spirit image source based on language
@@ -63,26 +65,29 @@ const updateContent = (lang) => {
     renderNews(lang);
 };
 
-document.getElementById('lang-toggle').addEventListener('click', () => {
-    const newLang = currentLang === 'id' ? 'en' : 'id';
+const langToggleBtn = document.getElementById('lang-toggle');
+if (langToggleBtn) {
+    langToggleBtn.addEventListener('click', () => {
+        const newLang = currentLang === 'id' ? 'en' : 'id';
 
-    // Update URL parameter for SEO and shareability
-    const url = new URL(window.location);
-    if (newLang === 'en') {
-        url.searchParams.set('lang', 'en');
-    } else {
-        url.searchParams.delete('lang'); // Remove param for Indonesian (default)
-    }
-    window.history.pushState({}, '', url);
+        // Update URL parameter for SEO and shareability
+        const url = new URL(window.location);
+        if (newLang === 'en') {
+            url.searchParams.set('lang', 'en');
+        } else {
+            url.searchParams.delete('lang'); // Remove param for Indonesian (default)
+        }
+        window.history.pushState({}, '', url);
 
-    // Update localStorage for persistence
-    localStorage.setItem('language', newLang);
+        // Update localStorage for persistence
+        localStorage.setItem('language', newLang);
 
-    updateContent(newLang);
-    renderNews(newLang);
-    renderTestimonials(activeTestimonialCategory, newLang);
-    generateMathCaptcha();
-});
+        updateContent(newLang);
+        renderNews(newLang);
+        renderTestimonials(activeTestimonialCategory, newLang);
+        generateMathCaptcha();
+    });
+}
 
 // Set redirect to current page on load
 const redirectInput = document.getElementById('next-redirect');
@@ -247,27 +252,28 @@ window.addEventListener('scroll', () => {
 });
 
 // Mobile Menu
-mobileToggle.addEventListener('click', () => {
-    navLinks.classList.toggle('mobile-active');
-
-    // Animate hamburger to X (simple version)
-    // In a real app we'd toggle a class on the button for CSS transition
-});
+if (mobileToggle && navLinks) {
+    mobileToggle.addEventListener('click', () => {
+        navLinks.classList.toggle('mobile-active');
+    });
+}
 
 // Close mobile menu when link clicked
-document.querySelectorAll('.nav-links a').forEach(link => {
-    link.addEventListener('click', (e) => {
-        // If it's a dropdown trigger on mobile, toggle instead of closing
-        if (window.innerWidth < 992 && link.classList.contains('dropdown-trigger')) {
-            e.preventDefault();
-            const parent = link.closest('.nav-dropdown');
-            parent.classList.toggle('active');
-        } else {
-            // Close menu for normal links
-            navLinks.classList.remove('mobile-active');
-        }
+if (navLinks) {
+    document.querySelectorAll('.nav-links a').forEach(link => {
+        link.addEventListener('click', (e) => {
+            // If it's a dropdown trigger on mobile, toggle instead of closing
+            if (window.innerWidth < 992 && link.classList.contains('dropdown-trigger')) {
+                e.preventDefault();
+                const parent = link.closest('.nav-dropdown');
+                if (parent) parent.classList.toggle('active');
+            } else {
+                // Close menu for normal links
+                navLinks.classList.remove('mobile-active');
+            }
+        });
     });
-});
+}
 
 // Reveal Animations on Scroll
 const revealElements = document.querySelectorAll('.reveal');
