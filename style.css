@@ -385,19 +385,19 @@ ul {
 @media (max-width: 991px) {
     .nav-visitor-counter {
         width: 100%;
-        margin: 8px auto 0 auto;
+        margin: 2px auto 0 auto;
         justify-content: center;
-        order: 3; /* Pastikan di bawah logo dan toggle */
-        padding: 4px 15px;
-        transform: scale(0.9); /* Kecilin dikit buat mobile */
+        order: 3;
+        padding: 2px 15px;
+        transform: scale(0.85);
     }
     
     .visitor-label {
-        font-size: 0.6rem;
+        font-size: 0.55rem;
     }
     
     #visitor-number {
-        font-size: 0.95rem;
+        font-size: 0.85rem;
     }
 }
 
@@ -443,10 +443,10 @@ ul {
     align-items: center;
     gap: 0.75rem;
     background: white;
-    padding: 6px 20px;
+    padding: 2px 15px;
     border-radius: 50px;
     box-shadow: 0 4px 15px rgba(0,0,0,0.1);
-    height: 52px;
+    height: 44px;
 }
 
 @media (min-width: 992px) {

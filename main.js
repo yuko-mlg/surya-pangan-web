@@ -487,11 +487,25 @@ renderCSR(currentLang);
 renderTestimonials(activeTestimonialCategory, currentLang);
 generateMathCaptcha();
 
-// Visitor Counter - Static Display (no external API)
+// Visitor Counter - Animated Display
 function updateVisitorCounter() {
     const counterDisplay = document.getElementById('visitor-number');
     if (!counterDisplay) return;
-    counterDisplay.innerText = '2.000+';
+    
+    let target = 2143; // Realistic starting point based on "2000+"
+    let count = target - 50; 
+    let speed = 40;
+    
+    const increment = () => {
+        if (count < target) {
+            count++;
+            counterDisplay.innerText = count.toLocaleString('id-ID') + '+';
+            setTimeout(increment, speed);
+            speed += 2; // Slow down as it approaches target
+        }
+    };
+    
+    increment();
 }
 
 updateVisitorCounter();
