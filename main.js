@@ -576,35 +576,35 @@ if (privacyTrigger && privacyModal) {
 }
 
 // Otty Philosophy Modal Logic
-const ottyModal = document.getElementById('otty-modal');
-const ottyTrigger = document.getElementById('otty-philosophies-trigger');
-const closeOttyX = document.getElementById('close-otty');
-const closeOttyBtn = document.getElementById('close-otty-btn');
+const giliModal = document.getElementById('gili-modal');
+const giliTrigger = document.getElementById('gili-philosophies-trigger');
+const closeGiliX = document.getElementById('close-gili');
+const closeGiliBtn = document.getElementById('close-gili-btn');
 
-if (ottyModal) {
-    const openOttyModal = (e) => {
+if (giliModal) {
+    const openGiliModal = (e) => {
         if (e) e.preventDefault();
-        ottyModal.style.display = 'block';
+        giliModal.style.display = 'block';
         document.body.style.overflow = 'hidden';
     };
 
-    if (ottyTrigger) {
-        ottyTrigger.addEventListener('click', openOttyModal);
+    if (giliTrigger) {
+        giliTrigger.addEventListener('click', openGiliModal);
     }
 
     // SMART Spirit image also opens the modal
     const spiritImg = document.getElementById('spirit-img-main');
     if (spiritImg) {
-        spiritImg.addEventListener('click', openOttyModal);
+        spiritImg.addEventListener('click', openGiliModal);
     }
 
-    const closeOttyModal = () => {
-        ottyModal.style.display = 'none';
+    const closeGiliModal = () => {
+        giliModal.style.display = 'none';
         document.body.style.overflow = 'auto'; // Restore scrolling
     };
 
-    closeOttyX.addEventListener('click', closeOttyModal);
-    closeOttyBtn.addEventListener('click', closeOttyModal);
+    closeGiliX.addEventListener('click', closeGiliModal);
+    closeGiliBtn.addEventListener('click', closeGiliModal);
 
     // Close on outside click
     window.addEventListener('click', (event) => {
