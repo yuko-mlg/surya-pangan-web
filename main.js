@@ -538,7 +538,9 @@ if (waTrigger && waPopup) {
     }, { passive: true });
 }
 
+
 console.log('Surya Pangan website loaded successfully');
+
 // Privacy Policy Modal Logic
 const privacyModal = document.getElementById('privacy-modal');
 const privacyTrigger = document.getElementById('privacy-trigger');
@@ -557,8 +559,8 @@ if (privacyTrigger && privacyModal) {
         document.body.style.overflow = 'auto'; // Restore scrolling
     };
 
-    closePrivacyX.addEventListener('click', closeModal);
-    closePrivacyBtn.addEventListener('click', closeModal);
+    if (closePrivacyX) closePrivacyX.addEventListener('click', closeModal);
+    if (closePrivacyBtn) closePrivacyBtn.addEventListener('click', closeModal);
 
     // Close on outside click
     window.addEventListener('click', (event) => {
@@ -575,9 +577,10 @@ if (privacyTrigger && privacyModal) {
     });
 }
 
-// Otty Philosophy Modal Logic
+// Gili Philosophy Modal Logic
 const giliModal = document.getElementById('gili-modal');
 const giliTrigger = document.getElementById('gili-philosophies-trigger');
+const giliMascotTrigger = document.getElementById('gili-mascot-footer-trigger');
 const closeGiliX = document.getElementById('close-gili');
 const closeGiliBtn = document.getElementById('close-gili-btn');
 
@@ -591,6 +594,10 @@ if (giliModal) {
     if (giliTrigger) {
         giliTrigger.addEventListener('click', openGiliModal);
     }
+    
+    // Check if there are other triggers for Gili modal
+    const extraTriggers = document.querySelectorAll('.gili-philosophy-trigger');
+    extraTriggers.forEach(btn => btn.addEventListener('click', openGiliModal));
 
     // SMART Spirit image also opens the modal
     const spiritImg = document.getElementById('spirit-img-main');
@@ -603,20 +610,20 @@ if (giliModal) {
         document.body.style.overflow = 'auto'; // Restore scrolling
     };
 
-    closeGiliX.addEventListener('click', closeGiliModal);
-    closeGiliBtn.addEventListener('click', closeGiliModal);
+    if (closeGiliX) closeGiliX.addEventListener('click', closeGiliModal);
+    if (closeGiliBtn) closeGiliBtn.addEventListener('click', closeGiliModal);
 
     // Close on outside click
     window.addEventListener('click', (event) => {
-        if (event.target === ottyModal) {
-            closeOttyModal();
+        if (event.target === giliModal) {
+            closeGiliModal();
         }
     });
 
     // Close on ESC key
     window.addEventListener('keydown', (event) => {
-        if (event.key === 'Escape' && ottyModal.style.display === 'block') {
-            closeOttyModal();
+        if (event.key === 'Escape' && giliModal.style.display === 'block') {
+            closeGiliModal();
         }
     });
 }
@@ -630,7 +637,8 @@ const closeNewsCsrBtn = document.getElementById('close-news-csr-btn');
 function openDetailModal(type, id) {
     if (!newsCsrModal || !modalBody) return;
 
-    const data = type === 'news' ? currentNewsData : currentCSRData;
+    // We assume currentNewsData and currentCSRData are globally available from news logic
+    const data = type === 'news' ? (window.currentNewsData || []) : (window.currentCSRData || []);
     const item = data.find(i => String(i.id) === String(id));
 
     if (!item) return;
@@ -647,7 +655,7 @@ function openDetailModal(type, id) {
         </div>
         <div class="news-modal-body">
             <div class="news-modal-meta">
-                <span><i class="fas fa-calendar-alt"></i> ${type === 'news' ? new Date(item.date).toLocaleDateString(currentLang === 'id' ? 'id-ID' : 'en-US', { day: 'numeric', month: 'long', year: 'numeric' }) : item.time_info}</span>
+                <span><i class="fas fa-calendar-alt"></i> ${type === 'news' ? new Date(item.date).toLocaleDateString(localStorage.getItem('language') === 'id' ? 'id-ID' : 'en-US', { day: 'numeric', month: 'long', year: 'numeric' }) : item.time_info}</span>
                 ${item.location ? `<span><i class="fas fa-map-marker-alt"></i> ${item.location}</span>` : ''}
             </div>
             <h2 class="news-modal-title">${item.title}</h2>
@@ -676,7 +684,7 @@ document.addEventListener('click', (e) => {
         e.preventDefault();
         const type = trigger.getAttribute('data-type');
         const id = trigger.getAttribute('data-id');
-        openDetailModal(type, id);
+        if (type && id) openDetailModal(type, id);
     }
 });
 
@@ -690,8 +698,7 @@ window.addEventListener('click', (e) => {
 
 // Close on ESC key
 window.addEventListener('keydown', (e) => {
-    if (e.key === 'Escape' && newsCsrModal && newsCsrModal.style.display === 'block') {
+    if (newsCsrModal && e.key === 'Escape' && newsCsrModal.style.display === 'block') {
         closeDetailModal();
     }
 });
-
