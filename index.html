@@ -18,7 +18,7 @@
     <meta name="description"
         content="Surya Pangan Bali: Distributor utama bahan kue, roti, dan kuliner terpercaya sejak 2017. Supplier resmi Anchor dan Wilmar. Melayani 2000+ UMKM dan industri pangan di seluruh Bali.">
     <meta name="keywords"
-        content="Distributor bahan roti Bali, Supplier bahan kue Denpasar, Bahan kuliner terpercaya Bali, Surya Pangan Bali, Distributor Anchor Bali, Supplier Wilmar Bali, Bahan Kue Bali, Grosir Bahan Kue Bali, Bahan Baku Kuliner Bali">
+        content="Distributor Bahan Kue Bali, Supplier Bahan Roti Denpasar, Grosir Bahan Kue Badung, Supplier Kuliner Munggu, Distributor Resmi Anchor Bali, Supplier Wilmar Bali, Jual Keju Emina Bali, Distributor Cokelat Colatta Bali, Bahan Baku UMKM Kuliner Bali, Partner Bahan Roti Hotel Bali, Surya Pangan Bali, Distributor bahan roti Bali, Supplier bahan kue Denpasar, Bahan Baku Kuliner Bali">
     <link rel="canonical" href="https://surya-pangan-web.vercel.app/">
 
     <!-- Multi-language SEO (Hreflang) -->
@@ -561,8 +561,15 @@
                     Setia</button>
             </div>
 
-            <div id="testimonial-container" class="testimonial-grid reveal">
-                <!-- Data will be injected via main.js -->
+            <div class="testimonial-slider-container reveal">
+                <div id="testimonial-container" class="testimonial-slider-track">
+                    <!-- Data will be injected via main.js -->
+                </div>
+                <div class="testimonial-controls">
+                    <button class="slider-btn prev-btn" id="prev-testimonial" aria-label="Previous testimonial"><i class="fas fa-chevron-left"></i></button>
+                    <div class="slider-dots" id="slider-dots"></div>
+                    <button class="slider-btn next-btn" id="next-testimonial" aria-label="Next testimonial"><i class="fas fa-chevron-right"></i></button>
+                </div>
             </div>
         </div>
     </section>
@@ -671,12 +678,13 @@
         <div class="container">
             <div class="footer-brand text-center">
                 <img src="assets/images/logo.png" alt="Surya Pangan Logo" class="footer-logo">
+                <p class="footer-hq-label" data-i18n="footer.hq.label">Kantor Pusat</p>
 
                 <div class="footer-contact-info">
                     <p><a href="https://maps.app.goo.gl/twuFDQwQAtYVa7sk6" target="_blank" rel="noopener noreferrer"
                             class="footer-link">
                             <span data-i18n="contact.info.address">Jl. Mahendradatta No.18A-B, Padangsambian, Kec.
-                                Denpasar Barat, Kota Denpasar, Bali 80117</span>
+                                Denpasar Barat, <br> Kota Denpasar, Bali 80117</span>
                         </a></p>
                     <div class="footer-map-container mt-4">
                         <iframe class="footer-map"

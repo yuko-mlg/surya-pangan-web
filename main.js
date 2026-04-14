@@ -437,29 +437,48 @@ async function renderCSR(lang) {
     }
 }
 
-// Testimonials Logic
+// Testimonials Slider Logic
 const testimonialContainer = document.getElementById('testimonial-container');
 const testimonialTabs = document.querySelectorAll('.tab-btn');
+const sliderDots = document.getElementById('slider-dots');
+const prevBtn = document.getElementById('prev-testimonial');
+const nextBtn = document.getElementById('next-testimonial');
+
+let currentSlide = 0;
+let slideInterval;
 let activeTestimonialCategory = 'partners';
 
 function renderTestimonials(category, lang) {
     if (!testimonialContainer) return;
     activeTestimonialCategory = category;
+    
+    // Stop previous interval
+    clearInterval(slideInterval);
+    currentSlide = 0;
 
-    // Helper to get testimonial data from translations
-    const getTestimonial = (cat, id) => ({
-        text: translations[lang][`testimonials.${cat}.${id}.text`],
-        name: translations[lang][`testimonials.${cat}.${id}.name`],
-        company: translations[lang][`testimonials.${cat}.${id}.company`]
-    });
+    const getTestimonial = (cat, id) => {
+        const text = translations[lang][`testimonials.${cat}.${id}.text`];
+        if (!text) return null;
+        return {
+            text,
+            name: translations[lang][`testimonials.${cat}.${id}.name`],
+            company: translations[lang][`testimonials.${cat}.${id}.company`]
+        };
+    };
 
-    const data = category === 'partners'
-        ? [getTestimonial('partners', 'p1'), getTestimonial('partners', 'p2')]
-        : [getTestimonial('customers', 'c1'), getTestimonial('customers', 'c2')];
+    const count = 5; // We use 5 for each as per translations.js
+    const data = [];
+    const prefix = category === 'partners' ? 'p' : 'c';
+    
+    for (let i = 1; i <= count; i++) {
+        const item = getTestimonial(category, prefix + i);
+        if (item) data.push(item);
+    }
 
+    // Render slides
     testimonialContainer.innerHTML = data.map(item => `
         <div class="testimonial-card">
-            <div class="quote-icon">"</div>
+            <div class="quote-icon"><i class="fas fa-quote-left"></i></div>
             <p class="testimonial-text">${item.text}</p>
             <div class="testimonial-author">
                 <div class="author-info">
@@ -469,7 +488,56 @@ function renderTestimonials(category, lang) {
             </div>
         </div>
     `).join('');
+
+    // Render dots
+    if (sliderDots) {
+        sliderDots.innerHTML = data.map((_, i) => `<div class="dot ${i === 0 ? 'active' : ''}" data-index="${i}"></div>`).join('');
+        
+        // Dot clicks
+        const dots = sliderDots.querySelectorAll('.dot');
+        dots.forEach(dot => {
+            dot.addEventListener('click', () => {
+                goToSlide(parseInt(dot.getAttribute('data-index')));
+                startAutoPlay(); // Reset timer on click
+            });
+        });
+    }
+
+    updateSlider();
+    startAutoPlay();
 }
+
+function updateSlider() {
+    if (!testimonialContainer) return;
+    const offset = currentSlide * -100;
+    testimonialContainer.style.transform = `translateX(${offset}%)`;
+    
+    // Update dots
+    const dots = document.querySelectorAll('.dot');
+    dots.forEach((dot, index) => {
+        dot.classList.toggle('active', index === currentSlide);
+    });
+}
+
+function goToSlide(n) {
+    const dots = document.querySelectorAll('.dot');
+    if (n >= dots.length) currentSlide = 0;
+    else if (n < 0) currentSlide = dots.length - 1;
+    else currentSlide = n;
+    updateSlider();
+}
+
+function nextSlide() { goToSlide(currentSlide + 1); }
+function prevSlide() { goToSlide(currentSlide - 1); }
+
+function startAutoPlay() {
+    clearInterval(slideInterval);
+    slideInterval = setInterval(nextSlide, 5000); // Change slide every 5 seconds
+}
+
+// Controls listeners
+if (prevBtn) prevBtn.addEventListener('click', () => { prevSlide(); startAutoPlay(); });
+if (nextBtn) nextBtn.addEventListener('click', () => { nextSlide(); startAutoPlay(); });
 
 testimonialTabs.forEach(btn => {
     btn.addEventListener('click', () => {
@@ -499,7 +567,7 @@ function updateVisitorCounter() {
     const increment = () => {
         if (count < target) {
             count++;
-            counterDisplay.innerText = count.toLocaleString('id-ID') + '+';
+            counterDisplay.innerText = count.toLocaleString('id-ID');
             setTimeout(increment, speed);
             speed += 2; // Slow down as it approaches target
         }
@@ -508,7 +576,7 @@ function updateVisitorCounter() {
     increment();
 }
 
-updateVisitorCounter();
+// updateVisitorCounter();
 
 // WhatsApp Multi-Contact Menu Toggle
 const waTrigger = document.getElementById('wa-menu-trigger');
