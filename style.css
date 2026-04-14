@@ -2274,7 +2274,7 @@ ul {
     animation: nudge-otty 0.8s ease-in-out;
 }
 
-.chef-float-btn .gili-tooltip {
+.chef-float-btn .pango-tooltip {
     position: absolute;
     bottom: 120%;
     right: 0;
@@ -2294,13 +2294,13 @@ ul {
     pointer-events: none;
 }
 
-.chef-float-btn.active .gili-tooltip {
+.chef-float-btn.active .pango-tooltip {
     opacity: 1;
     visibility: visible;
     transform: translateY(0) scale(1);
 }
 
-.chef-float-btn .gili-tooltip::after {
+.chef-float-btn .pango-tooltip::after {
     content: '';
     position: absolute;
     top: 100%;
@@ -2807,15 +2807,15 @@ ul {
     }
 }
 
-/* --- Mascot Integration & Otty Experience --- */
-.gili-cards-container {
+/* --- Mascot Integration & Pango Experience --- */
+.pango-cards-container {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
     gap: 1.5rem;
     margin: 2.5rem 0;
 }
 
-.gili-card {
+.pango-card {
     background: rgba(255, 255, 255, 0.6);
     backdrop-filter: blur(10px);
     border: 1px solid rgba(0, 0, 0, 0.05);
@@ -2827,27 +2827,27 @@ ul {
     cursor: pointer;
 }
 
-.gili-card:hover {
+.pango-card:hover {
     transform: translateY(-10px);
     box-shadow: 0 20px 40px rgba(0,0,0,0.08);
     background: white;
     border-color: var(--color-accent);
 }
 
-.gili-card i {
+.pango-card i {
     font-size: 2.2rem;
     color: var(--color-accent);
     margin-bottom: 1.2rem;
     display: block;
 }
 
-.gili-card h5 {
+.pango-card h5 {
     font-size: 1.2rem;
     margin-bottom: 0.75rem;
     color: var(--color-primary);
 }
 
-.gili-card p {
+.pango-card p {
     font-size: 0.9rem;
     color: var(--color-text-muted);
     line-height: 1.5;
@@ -2858,7 +2858,7 @@ ul {
     position: relative;
 }
 
-.gili-badge {
+.Pango-badge {
     position: absolute;
     top: -12px;
     right: -12px;
@@ -2875,33 +2875,33 @@ ul {
     padding: 4px;
 }
 
-.gili-badge img {
+.Pango-badge img {
     width: 32px;
     height: 32px;
     object-fit: contain;
 }
 
-.footer-gili-wrapper {
+.footer-pango-wrapper {
     display: flex;
     flex-direction: column;
     align-items: center;
     gap: 0.5rem;
 }
 
-.footer-gili {
+.footer-pango {
     width: 50px; /* Reduced from 60px as per Boz Yuko's request */
     opacity: 0.8;
     filter: drop-shadow(0 5px 10px rgba(0,0,0,0.1));
     transition: all 0.3s ease;
 }
 
-.footer-gili:hover {
+.footer-pango:hover {
     transform: scale(1.1) rotate(5deg);
     opacity: 1;
 }
 
 @media (max-width: 768px) {
-    .gili-cards-container {
+    .Pango-cards-container {
         grid-template-columns: 1fr;
     }
 }
@@ -3023,27 +3023,27 @@ ul {
 }
 
 /* New Otty Trigger Design */
-.gili-mascot-trigger-wrap {
+.Pango-mascot-trigger-wrap {
     display: flex;
     justify-content: center;
     margin: 0.5rem 0 1rem 0;
 }
 
-.gili-mascot-trigger {
+.Pango-mascot-trigger {
     position: relative;
     cursor: pointer;
     text-align: center;
     transition: all 0.3s ease;
 }
 
-.gili-mascot-img-trigger {
+.Pango-mascot-img-trigger {
     width: 180px;
     height: auto;
     transition: all 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
     filter: drop-shadow(0 10px 20px rgba(0,0,0,0.1));
 }
 
-.gili-label-philosophy {
+.Pango-label-philosophy {
     position: absolute;
     bottom: -15px;
     right: -25px;
@@ -3066,20 +3066,20 @@ ul {
     50% { transform: translateY(-10px) rotate(8deg); }
 }
 
-.gili-mascot-trigger:hover .gili-mascot-img-trigger {
+.Pango-mascot-trigger:hover .Pango-mascot-img-trigger {
     transform: scale(1.1) rotate(-3deg);
 }
 
-.gili-mascot-trigger:hover .gili-label-philosophy {
+.Pango-mascot-trigger:hover .Pango-label-philosophy {
     background: var(--color-primary);
     transform: scale(1.1) rotate(0deg) !important;
 }
 
 @media (max-width: 768px) {
-    .gili-mascot-img-trigger {
+    .Pango-mascot-img-trigger {
         width: 140px;
     }
-    .gili-label-philosophy {
+    .Pango-label-philosophy {
         font-size: 0.7rem; /* Dikecilkan dari 0.9rem */
         right: -5px;
         bottom: -5px;
@@ -3132,7 +3132,7 @@ ul {
 }
 
 /* Otty Intro Text & Quotes Styling */
-.gili-intro-text {
+.Pango-intro-text {
     max-width: 600px;
     margin: 0 auto 0.5rem;
     font-style: italic;
@@ -3144,7 +3144,7 @@ ul {
     text-align: center;
 }
 
-.gili-intro-text::before {
+.Pango-intro-text::before {
     content: '"';
     font-size: 2.5rem;
     color: var(--color-accent);
@@ -3590,7 +3590,7 @@ ul {
 }
 
 
-/* Gili Philosophy Modal Header Box */
+/* Pango Philosophy Modal Header Box */
 .smart-header-text {
     color: #000000;
     font-family: serif;

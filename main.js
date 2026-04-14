@@ -577,53 +577,53 @@ if (privacyTrigger && privacyModal) {
     });
 }
 
-// Gili Philosophy Modal Logic
-const giliModal = document.getElementById('gili-modal');
-const giliTrigger = document.getElementById('gili-philosophies-trigger');
-const giliMascotTrigger = document.getElementById('gili-mascot-footer-trigger');
-const closeGiliX = document.getElementById('close-gili');
-const closeGiliBtn = document.getElementById('close-gili-btn');
+// Pango Philosophy Modal Logic
+const pangoModal = document.getElementById('pango-modal');
+const pangoTrigger = document.getElementById('pango-philosophies-trigger');
+const pangoMascotTrigger = document.getElementById('pango-mascot-footer-trigger');
+const closePangoX = document.getElementById('close-pango');
+const closePangoBtn = document.getElementById('close-pango-btn');
 
-if (giliModal) {
-    const openGiliModal = (e) => {
+if (pangoModal) {
+    const openPangoModal = (e) => {
         if (e) e.preventDefault();
-        giliModal.style.display = 'block';
+        pangoModal.style.display = 'block';
         document.body.style.overflow = 'hidden';
     };
 
-    if (giliTrigger) {
-        giliTrigger.addEventListener('click', openGiliModal);
+    if (pangoTrigger) {
+        pangoTrigger.addEventListener('click', openPangoModal);
     }
     
-    // Check if there are other triggers for Gili modal
-    const extraTriggers = document.querySelectorAll('.gili-philosophy-trigger');
-    extraTriggers.forEach(btn => btn.addEventListener('click', openGiliModal));
+    // Check if there are other triggers for Pango modal
+    const extraTriggers = document.querySelectorAll('.pango-philosophy-trigger');
+    extraTriggers.forEach(btn => btn.addEventListener('click', openPangoModal));
 
     // SMART Spirit image also opens the modal
     const spiritImg = document.getElementById('spirit-img-main');
     if (spiritImg) {
-        spiritImg.addEventListener('click', openGiliModal);
+        spiritImg.addEventListener('click', openPangoModal);
     }
 
-    const closeGiliModal = () => {
-        giliModal.style.display = 'none';
+    const closePangoModal = () => {
+        pangoModal.style.display = 'none';
         document.body.style.overflow = 'auto'; // Restore scrolling
     };
 
-    if (closeGiliX) closeGiliX.addEventListener('click', closeGiliModal);
-    if (closeGiliBtn) closeGiliBtn.addEventListener('click', closeGiliModal);
+    if (closePangoX) closePangoX.addEventListener('click', closePangoModal);
+    if (closePangoBtn) closePangoBtn.addEventListener('click', closePangoModal);
 
     // Close on outside click
     window.addEventListener('click', (event) => {
-        if (event.target === giliModal) {
-            closeGiliModal();
+        if (event.target === pangoModal) {
+            closePangoModal();
         }
     });
 
     // Close on ESC key
     window.addEventListener('keydown', (event) => {
-        if (event.key === 'Escape' && giliModal.style.display === 'block') {
-            closeGiliModal();
+        if (event.key === 'Escape' && pangoModal.style.display === 'block') {
+            closePangoModal();
         }
     });
 }

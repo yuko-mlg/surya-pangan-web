@@ -25,7 +25,7 @@ document.addEventListener('DOMContentLoaded', () => {
     if (chefClose) chefClose.addEventListener('click', toggleChat);
     if (triggerBtn) triggerBtn.addEventListener('click', toggleChat);
 
-    // Gili Interactivity Logic (Nudge & Tooltip)
+    // Pango Interactivity Logic (Nudge & Tooltip)
     if (chefTrigger) {
         // Show tooltip and nudge after 5 seconds
         setTimeout(() => {
@@ -92,7 +92,7 @@ document.addEventListener('DOMContentLoaded', () => {
         // Greetings & Identity
         if (res.greetings.some(word => lowerInput.includes(word))) {
             if (lowerInput.includes("panggil")) return lang === 'id' ? "Halo! Ada yang bisa saya bantu hari ini?" : "Hello! How can I help you today?";
-            return lang === 'id' ? "Halo! Saya Gili, asisten Surya Pangan yang siap membantu Anda." : "Hello! I am Gili, Surya Pangan's assistant ready to help you.";
+            return lang === 'id' ? "Halo! Saya Pango, asisten Surya Pangan yang siap membantu Anda." : "Hello! I am Pango, Surya Pangan's assistant ready to help you.";
         }
 
         // History
