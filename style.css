@@ -2858,7 +2858,7 @@ ul {
     position: relative;
 }
 
-.Pango-badge {
+.pango-badge {
     position: absolute;
     top: -12px;
     right: -12px;
@@ -2875,7 +2875,7 @@ ul {
     padding: 4px;
 }
 
-.Pango-badge img {
+.pango-badge img {
     width: 32px;
     height: 32px;
     object-fit: contain;
@@ -2901,7 +2901,7 @@ ul {
 }
 
 @media (max-width: 768px) {
-    .Pango-cards-container {
+    .pango-cards-container {
         grid-template-columns: 1fr;
     }
 }
@@ -3023,27 +3023,27 @@ ul {
 }
 
 /* New pango Trigger Design */
-.Pango-mascot-trigger-wrap {
+.pango-mascot-trigger-wrap {
     display: flex;
     justify-content: center;
     margin: 0.5rem 0 1rem 0;
 }
 
-.Pango-mascot-trigger {
+.pango-mascot-trigger {
     position: relative;
     cursor: pointer;
     text-align: center;
     transition: all 0.3s ease;
 }
 
-.Pango-mascot-img-trigger {
+.pango-mascot-img-trigger {
     width: 180px;
     height: auto;
     transition: all 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
     filter: drop-shadow(0 10px 20px rgba(0,0,0,0.1));
 }
 
-.Pango-label-philosophy {
+.pango-label-philosophy {
     position: absolute;
     bottom: -15px;
     right: -25px;
@@ -3066,20 +3066,20 @@ ul {
     50% { transform: translateY(-10px) rotate(8deg); }
 }
 
-.Pango-mascot-trigger:hover .Pango-mascot-img-trigger {
+.pango-mascot-trigger:hover .pango-mascot-img-trigger {
     transform: scale(1.1) rotate(-3deg);
 }
 
-.Pango-mascot-trigger:hover .Pango-label-philosophy {
+.pango-mascot-trigger:hover .pango-label-philosophy {
     background: var(--color-primary);
     transform: scale(1.1) rotate(0deg) !important;
 }
 
 @media (max-width: 768px) {
-    .Pango-mascot-img-trigger {
+    .pango-mascot-img-trigger {
         width: 140px;
     }
-    .Pango-label-philosophy {
+    .pango-label-philosophy {
         font-size: 0.7rem; /* Dikecilkan dari 0.9rem */
         right: -5px;
         bottom: -5px;
@@ -3132,7 +3132,7 @@ ul {
 }
 
 /* pango Intro Text & Quotes Styling */
-.Pango-intro-text {
+.pango-intro-text {
     max-width: 600px;
     margin: 0 auto 0.5rem;
     font-style: italic;
@@ -3144,7 +3144,7 @@ ul {
     text-align: center;
 }
 
-.Pango-intro-text::before {
+.pango-intro-text::before {
     content: '"';
     font-size: 2.5rem;
     color: var(--color-accent);
