@@ -2263,7 +2263,7 @@ ul {
     100% { box-shadow: 0 0 0 0 rgba(235, 105, 11, 0); }
 }
 
-@keyframes nudge-otty {
+@keyframes nudge-pango {
     0%, 100% { transform: scale(1); }
     10%, 20% { transform: scale(0.9) rotate(-3deg); }
     30%, 50%, 70%, 90% { transform: scale(1.1) rotate(3deg); }
@@ -2271,7 +2271,7 @@ ul {
 }
 
 .chef-float-btn.nudge {
-    animation: nudge-otty 0.8s ease-in-out;
+    animation: nudge-pango 0.8s ease-in-out;
 }
 
 .chef-float-btn .pango-tooltip {
@@ -2853,7 +2853,7 @@ ul {
     line-height: 1.5;
 }
 
-/* Otty's Choice Badge */
+/* pango's Choice Badge */
 .slider-card {
     position: relative;
 }
@@ -3022,7 +3022,7 @@ ul {
     }
 }
 
-/* New Otty Trigger Design */
+/* New pango Trigger Design */
 .Pango-mascot-trigger-wrap {
     display: flex;
     justify-content: center;
@@ -3058,10 +3058,10 @@ ul {
     border: 2px solid white;
     right: -10px; /* Digeser agar lebih rapat */
     bottom: -10px;
-    animation: otty-float 3s infinite ease-in-out;
+    animation: pango-float 3s infinite ease-in-out;
 }
 
-@keyframes otty-float {
+@keyframes pango-float {
     0%, 100% { transform: translateY(0) rotate(5deg); }
     50% { transform: translateY(-10px) rotate(8deg); }
 }
@@ -3125,13 +3125,13 @@ ul {
     color: var(--color-accent);
 }
 
-/* Otty Modal Title Fix - Remove overlapping orange line */
-#otty-modal h2 {
+/* pango Modal Title Fix - Remove overlapping orange line */
+#pango-modal h2 {
     border-bottom: none !important;
     margin-bottom: 0 !important;
 }
 
-/* Otty Intro Text & Quotes Styling */
+/* pango Intro Text & Quotes Styling */
 .Pango-intro-text {
     max-width: 600px;
     margin: 0 auto 0.5rem;
