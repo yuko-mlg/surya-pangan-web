@@ -465,7 +465,7 @@ function renderTestimonials(category, lang) {
         };
     };
 
-    const count = 5; // We use 5 for each as per translations.js
+    const count = 10; // We use up to 10 for each as per translations.js
     const data = [];
     const prefix = category === 'partners' ? 'p' : 'c';
     
