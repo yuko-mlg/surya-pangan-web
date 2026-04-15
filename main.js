@@ -1,12 +1,12 @@
 import { translations } from './translations.js';
 
-// Window Reset
+// scroll otomatis ke atas pas reload
 window.addEventListener('load', () => window.scrollTo(0, 0));
 
 const navbar = document.getElementById('navbar');
 
 const urlParams = new URLSearchParams(window.location.search);
-const langParam = urlParams.get('lang');
+const langParam = urlParams.get('bhs');
 
 if (langParam && (langParam === 'id' || langParam === 'en')) {
     localStorage.setItem('language', langParam);
@@ -18,7 +18,7 @@ let currentCSRData = [];
 const mobileToggle = document.querySelector('.mobile-toggle');
 const navLinks = document.querySelector('.nav-links');
 
-// Language Switcher Logic
+// --- Pilihan Bahasa ---
 
 const updateContent = (lang) => {
     const elements = document.querySelectorAll('[data-i18n]');
@@ -33,7 +33,7 @@ const updateContent = (lang) => {
         }
     });
 
-    // Support for placeholders
+    // sesuaikan teks input placeholder
     const placeholderElements = document.querySelectorAll('[data-i18n-placeholder]');
     placeholderElements.forEach(el => {
         const key = el.getAttribute('data-i18n-placeholder');
@@ -55,7 +55,7 @@ const updateContent = (lang) => {
         }
     }
 
-    // Update SMART Spirit image source based on language
+    // ganti img pango sesuai bahasa yang dipilih
     const spiritImg = document.getElementById('spirit-img-main');
     if (spiritImg) {
         spiritImg.src = lang === 'en' ? 'assets/images/SMART_spirit_en.png' : 'assets/images/SMART_spirit_id.png';
@@ -70,16 +70,16 @@ if (langToggleBtn) {
     langToggleBtn.addEventListener('click', () => {
         const newLang = currentLang === 'id' ? 'en' : 'id';
 
-        // Update URL parameter for SEO and shareability
+        // Set ulang parameter web buat SEO
         const url = new URL(window.location);
         if (newLang === 'en') {
-            url.searchParams.set('lang', 'en');
+            url.searchParams.set('bhs', 'en');
         } else {
-            url.searchParams.delete('lang'); // Remove param for Indonesian (default)
+            url.searchParams.delete('bhs');
         }
         window.history.pushState({}, '', url);
 
-        // Update localStorage for persistence
+        // Jangan lupa simpan preferensi
         localStorage.setItem('language', newLang);
 
         updateContent(newLang);
@@ -95,7 +95,7 @@ if (redirectInput) {
     redirectInput.value = window.location.href;
 }
 
-// Math CAPTCHA Logic
+// trick untuk anti spam bot (captcha matematika)
 let captchaSum = 0;
 
 function generateMathCaptcha() {
@@ -109,7 +109,7 @@ function generateMathCaptcha() {
     document.getElementById('captcha-input').value = '';
 }
 
-// Email Validation Logic
+// Pengecekan typo dan format email input
 function validateEmail(email) {
     // 1. Strict Regex for valid format
     const re = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
@@ -142,8 +142,7 @@ function validateEmail(email) {
     return { isValid: true };
 }
 
-// Form Validation
-// Form Validation & AJAX Submission
+// Proses kirim pesan kontak via formspree
 const contactForm = document.querySelector('.contact-form');
 if (contactForm) {
     contactForm.addEventListener('submit', async function (e) {
@@ -251,7 +250,7 @@ window.addEventListener('scroll', () => {
     }
 });
 
-// Mobile Menu
+// buka/tutup menu hamburger di HP
 if (mobileToggle && navLinks) {
     mobileToggle.addEventListener('click', () => {
         navLinks.classList.toggle('mobile-active');
@@ -275,7 +274,7 @@ if (navLinks) {
     });
 }
 
-// Reveal Animations on Scroll
+// efek muncul halus pelan2 saat discroll ke bawah
 const revealElements = document.querySelectorAll('.reveal');
 
 const revealCallback = (entries, observer) => {
@@ -283,7 +282,7 @@ const revealCallback = (entries, observer) => {
         if (entry.isIntersecting) {
             entry.target.classList.add('active');
 
-            // Special Scenario: Transform Supplier Text to Logos
+            // skenario khusus: efek teks berubah jadi gambar logo supplier
             if (entry.target.classList.contains('logo-grid')) {
                 const cards = entry.target.querySelectorAll('.brand-card');
                 cards.forEach((card, index) => {
@@ -334,7 +333,7 @@ revealElements.forEach(el => {
 
 // Auto-translate function removed - all content is manually translated in CMS
 
-// Render News Function
+// Tampilkan data daftar berita hari ini
 async function renderNews(lang) {
     const newsGrid = document.getElementById('news-grid');
     if (!newsGrid) return;
@@ -344,7 +343,7 @@ async function renderNews(lang) {
         let data = await response.json();
         let news = data.news || data;
 
-        // Scheduling Logic: Filter news by Start Date and Expiry Date (with Time precision)
+        // filter berita berdasar tanggal (kadaluarsa ga ditampilin)
         const now = new Date();
 
         const filteredNews = news.filter(item => {
@@ -437,7 +436,7 @@ async function renderCSR(lang) {
     }
 }
 
-// Testimonials Slider Logic
+// --- Slider Testimoni Pelanggan ---
 const testimonialContainer = document.getElementById('testimonial-container');
 const testimonialTabs = document.querySelectorAll('.tab-btn');
 const sliderDots = document.getElementById('slider-dots');
@@ -578,7 +577,7 @@ function updateVisitorCounter() {
 
 // updateVisitorCounter();
 
-// WhatsApp Multi-Contact Menu Toggle
+// Menu popup buat order WA multi lokasi
 const waTrigger = document.getElementById('wa-menu-trigger');
 const waPopup = document.getElementById('wa-menu-popup');
 
@@ -609,7 +608,7 @@ if (waTrigger && waPopup) {
 
 console.log('Surya Pangan website loaded successfully');
 
-// Privacy Policy Modal Logic
+// popup untuk kebijakan privasi (Privacy modal)
 const privacyModal = document.getElementById('privacy-modal');
 const privacyTrigger = document.getElementById('privacy-trigger');
 const closePrivacyX = document.getElementById('close-privacy');
@@ -645,7 +644,7 @@ if (privacyTrigger && privacyModal) {
     });
 }
 
-// Pango Philosophy Modal Logic
+// popup untuk info filosofi Pango
 const pangoModal = document.getElementById('pango-modal');
 const pangoTrigger = document.getElementById('pango-philosophies-trigger');
 const pangoMascotTrigger = document.getElementById('pango-mascot-footer-trigger');
@@ -696,7 +695,7 @@ if (pangoModal) {
     });
 }
 
-// News & CSR Detail Modal Logic
+// popup untuk baca berita & detail CSR
 const newsCsrModal = document.getElementById('news-csr-modal');
 const modalBody = document.getElementById('modal-body-content');
 const closeNewsCsrX = document.getElementById('close-news-csr');
