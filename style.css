@@ -2249,6 +2249,32 @@ ul {
     display: inline-block;
 }
 
+/* Pango modal header — sejajar vertikal */
+.modal-header-container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1rem;
+    margin-bottom: 1.5rem;
+    border-bottom: 2px solid var(--color-accent);
+    padding-bottom: 1rem;
+}
+
+.modal-header-logo {
+    height: 56px;
+    width: auto;
+    object-fit: contain;
+}
+
+.smart-header-text {
+    font-size: 2rem;
+    font-family: var(--font-title);
+    letter-spacing: 0.3em;
+    color: var(--color-text-dark);
+    margin: 0;
+    line-height: 1;
+}
+
 .legal-content h3 {
     font-size: 1.25rem;
     margin: 1.5rem 0 0.5rem 0;
