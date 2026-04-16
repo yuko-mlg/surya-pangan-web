@@ -2259,14 +2259,14 @@ ul {
     align-items: center !important;
     justify-content: center;
     gap: 1.5rem;
-    margin-bottom: 0.75rem;
+    margin-bottom: 0.25rem;
     border-bottom: 2px solid var(--color-accent);
-    padding-bottom: 0.5rem;
+    padding-bottom: 0px;
 }
 
 .legal-content h3 {
     font-size: 1.25rem;
-    margin: 1.5rem 0 0.5rem 0;
+    margin: 0.75rem 0 0.5rem 0;
     color: var(--color-primary);
 }
 
