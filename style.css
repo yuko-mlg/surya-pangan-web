@@ -2253,34 +2253,11 @@ ul {
 .modal-header-container {
     display: flex !important;
     align-items: center !important;
-    justify-content: space-between;
+    justify-content: center;
     gap: 1.5rem;
     margin-bottom: 1.5rem;
     border-bottom: 2px solid var(--color-accent);
     padding-bottom: 1rem;
-}
-
-.modal-header-logo {
-    height: 60px;
-    width: auto;
-    object-fit: contain;
-    flex-shrink: 0;
-}
-
-/* Override legal-modal h2 khusus untuk header container */
-.modal-header-container h2.smart-header-text,
-.smart-header-text {
-    font-size: 2rem !important;
-    font-family: var(--font-title) !important;
-    letter-spacing: 0.3em;
-    color: var(--color-text-dark) !important;
-    margin: 0 !important;
-    padding: 0 !important;
-    border-bottom: none !important;
-    display: block !important;
-    line-height: 1;
-    flex: 1;
-    text-align: center;
 }
 
 .legal-content h3 {
