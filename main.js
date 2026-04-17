@@ -803,13 +803,19 @@ document.addEventListener('DOMContentLoaded', () => {
         maxZoom: 19
     };
 
-    // Custom Icon (Small Orange Dot - Static for high performance)
-    const storeIcon = L.divIcon({
-        className: 'custom-div-icon',
-        html: "<div style='background-color: var(--color-accent); width: 6px; height: 6px; border-radius: 50%; box-shadow: 0 0 4px rgba(235, 105, 11, 0.5);'></div>",
-        iconSize: [6, 6],
-        iconAnchor: [3, 3]
-    });
+    // Custom Icons (Small Orange Dots with One-Shot Pop-In Animation)
+    // We create multiple icons with different animation delays for a staggered entrance effect
+    const storeIcons = [];
+    for(let i=0; i<10; i++) {
+        // Random delay between 0s and 1.5s for a rapid pop-in explosion effect
+        const delay = (Math.random() * 1.5).toFixed(2); 
+        storeIcons.push(L.divIcon({
+            className: 'custom-div-icon',
+            html: `<div class="marker-animated" style='background-color: var(--color-accent); width: 6px; height: 6px; border-radius: 50%; animation-delay: ${delay}s;'></div>`,
+            iconSize: [6, 6],
+            iconAnchor: [3, 3]
+        }));
+    }
 
     // Initialize the 3 Maps
     ['bali', 'lombok', 'sumbawa'].forEach(region => {
@@ -834,7 +840,8 @@ document.addEventListener('DOMContentLoaded', () => {
                 if (data[region] && markerGroups[region]) {
                     const points = data[region];
                     points.forEach(pt => {
-                        L.marker([pt.lat, pt.lng], { icon: storeIcon, interactive: false }).addTo(markerGroups[region]);
+                        const randomIcon = storeIcons[Math.floor(Math.random() * storeIcons.length)];
+                        L.marker([pt.lat, pt.lng], { icon: randomIcon, interactive: false }).addTo(markerGroups[region]);
                     });
                 }
             });
