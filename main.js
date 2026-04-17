@@ -769,3 +769,75 @@ window.addEventListener('keydown', (e) => {
         closeDetailModal();
     }
 });
+
+// --- Leaflet Distribution Map Logic ---
+document.addEventListener('DOMContentLoaded', () => {
+    const mapContainers = {
+        bali: document.getElementById('map-bali'),
+        lombok: document.getElementById('map-lombok'),
+        sumbawa: document.getElementById('map-sumbawa')
+    };
+
+    if (!mapContainers.bali) return; // Exit if not on a page with the map
+
+    // Ensure Leaflet is loaded
+    if (typeof L === 'undefined') {
+        console.error('Leaflet is not loaded.');
+        return;
+    }
+
+    // Region Configurations
+    const regions = {
+        bali: { center: [-8.42, 115.18], zoom: 9 },
+        lombok: { center: [-8.56, 116.32], zoom: 9 },
+        sumbawa: { center: [-8.65, 117.8], zoom: 8 }
+    };
+
+    const maps = {};
+    const markerGroups = {};
+
+    // Standard OpenStreetMap tiles for a bright map
+    const tileUrl = 'https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png';
+    const tileOptions = {
+        attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors',
+        maxZoom: 19
+    };
+
+    // Custom Icon (Small Orange Dot)
+    const storeIcon = L.divIcon({
+        className: 'custom-div-icon',
+        html: "<div style='background-color: var(--color-accent); width: 10px; height: 10px; border-radius: 50%; box-shadow: 0 0 5px rgba(235, 105, 11, 0.5);'></div>",
+        iconSize: [10, 10],
+        iconAnchor: [5, 5]
+    });
+
+    // Initialize the 3 Maps
+    ['bali', 'lombok', 'sumbawa'].forEach(region => {
+        if (mapContainers[region]) {
+            maps[region] = L.map(mapContainers[region].id, {
+                zoomControl: false,
+                scrollWheelZoom: false // disable scroll zoom to not interfere with page scrolling
+            }).setView(regions[region].center, regions[region].zoom);
+            
+            L.control.zoom({ position: 'bottomright' }).addTo(maps[region]);
+            L.tileLayer(tileUrl, tileOptions).addTo(maps[region]);
+            
+            markerGroups[region] = L.layerGroup().addTo(maps[region]);
+        }
+    });
+
+    // Fetch and load data
+    fetch('data/distribution.json')
+        .then(res => res.json())
+        .then(data => {
+            ['bali', 'lombok', 'sumbawa'].forEach(region => {
+                if (data[region] && markerGroups[region]) {
+                    const points = data[region];
+                    points.forEach(pt => {
+                        L.marker([pt.lat, pt.lng], { icon: storeIcon, interactive: false }).addTo(markerGroups[region]);
+                    });
+                }
+            });
+        })
+        .catch(err => console.error("Error loading map data:", err));
+});

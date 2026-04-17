@@ -1185,33 +1185,61 @@ ul {
 
 /* Bali Map Integration */
 .coverage-map-wrap {
-    max-width: 900px;
+    max-width: 1000px;
     margin: 3rem auto 0;
-    padding: 2rem;
-    background: rgba(255, 255, 255, 0.03);
+    padding: 1.5rem;
+    background: rgba(255, 255, 255, 0.05);
     border-radius: 30px;
     border: 1px solid rgba(255, 255, 255, 0.05);
     box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2);
-    transition: all 0.5s ease;
 }
 
-.coverage-map-wrap:hover {
-    transform: translateY(-10px);
-    box-shadow: 0 30px 60px rgba(0, 0, 0, 0.3);
+.map-filter-tabs {
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+    flex-wrap: wrap;
+}
+
+.map-tab-btn {
+    padding: 0.6rem 1.5rem;
+    background: rgba(255, 255, 255, 0.1);
+    color: #fff;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: 50px;
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.map-tab-btn:hover {
+    background: rgba(255, 255, 255, 0.2);
+}
+
+.map-tab-btn.active {
+    background: var(--color-accent);
+    color: #fff;
     border-color: var(--color-accent);
+    box-shadow: 0 4px 15px rgba(235, 105, 11, 0.4);
 }
 
-.coverage-map-img {
+.interactive-map {
     width: 100%;
-    height: auto;
-    display: block;
-    filter: drop-shadow(0 10px 20px rgba(0, 0, 0, 0.2));
+    height: 450px;
+    border-radius: 15px;
+    border: 2px solid rgba(255, 255, 255, 0.1);
+    z-index: 1; /* Keep map under the sticky navbar */
 }
 
 @media (max-width: 768px) {
     .coverage-map-wrap {
         padding: 1rem;
         margin-top: 2rem;
+    }
+    
+    .interactive-map {
+        height: 300px;
     }
 }
 

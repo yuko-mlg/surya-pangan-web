@@ -21,6 +21,9 @@
         content="Distributor Bahan Kue Bali, Supplier Bahan Roti Denpasar, Grosir Bahan Kue Badung, Supplier Kuliner Munggu, Distributor Resmi Anchor Bali, Supplier Wilmar Bali, Jual Keju Emina Bali, Distributor Cokelat Colatta Bali, Bahan Baku UMKM Kuliner Bali, Partner Bahan Roti Hotel Bali, Surya Pangan Bali, Distributor bahan roti Bali, Supplier bahan kue Denpasar, Bahan Baku Kuliner Bali">
     <link rel="canonical" href="https://surya-pangan-web.vercel.app/">
 
+    <!-- Leaflet Map CSS -->
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin="" />
+
     <!-- Multi-language SEO (Hreflang) -->
     <link rel="alternate" hreflang="id" href="https://surya-pangan-web.vercel.app/" />
     <link rel="alternate" hreflang="en" href="https://surya-pangan-web.vercel.app/?bhs=en" />
@@ -132,7 +135,16 @@
                     </ul>
                 </li>
                 <li><a href="#products" data-i18n="nav.products">Produk</a></li>
-                <li><a href="#coverage" data-i18n="nav.coverage">Distribusi</a></li>
+                <li class="nav-dropdown">
+                    <a href="#coverage" class="dropdown-trigger">
+                        <span data-i18n="nav.coverage">Distribusi</span> <i class="fas fa-chevron-down"></i>
+                    </a>
+                    <ul class="dropdown-menu">
+                        <li><a href="#coverage-bali">Bali</a></li>
+                        <li><a href="#coverage-lombok">Lombok</a></li>
+                        <li><a href="#coverage-sumbawa">Sumbawa</a></li>
+                    </ul>
+                </li>
                 <li><a href="#testimonials" data-i18n="nav.testimonials">Testimoni</a></li>
                 <li><a href="#news" data-i18n="nav.news">Berita</a></li>
                 <li><a href="#csr" data-i18n="nav.csr">CSR</a></li>
@@ -524,15 +536,30 @@
     </section>
 
     <!-- Coverage Area -->
-    <section id="coverage" class="section dark-section">
+    <section id="coverage" class="section">
         <div class="container text-center reveal">
-            <h2 class="section-title text-light" data-i18n="coverage.title">Distribusi</h2>
-            <p class="text-light-dim" data-i18n="coverage.desc">Kami melayani pengiriman ke seluruh area Bali.</p>
+            <h2 class="section-title" data-i18n="coverage.title">Distribusi</h2>
+            <p class="section-subtitle" data-i18n="coverage.desc">Kami melayani pengiriman ke seluruh area Bali, Lombok dan Sumbawa.</p>
             <div class="line-accent center"></div>
+            
+            <div class="coverage-maps-container mt-5">
+                <!-- Bali Map -->
+                <div id="coverage-bali" class="map-subsection mb-5">
+                    <h3 class="mb-3">Bali</h3>
+                    <div id="map-bali" class="interactive-map"></div>
+                </div>
 
-            <div class="coverage-map-wrap mt-5">
-                <img src="assets/images/BaLomSum.webp" alt="Peta Distribusi Surya Pangan - Bali, Lombok & Sumbawa"
-                    class="coverage-map-img">
+                <!-- Lombok Map -->
+                <div id="coverage-lombok" class="map-subsection mb-5">
+                    <h3 class="mb-3">Lombok</h3>
+                    <div id="map-lombok" class="interactive-map"></div>
+                </div>
+
+                <!-- Sumbawa Map -->
+                <div id="coverage-sumbawa" class="map-subsection">
+                    <h3 class="mb-3">Sumbawa</h3>
+                    <div id="map-sumbawa" class="interactive-map"></div>
+                </div>
             </div>
         </div>
     </section>
@@ -722,6 +749,8 @@
 
 
 
+    <!-- Leaflet Map JS -->
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin=""></script>
     <script type="module" src="main.js"></script>
 </body>
 
