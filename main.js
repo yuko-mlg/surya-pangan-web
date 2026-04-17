@@ -803,7 +803,7 @@ document.addEventListener('DOMContentLoaded', () => {
         maxZoom: 19
     };
 
-    // Custom Icon (Small Orange Dot)
+    // Custom Icon (Small Orange Dot - Static for high performance)
     const storeIcon = L.divIcon({
         className: 'custom-div-icon',
         html: "<div style='background-color: var(--color-accent); width: 6px; height: 6px; border-radius: 50%; box-shadow: 0 0 4px rgba(235, 105, 11, 0.5);'></div>",
