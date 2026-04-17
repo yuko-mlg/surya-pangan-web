@@ -34,7 +34,11 @@ def process_kml():
                         # Bali: roughly 114.4 to 115.7
                         # Lombok: roughly 115.8 to 116.8
                         # Sumbawa: roughly 116.8 to 119.2
-                        region = "bali" # Default
+                        # Filter out Java (longitude < 114.43)
+                        if lon < 114.43:
+                            continue
+                            
+                        region = "bali" # Default for valid points
                         
                         if 115.71 < lon <= 116.8:
                             region = "lombok"

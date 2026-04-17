@@ -770,15 +770,11 @@ window.addEventListener('keydown', (e) => {
     }
 });
 
-// --- Leaflet Distribution Map Logic ---
+// --- Leaflet Distribution Unified Map Logic ---
 document.addEventListener('DOMContentLoaded', () => {
-    const mapContainers = {
-        bali: document.getElementById('map-bali'),
-        lombok: document.getElementById('map-lombok'),
-        sumbawa: document.getElementById('map-sumbawa')
-    };
-
-    if (!mapContainers.bali) return; // Exit if not on a page with the map
+    const mapContainer = document.getElementById('distribution-map');
+    
+    if (!mapContainer) return; // Exit if not on a page with the map
 
     // Ensure Leaflet is loaded
     if (typeof L === 'undefined') {
@@ -786,15 +782,13 @@ document.addEventListener('DOMContentLoaded', () => {
         return;
     }
 
-    // Region Configurations
+    // Region Configurations for flyTo
     const regions = {
         bali: { center: [-8.42, 115.18], zoom: 9 },
         lombok: { center: [-8.56, 116.32], zoom: 9 },
-        sumbawa: { center: [-8.65, 117.8], zoom: 8 }
+        sumbawa: { center: [-8.65, 117.8], zoom: 8 },
+        unified: { center: [-8.55, 116.0], zoom: 7 } // Default zoom to see Bali to Sumbawa
     };
-
-    const maps = {};
-    const markerGroups = {};
 
     // Standard OpenStreetMap tiles for a bright map
     const tileUrl = 'https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png';
@@ -803,11 +797,20 @@ document.addEventListener('DOMContentLoaded', () => {
         maxZoom: 19
     };
 
+    // Initialize the Unified Map
+    const map = L.map('distribution-map', {
+        zoomControl: false,
+        scrollWheelZoom: false
+    }).setView(regions.unified.center, regions.unified.zoom);
+    
+    L.control.zoom({ position: 'bottomright' }).addTo(map);
+    L.tileLayer(tileUrl, tileOptions).addTo(map);
+    
+    const markerGroup = L.layerGroup().addTo(map);
+
     // Custom Icons (Small Orange Dots with One-Shot Pop-In Animation)
-    // We create multiple icons with different animation delays for a staggered entrance effect
     const storeIcons = [];
     for(let i=0; i<10; i++) {
-        // Random delay between 0s and 1.5s for a rapid pop-in explosion effect
         const delay = (Math.random() * 1.5).toFixed(2); 
         storeIcons.push(L.divIcon({
             className: 'custom-div-icon',
@@ -817,34 +820,35 @@ document.addEventListener('DOMContentLoaded', () => {
         }));
     }
 
-    // Initialize the 3 Maps
-    ['bali', 'lombok', 'sumbawa'].forEach(region => {
-        if (mapContainers[region]) {
-            maps[region] = L.map(mapContainers[region].id, {
-                zoomControl: false,
-                scrollWheelZoom: false // disable scroll zoom to not interfere with page scrolling
-            }).setView(regions[region].center, regions[region].zoom);
-            
-            L.control.zoom({ position: 'bottomright' }).addTo(maps[region]);
-            L.tileLayer(tileUrl, tileOptions).addTo(maps[region]);
-            
-            markerGroups[region] = L.layerGroup().addTo(maps[region]);
-        }
-    });
-
     // Fetch and load data
     fetch('data/distribution.json')
         .then(res => res.json())
         .then(data => {
             ['bali', 'lombok', 'sumbawa'].forEach(region => {
-                if (data[region] && markerGroups[region]) {
+                if (data[region]) {
                     const points = data[region];
                     points.forEach(pt => {
                         const randomIcon = storeIcons[Math.floor(Math.random() * storeIcons.length)];
-                        L.marker([pt.lat, pt.lng], { icon: randomIcon, interactive: false }).addTo(markerGroups[region]);
+                        L.marker([pt.lat, pt.lng], { icon: randomIcon, interactive: false }).addTo(markerGroup);
                     });
                 }
             });
         })
         .catch(err => console.error("Error loading map data:", err));
+
+    // Handle Navbar FlyTo Links
+    const flyToLinks = document.querySelectorAll('.map-flyto');
+    flyToLinks.forEach(link => {
+        link.addEventListener('click', (e) => {
+            const region = link.getAttribute('data-flyto');
+            if (regions[region]) {
+                // Let the normal anchor scroll happen (#coverage), 
+                // but immediately trigger the map flyTo animation
+                map.flyTo(regions[region].center, regions[region].zoom, {
+                    duration: 1.5,
+                    easeLinearity: 0.25
+                });
+            }
+        });
+    });
 });
