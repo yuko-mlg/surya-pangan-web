@@ -806,9 +806,9 @@ document.addEventListener('DOMContentLoaded', () => {
     // Custom Icon (Small Orange Dot)
     const storeIcon = L.divIcon({
         className: 'custom-div-icon',
-        html: "<div style='background-color: var(--color-accent); width: 10px; height: 10px; border-radius: 50%; box-shadow: 0 0 5px rgba(235, 105, 11, 0.5);'></div>",
-        iconSize: [10, 10],
-        iconAnchor: [5, 5]
+        html: "<div style='background-color: var(--color-accent); width: 6px; height: 6px; border-radius: 50%; box-shadow: 0 0 4px rgba(235, 105, 11, 0.5);'></div>",
+        iconSize: [6, 6],
+        iconAnchor: [3, 3]
     });
 
     // Initialize the 3 Maps
