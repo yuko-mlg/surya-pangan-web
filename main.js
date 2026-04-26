@@ -811,7 +811,9 @@ document.addEventListener('DOMContentLoaded', () => {
         zoomToBoundsOnClick: true,
         spiderfyOnMaxZoom: true,
         removeOutsideVisibleBounds: true,
-        animate: true
+        animate: true,
+        maxClusterRadius: 50, // Reduced radius for tighter clusters (prevents cross-region grouping)
+        disableClusteringAtZoom: 16 // Show individual points at high zoom
     }).addTo(map);
     
     const storeIcon = L.divIcon({
