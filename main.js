@@ -816,9 +816,15 @@ document.addEventListener('DOMContentLoaded', () => {
     
     const storeIcon = L.divIcon({
         className: 'custom-div-icon',
-        html: `<div style='background-color: var(--color-accent); width: 16px; height: 16px; border-radius: 50%; box-shadow: 0 0 8px var(--color-accent); border: 2px solid #fff;'></div>`,
-        iconSize: [16, 16],
-        iconAnchor: [8, 8]
+        html: `
+            <div style="display: flex; flex-direction: column; align-items: center;">
+                <svg width="24" height="32" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M12 0C7.58 0 4 3.58 4 8C4 13.54 12 24 12 24C12 24 20 13.54 20 8C20 3.58 16.42 0 12 0ZM12 11C10.34 11 9 9.66 9 8C9 6.34 10.34 5 12 5C13.66 5 15 6.34 15 8C15 9.66 13.66 11 12 11Z" 
+                    fill="#FF6B00" stroke="white" stroke-width="1.5"/>
+                </svg>
+            </div>`,
+        iconSize: [24, 32],
+        iconAnchor: [12, 32] // Point of the pin at the bottom center
     });
 
     // Fetch and load data
