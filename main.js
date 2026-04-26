@@ -816,9 +816,9 @@ document.addEventListener('DOMContentLoaded', () => {
     
     const storeIcon = L.divIcon({
         className: 'custom-div-icon',
-        html: `<div style='background-color: var(--color-accent); width: 8px; height: 8px; border-radius: 50%; box-shadow: 0 0 5px var(--color-accent);'></div>`,
-        iconSize: [8, 8],
-        iconAnchor: [4, 4]
+        html: `<div style='background-color: var(--color-accent); width: 16px; height: 16px; border-radius: 50%; box-shadow: 0 0 8px var(--color-accent); border: 2px solid #fff;'></div>`,
+        iconSize: [16, 16],
+        iconAnchor: [8, 8]
     });
 
     // Fetch and load data
