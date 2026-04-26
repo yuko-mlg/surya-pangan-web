@@ -806,33 +806,38 @@ document.addEventListener('DOMContentLoaded', () => {
     L.control.zoom({ position: 'bottomright' }).addTo(map);
     L.tileLayer(tileUrl, tileOptions).addTo(map);
     
-    const markerGroup = L.layerGroup().addTo(map);
-
-    // Custom Icons (Small Orange Dots with One-Shot Pop-In Animation)
-    const storeIcons = [];
-    for(let i=0; i<10; i++) {
-        const delay = (Math.random() * 1.5).toFixed(2); 
-        storeIcons.push(L.divIcon({
-            className: 'custom-div-icon',
-            html: `<div class="marker-animated" style='background-color: var(--color-accent); width: 6px; height: 6px; border-radius: 50%; animation-delay: ${delay}s;'></div>`,
-            iconSize: [6, 6],
-            iconAnchor: [3, 3]
-        }));
-    }
+    const markerClusterGroup = L.markerClusterGroup({
+        showCoverageOnHover: false,
+        zoomToBoundsOnClick: true,
+        spiderfyOnMaxZoom: true,
+        removeOutsideVisibleBounds: true,
+        animate: true
+    }).addTo(map);
+    
+    const storeIcon = L.divIcon({
+        className: 'custom-div-icon',
+        html: `<div style='background-color: var(--color-accent); width: 8px; height: 8px; border-radius: 50%; box-shadow: 0 0 5px var(--color-accent);'></div>`,
+        iconSize: [8, 8],
+        iconAnchor: [4, 4]
+    });
 
     // Fetch and load data
     fetch('data/distribution.json')
         .then(res => res.json())
         .then(data => {
+            const allMarkers = [];
             ['bali', 'lombok', 'sumbawa'].forEach(region => {
                 if (data[region]) {
-                    const points = data[region];
-                    points.forEach(pt => {
-                        const randomIcon = storeIcons[Math.floor(Math.random() * storeIcons.length)];
-                        L.marker([pt.lat, pt.lng], { icon: randomIcon, interactive: false }).addTo(markerGroup);
+                    data[region].forEach(pt => {
+                        const marker = L.marker([pt.lat, pt.lng], { 
+                            icon: storeIcon,
+                            interactive: false // Keep it anonymous (no popups)
+                        });
+                        allMarkers.push(marker);
                     });
                 }
             });
+            markerClusterGroup.addLayers(allMarkers);
         })
         .catch(err => console.error("Error loading map data:", err));
 
